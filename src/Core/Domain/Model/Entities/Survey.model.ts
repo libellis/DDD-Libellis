@@ -104,6 +104,8 @@ export class Survey extends Entity {
 				}
 			)
 		);
+
+		return true;
 	}
 }
 

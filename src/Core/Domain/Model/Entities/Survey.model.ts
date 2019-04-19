@@ -4,7 +4,6 @@ import { CategoryVO } from "../ValueObjects/CategoryVO.model";
 import { VoteTallyVO } from "../ValueObjects/VoteTallyVO.model";
 import { Choice } from "./Choice.model";
 
-
 export class Survey extends Entity {
 	constructor(
 		id: string,
@@ -76,6 +75,34 @@ export class Survey extends Entity {
 			sData.anonymous,
 			sData.published,
 			questions,
+		);
+	}
+
+	addQuestionWithChoices(
+		questionData: {
+		title: string,
+		questionType: string,
+		choicesData: [{
+				title: string,
+				content: string,
+				contentType: string,
+				voteTally: number,
+			}]
+		},
+	): boolean {
+		this.questions.push(
+			questionData.title,
+			questionData.questionType,
+			questionData.choicesData.map(
+				cData => {
+					return new Choice(
+						cData.title,
+						cData.content,
+						cData.contentType,
+						VoteTallyVO(cData.voteTally),
+					);
+				}
+			)
 		);
 	}
 }

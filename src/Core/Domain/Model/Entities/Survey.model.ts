@@ -1,7 +1,6 @@
 import { Entity } from "./Entity.model";
 import { Question } from "./Question.model";
 import { CategoryVO } from "../ValueObjects/CategoryVO.model";
-import { IIdGenerator } from "../../Services/Interfaces/IIdGenerator";
 import { VoteTallyVO } from "../ValueObjects/VoteTallyVO.model";
 import { Choice } from "./Choice.model";
 
@@ -24,7 +23,7 @@ export class Survey extends Entity {
 	// Factory method is only for the very first time entity is created.
 	// Otherwise re-hydrate with constructor as per DDD practice.
 	static create(
-		idGenerator: IIdGenerator,
+		idGenerator: () => string,
 		sData: {
 			author: string,
 			title: string,

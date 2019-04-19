@@ -1,3 +1,0 @@
-export interface IIdGenerator {
-	(): string;
-}

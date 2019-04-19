@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Survey.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-882">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            <state relative-caret-position="630">
+              <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -134,6 +134,7 @@
         <option value="$PROJECT_DIR$/src/Entities/Question.model.ts" />
         <option value="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" />
         <option value="$PROJECT_DIR$/../libellis/src/Core/Domain/Services/Interfaces/IRepository.ts" />
+        <option value="$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Survey.model.ts" />
       </list>
     </option>
   </component>
@@ -180,7 +181,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Core" type="462c0819:PsiDirectoryNode" />
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
@@ -188,8 +189,8 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Core" type="462c0819:PsiDirectoryNode" />
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Entities" type="462c0819:PsiDirectoryNode" />
+              <item name="Services" type="462c0819:PsiDirectoryNode" />
+              <item name="Interfaces" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -238,24 +239,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555688099408</updated>
-      <workItem from="1555688100721" duration="13507000" />
+      <workItem from="1555688100721" duration="14416000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13507000" />
+    <option name="totallyTimeSpent" value="14416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="27" width="3830" height="1568" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.093717" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.093717" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.20572206" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.20572206" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -371,8 +373,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Survey.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-882">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="630">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>

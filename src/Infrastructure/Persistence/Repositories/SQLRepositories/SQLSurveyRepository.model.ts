@@ -41,27 +41,24 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 			throw new Error('Not Found');
 		}
 
-		let surveyData = surveyResult.rows[0].map(
-			sData => {
-				return {
-					id: sData.id,
-					author: sData.author,
-					title: sData.title,
-					description: sData.description,
-					category: sData.category,
-					datePosted: sData.date_posted,
-					anonymous: sData.anonymous,
-					published: sData.published,
-				}
-			}
-		);
+		const sData = surveyResult.rows[0];
+		let surveyData = {
+					id: sData["id"],
+					author: sData["author"],
+					title: sData["title"],
+					description: sData["description"],
+					category: sData["category"],
+					datePosted: sData["date_posted"],
+					anonymous: sData["anonymous"],
+					published: sData["published"],
+			};
 
 		const survey = new Survey(
 			surveyData.id,
 			surveyData.author,
 			surveyData.title,
 			surveyData.description,
-			CategoryVO(surveyData.category),
+			new CategoryVO(surveyData.category),
 			surveyData.datePosted,
 			surveyData.anonymous,
 			surveyData.published,
@@ -80,14 +77,14 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 		if (questionsResult.rows.length > 0) {
 			questionsData = questionsResult.rows.map(qData => {
 				return {
-					id: qData.id,
-					title: qData.title,
-					questionType: qData.question_type,
+					id: qData["id"],
+					title: qData["title"],
+					questionType: qData["question_type"],
 				}
 			});
 		}
 
-		for (const qData in questionsData) {
+		for (const qData of questionsData) {
 			const choicesResult = await this._db.query(`
                 SELECT SUM(score) AS vote_tally,
                     choices.id as id, 
@@ -105,11 +102,11 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 
 			qData.choicesData = choicesResult.rows.map(cData => {
 				return {
-					id: cData.id,
-					title: cData.title,
-					content: cData.content,
-					contentType: cData.content_type,
-					voteTally: cData.voteTally,
+					id: cData["id"],
+					title: cData["title"],
+					content: cData["content"],
+					contentType: cData["content_type"],
+					voteTally: cData["voteTally"],
 				}
 			});
 
@@ -126,11 +123,6 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 
 	// TODO: Implement
 	async remove(id: string): Promise<boolean> {
-		return false;
-	}
-
-	// TODO: Implement
-	removeRange(ids: string[]): Promise<boolean> {
 		return false;
 	}
 

@@ -6,6 +6,5 @@ export interface IRepository {
     get(id: string): Promise<Entity>;
     getAll(): Promise<Entity[]>;
     remove(id: string): Promise<boolean>;
-    removeRange(ids: string[]): Promise<boolean>;
 }
 

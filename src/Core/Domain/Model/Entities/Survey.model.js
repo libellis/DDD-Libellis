@@ -20,8 +20,17 @@ var VoteTallyVO_model_1 = require("../ValueObjects/VoteTallyVO.model");
 var Choice_model_1 = require("./Choice.model");
 var Survey = /** @class */ (function (_super) {
     __extends(Survey, _super);
-    function Survey(id, sData) {
-        return _super.call(this, id) || this;
+    function Survey(id, author, title, description, category, datePosted, anonymous, published, questions) {
+        var _this = _super.call(this, id) || this;
+        _this.author = author;
+        _this.title = title;
+        _this.description = description;
+        _this.category = category;
+        _this.datePosted = datePosted;
+        _this.anonymous = anonymous;
+        _this.published = published;
+        _this.questions = questions;
+        return _this;
     }
     // Factory method is only for the very first time entity is created.
     // Otherwise re-hydrate with constructor as per DDD practice.
@@ -36,16 +45,7 @@ var Survey = /** @class */ (function (_super) {
             });
             return new Question_model_1.Question(idGenerator(), qData.title, qData.questionType, choices);
         });
-        return new Survey(idGenerator(), {
-            author: sData.author,
-            title: sData.title,
-            description: sData.description,
-            category: new CategoryVO_model_1.CategoryVO(sData.category),
-            datePosted: new Date(),
-            anonymous: sData.anonymous,
-            published: sData.published,
-            questions: questions,
-        });
+        return new Survey(idGenerator(), sData.author, sData.title, sData.description, new CategoryVO_model_1.CategoryVO(sData.category), new Date(), sData.anonymous, sData.published, questions);
     };
     Survey.prototype.addQuestionWithChoices = function (questionData) {
         var newQuestion = new Question_model_1.Question(questionData.id, questionData.title, questionData.questionType, questionData.choicesData.map(function (cData) {

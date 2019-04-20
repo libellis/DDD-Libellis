@@ -78,63 +78,59 @@ var SQLSurveyRepository = /** @class */ (function (_super) {
     // that the constructors expect.
     SQLSurveyRepository.prototype.get = function (id) {
         return __awaiter(this, void 0, void 0, function () {
-            var surveyResult, surveyData, survey, questionsResult, questionsData, _a, _b, _i, qData, choicesResult;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
+            var surveyResult, sData, surveyData, survey, questionsResult, questionsData, _i, questionsData_1, qData, choicesResult;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
                     case 0: return [4 /*yield*/, this._db.query("SELECT id,\n\t\t\t\tauthor,\n\t\t\t\ttitle,\n\t\t\t    description,\n\t\t\t\tcategory,\n\t\t\t\tdate_posted,\n\t\t\t\tanonymous,\n\t\t\t\tpublished\n\t\tFROM surveys\n\t\tWHERE id = $1", [id])];
                     case 1:
-                        surveyResult = _c.sent();
+                        surveyResult = _a.sent();
                         if (surveyResult.rows.length < 1) {
                             throw new Error('Not Found');
                         }
-                        surveyData = surveyResult.rows[0].map(function (sData) {
-                            return {
-                                id: sData.id,
-                                author: sData.author,
-                                title: sData.title,
-                                description: sData.description,
-                                category: sData.category,
-                                datePosted: sData.date_posted,
-                                anonymous: sData.anonymous,
-                                published: sData.published,
-                            };
-                        });
-                        survey = new Survey_model_1.Survey(surveyData.id, surveyData.author, surveyData.title, surveyData.description, CategoryVO_model_1.CategoryVO(surveyData.category), surveyData.datePosted, surveyData.anonymous, surveyData.published, []);
+                        sData = surveyResult.rows[0];
+                        surveyData = {
+                            id: sData["id"],
+                            author: sData["author"],
+                            title: sData["title"],
+                            description: sData["description"],
+                            category: sData["category"],
+                            datePosted: sData["date_posted"],
+                            anonymous: sData["anonymous"],
+                            published: sData["published"],
+                        };
+                        survey = new Survey_model_1.Survey(surveyData.id, surveyData.author, surveyData.title, surveyData.description, new CategoryVO_model_1.CategoryVO(surveyData.category), surveyData.datePosted, surveyData.anonymous, surveyData.published, []);
                         return [4 /*yield*/, this._db.query("\n            SELECT id, survey_id, title, question_type\n            FROM questions\n            WHERE survey_id=$1\n            ", [id])];
                     case 2:
-                        questionsResult = _c.sent();
+                        questionsResult = _a.sent();
                         questionsData = [];
                         if (questionsResult.rows.length > 0) {
                             questionsData = questionsResult.rows.map(function (qData) {
                                 return {
-                                    id: qData.id,
-                                    title: qData.title,
-                                    questionType: qData.question_type,
+                                    id: qData["id"],
+                                    title: qData["title"],
+                                    questionType: qData["question_type"],
                                 };
                             });
                         }
-                        _a = [];
-                        for (_b in questionsData)
-                            _a.push(_b);
-                        _i = 0;
-                        _c.label = 3;
+                        _i = 0, questionsData_1 = questionsData;
+                        _a.label = 3;
                     case 3:
-                        if (!(_i < _a.length)) return [3 /*break*/, 6];
-                        qData = _a[_i];
+                        if (!(_i < questionsData_1.length)) return [3 /*break*/, 6];
+                        qData = questionsData_1[_i];
                         return [4 /*yield*/, this._db.query("\n                SELECT SUM(score) AS vote_tally,\n                    choices.id as id, \n                    choices.question_id as question_id, \n                    choices.title as title, \n                    choices.content as content, \n                    choices.content_type as content_type\n                FROM votes \n                JOIN choices ON votes.choice_id = choices.id\n                WHERE question_id=$1\n                GROUP BY choices.id\n                ", [id])];
                     case 4:
-                        choicesResult = _c.sent();
+                        choicesResult = _a.sent();
                         qData.choicesData = choicesResult.rows.map(function (cData) {
                             return {
-                                id: cData.id,
-                                title: cData.title,
-                                content: cData.content,
-                                contentType: cData.content_type,
-                                voteTally: cData.voteTally,
+                                id: cData["id"],
+                                title: cData["title"],
+                                content: cData["content"],
+                                contentType: cData["content_type"],
+                                voteTally: cData["voteTally"],
                             };
                         });
                         survey.addQuestionWithChoices(qData);
-                        _c.label = 5;
+                        _a.label = 5;
                     case 5:
                         _i++;
                         return [3 /*break*/, 3];
@@ -158,10 +154,6 @@ var SQLSurveyRepository = /** @class */ (function (_super) {
                 return [2 /*return*/, false];
             });
         });
-    };
-    // TODO: Implement
-    SQLSurveyRepository.prototype.removeRange = function (ids) {
-        return false;
     };
     return SQLSurveyRepository;
 }(SQLRepositoryBase_model_1.SQLRepositoryBase));

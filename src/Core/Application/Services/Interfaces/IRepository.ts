@@ -7,4 +7,3 @@ export interface IRepository {
     getAll(): Promise<Entity[]>;
     remove(id: string): Promise<boolean>;
 }
-

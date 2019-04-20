@@ -42,65 +42,48 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 		}
 
 		const sData = surveyResult.rows[0];
-		let surveyData = {
-					id: sData["id"],
-					author: sData["author"],
-					title: sData["title"],
-					description: sData["description"],
-					category: sData["category"],
-					datePosted: sData["date_posted"],
-					anonymous: sData["anonymous"],
-					published: sData["published"],
-			};
-
 		const survey = new Survey(
-			surveyData.id,
-			surveyData.author,
-			surveyData.title,
-			surveyData.description,
-			new CategoryVO(surveyData.category),
-			surveyData.datePosted,
-			surveyData.anonymous,
-			surveyData.published,
+			sData["id"],
+			sData["author"],
+			sData["title"],
+			sData["description"],
+			new CategoryVO(sData["category"]),
+			sData["date_posted"],
+			sData["anonymous"],
+			sData["published"],
 			[]
 		);
 
 		const questionsResult = await this._db.query(`
-            SELECT id, survey_id, title, question_type
+            SELECT id, survey_id, title, question_type as questionType
             FROM questions
             WHERE survey_id=$1
             `,
 			[id]
 		);
 
-		let questionsData = [];
-		if (questionsResult.rows.length > 0) {
-			questionsData = questionsResult.rows.map(qData => {
-				return {
-					id: qData["id"],
-					title: qData["title"],
-					questionType: qData["question_type"],
-				}
-			});
-		}
+		const qData = questionsResult.rows[0];
 
-		for (const qData of questionsData) {
-			const choicesResult = await this._db.query(`
-                SELECT SUM(score) AS vote_tally,
-                    choices.id as id, 
-                    choices.question_id as question_id, 
-                    choices.title as title, 
-                    choices.content as content, 
-                    choices.content_type as content_type
-                FROM votes 
-                JOIN choices ON votes.choice_id = choices.id
-                WHERE question_id=$1
-                GROUP BY choices.id
-                `,
-				[id]
-			);
+		const choicesResult = await this._db.query(`
+			SELECT SUM(score) AS vote_tally,
+				choices.id as id, 
+				choices.question_id as question_id, 
+				choices.title as title, 
+				choices.content as content, 
+				choices.content_type as content_type
+			FROM votes 
+			JOIN choices ON votes.choice_id = choices.id
+			WHERE question_id=$1
+			GROUP BY choices.id
+			`,
+			[qData["id"]]
+		);
 
-			qData.choicesData = choicesResult.rows.map(cData => {
+		const newQuestionData = {
+			id: qData["id"] as string,
+			title: qData["title"] as string,
+			questionType: qData["question_type"] as string,
+			choicesData: choicesResult.rows.map(cData => {
 				return {
 					id: cData["id"],
 					title: cData["title"],
@@ -108,12 +91,16 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 					contentType: cData["content_type"],
 					voteTally: cData["voteTally"],
 				}
-			});
+			}),
+		};
 
-			survey.addQuestionWithChoices(qData);
-		}
+		survey.addQuestionWithChoices(newQuestionData);
 
 		return survey;
+	}
+
+	private getQuestionsDataBySurvey(id: string) {
+
 	}
 
 	// TODO: Implement

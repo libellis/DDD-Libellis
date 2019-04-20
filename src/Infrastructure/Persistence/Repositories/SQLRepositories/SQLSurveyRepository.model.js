@@ -78,7 +78,7 @@ var SQLSurveyRepository = /** @class */ (function (_super) {
     // that the constructors expect.
     SQLSurveyRepository.prototype.get = function (id) {
         return __awaiter(this, void 0, void 0, function () {
-            var surveyResult, sData, surveyData, survey, questionsResult, questionsData, _i, questionsData_1, qData, choicesResult;
+            var surveyResult, sData, survey, questionsResult, qData, choicesResult, newQuestionData;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this._db.query("SELECT id,\n\t\t\t\tauthor,\n\t\t\t\ttitle,\n\t\t\t    description,\n\t\t\t\tcategory,\n\t\t\t\tdate_posted,\n\t\t\t\tanonymous,\n\t\t\t\tpublished\n\t\tFROM surveys\n\t\tWHERE id = $1", [id])];
@@ -88,56 +88,35 @@ var SQLSurveyRepository = /** @class */ (function (_super) {
                             throw new Error('Not Found');
                         }
                         sData = surveyResult.rows[0];
-                        surveyData = {
-                            id: sData["id"],
-                            author: sData["author"],
-                            title: sData["title"],
-                            description: sData["description"],
-                            category: sData["category"],
-                            datePosted: sData["date_posted"],
-                            anonymous: sData["anonymous"],
-                            published: sData["published"],
-                        };
-                        survey = new Survey_model_1.Survey(surveyData.id, surveyData.author, surveyData.title, surveyData.description, new CategoryVO_model_1.CategoryVO(surveyData.category), surveyData.datePosted, surveyData.anonymous, surveyData.published, []);
-                        return [4 /*yield*/, this._db.query("\n            SELECT id, survey_id, title, question_type\n            FROM questions\n            WHERE survey_id=$1\n            ", [id])];
+                        survey = new Survey_model_1.Survey(sData["id"], sData["author"], sData["title"], sData["description"], new CategoryVO_model_1.CategoryVO(sData["category"]), sData["date_posted"], sData["anonymous"], sData["published"], []);
+                        return [4 /*yield*/, this._db.query("\n            SELECT id, survey_id, title, question_type as questionType\n            FROM questions\n            WHERE survey_id=$1\n            ", [id])];
                     case 2:
                         questionsResult = _a.sent();
-                        questionsData = [];
-                        if (questionsResult.rows.length > 0) {
-                            questionsData = questionsResult.rows.map(function (qData) {
-                                return {
-                                    id: qData["id"],
-                                    title: qData["title"],
-                                    questionType: qData["question_type"],
-                                };
-                            });
-                        }
-                        _i = 0, questionsData_1 = questionsData;
-                        _a.label = 3;
+                        qData = questionsResult.rows[0];
+                        return [4 /*yield*/, this._db.query("\n\t\t\tSELECT SUM(score) AS vote_tally,\n\t\t\t\tchoices.id as id, \n\t\t\t\tchoices.question_id as question_id, \n\t\t\t\tchoices.title as title, \n\t\t\t\tchoices.content as content, \n\t\t\t\tchoices.content_type as content_type\n\t\t\tFROM votes \n\t\t\tJOIN choices ON votes.choice_id = choices.id\n\t\t\tWHERE question_id=$1\n\t\t\tGROUP BY choices.id\n\t\t\t", [qData["id"]])];
                     case 3:
-                        if (!(_i < questionsData_1.length)) return [3 /*break*/, 6];
-                        qData = questionsData_1[_i];
-                        return [4 /*yield*/, this._db.query("\n                SELECT SUM(score) AS vote_tally,\n                    choices.id as id, \n                    choices.question_id as question_id, \n                    choices.title as title, \n                    choices.content as content, \n                    choices.content_type as content_type\n                FROM votes \n                JOIN choices ON votes.choice_id = choices.id\n                WHERE question_id=$1\n                GROUP BY choices.id\n                ", [id])];
-                    case 4:
                         choicesResult = _a.sent();
-                        qData.choicesData = choicesResult.rows.map(function (cData) {
-                            return {
-                                id: cData["id"],
-                                title: cData["title"],
-                                content: cData["content"],
-                                contentType: cData["content_type"],
-                                voteTally: cData["voteTally"],
-                            };
-                        });
-                        survey.addQuestionWithChoices(qData);
-                        _a.label = 5;
-                    case 5:
-                        _i++;
-                        return [3 /*break*/, 3];
-                    case 6: return [2 /*return*/, survey];
+                        newQuestionData = {
+                            id: qData["id"],
+                            title: qData["title"],
+                            questionType: qData["question_type"],
+                            choicesData: choicesResult.rows.map(function (cData) {
+                                return {
+                                    id: cData["id"],
+                                    title: cData["title"],
+                                    content: cData["content"],
+                                    contentType: cData["content_type"],
+                                    voteTally: cData["voteTally"],
+                                };
+                            }),
+                        };
+                        survey.addQuestionWithChoices(newQuestionData);
+                        return [2 /*return*/, survey];
                 }
             });
         });
+    };
+    SQLSurveyRepository.prototype.getQuestionsDataBySurvey = function (id) {
     };
     // TODO: Implement
     SQLSurveyRepository.prototype.getAll = function () {

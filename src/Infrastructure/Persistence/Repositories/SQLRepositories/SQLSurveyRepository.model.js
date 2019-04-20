@@ -159,7 +159,7 @@ var SQLSurveyRepository = /** @class */ (function (_super) {
         });
     };
     // TODO: Implement
-    SQLSurveyRepository.prototype.getAll = function () {
+    SQLSurveyRepository.prototype.getPagedResults = function (pageSize, pageNumber) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2 /*return*/, []];

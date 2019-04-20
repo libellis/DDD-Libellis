@@ -108,7 +108,7 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 	}
 
 	// TODO: Implement
-	async getAll(): Promise<Survey[]> {
+	async getPagedResults(pageSize: number, pageNumber: number): Promise<Survey[]> {
 		return [];
 	}
 

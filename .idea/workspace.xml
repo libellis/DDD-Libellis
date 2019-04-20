@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04847df4-1dab-429b-83b0-5ef0601c3026" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts" afterDir="false" />
@@ -51,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            <state relative-caret-position="168">
+              <caret line="6" column="45" lean-forward="true" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -69,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-76">
-              <caret line="52" column="29" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+            <state relative-caret-position="505">
+              <caret line="57" column="43" lean-forward="true" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
               <folding>
                 <element signature="e#0#62#0" expanded="true" />
               </folding>
@@ -155,11 +155,11 @@
         <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepository.model.ts" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositoryBase.model.ts" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.ts" />
-        <option value="$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts" />
         <option value="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Entity.model.ts" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts" />
         <option value="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" />
         <option value="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" />
+        <option value="$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts" />
       </list>
     </option>
@@ -198,32 +198,24 @@
               <item name="libellis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
               <item name="libellis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Entities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
               <item name="Services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Services" type="462c0819:PsiDirectoryNode" />
+              <item name="Interfaces" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
@@ -313,12 +305,12 @@
       <updated>1555688099408</updated>
       <workItem from="1555688100721" duration="22092000" />
       <workItem from="1555723786861" duration="984000" />
-      <workItem from="1555731881378" duration="9070000" />
+      <workItem from="1555731881378" duration="9495000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32146000" />
+    <option name="totallyTimeSpent" value="32571000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="27" width="2550" height="1408" extended-state="6" />
@@ -421,13 +413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -462,10 +447,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="45" lean-forward="true" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="52" column="29" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+        <state relative-caret-position="505">
+          <caret line="57" column="43" lean-forward="true" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
           <folding>
             <element signature="e#0#62#0" expanded="true" />
           </folding>

@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="04847df4-1dab-429b-83b0-5ef0601c3026" name="Default Changelist" comment="" />
+    <list default="true" id="04847df4-1dab-429b-83b0-5ef0601c3026" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -12,9 +22,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Entity.model.ts">
+        <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Entity.model.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="224">
               <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
@@ -22,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Survey.model.ts">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="820">
-              <caret line="101" column="52" selection-start-line="101" selection-start-column="52" selection-end-line="101" selection-end-column="52" />
+            <state relative-caret-position="323">
+              <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -35,7 +45,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/ValueObjects/CategoryVO.model.ts">
+        <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/CategoryVO.model.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="28">
               <caret line="1" selection-start-line="1" selection-end-line="1" />
@@ -44,28 +54,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Application/Services/Interfaces/IRepository.ts">
+        <entry file="file://$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="224">
-              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+              <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../libellis/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.ts">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="84">
-              <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../libellis/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
-              <caret line="131" column="4" selection-start-line="131" selection-start-column="4" selection-end-line="131" selection-end-column="4" />
+            <state relative-caret-position="2324">
+              <caret line="83" column="36" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
               <folding>
                 <element signature="e#0#62#0" expanded="true" />
               </folding>
@@ -74,16 +84,16 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../libellis/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="56">
-              <caret line="2" column="65" selection-start-line="2" selection-start-column="65" selection-end-line="2" selection-end-column="65" />
+              <caret line="2" column="69" lean-forward="true" selection-start-line="2" selection-start-column="69" selection-end-line="2" selection-end-column="69" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Question.model.ts">
+        <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Question.model.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="84">
               <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
@@ -95,7 +105,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Choice.model.ts">
+        <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Choice.model.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="28">
               <caret line="1" column="61" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
@@ -104,7 +114,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.ts">
+        <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
               <caret line="10" selection-start-line="10" selection-end-line="10" />
@@ -121,6 +131,9 @@
         <option value="TypeScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -143,19 +156,19 @@
         <option value="$PROJECT_DIR$/src/Entities/Choice.model.ts" />
         <option value="$PROJECT_DIR$/src/Entities/Survey.model.ts" />
         <option value="$PROJECT_DIR$/src/Entities/Question.model.ts" />
+        <option value="$PROJECT_DIR$/src/Core/Domain/Services/Interfaces/IRepository.ts" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepository.model.ts" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositoryBase.model.ts" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.ts" />
+        <option value="$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts" />
         <option value="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" />
-        <option value="$PROJECT_DIR$/../libellis/src/Core/Domain/Services/Interfaces/IRepository.ts" />
-        <option value="$PROJECT_DIR$/../libellis/src/Infrastructure/Persistence/Repositories/SQLRepository.model.ts" />
-        <option value="$PROJECT_DIR$/../libellis/src/Infrastructure/Persistence/Repositories/SQLRepositoryBase.model.ts" />
-        <option value="$PROJECT_DIR$/../libellis/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.ts" />
-        <option value="$PROJECT_DIR$/../libellis/src/Core/Application/Services/Interfaces/IRepository.ts" />
-        <option value="$PROJECT_DIR$/../libellis/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts" />
-        <option value="$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Survey.model.ts" />
-        <option value="$PROJECT_DIR$/../libellis/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts" />
+        <option value="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="1921" />
     <option name="y" value="27" />
     <option name="width" value="1914" />
@@ -286,6 +299,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -293,15 +307,15 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$USER_HOME$/.nvm/versions/node/v11.12.0/lib/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/../libellis/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../libellis/src/Infrastructure/Persistence/Repositories/SQLRepositories" />
-      <recent name="$PROJECT_DIR$/../libellis/src" />
-      <recent name="$PROJECT_DIR$/../libellis/src/Core" />
-      <recent name="$PROJECT_DIR$/../libellis/src/Core/Application/Services/Interfaces" />
-      <recent name="$PROJECT_DIR$/../libellis/src/Core/Domain/Services/Interfaces" />
+      <recent name="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/Core" />
+      <recent name="$PROJECT_DIR$/src/Core/Application/Services/Interfaces" />
+      <recent name="$PROJECT_DIR$/src/Core/Domain/Services/Interfaces" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -326,25 +340,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555688099408</updated>
-      <workItem from="1555688100721" duration="21290000" />
+      <workItem from="1555688100721" duration="22092000" />
+      <workItem from="1555723786861" duration="684000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21290000" />
+    <option name="totallyTimeSpent" value="22776000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="27" width="3830" height="1568" extended-state="6" />
+    <frame x="1921" y="27" width="1914" height="1568" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="npm" side_tool="true" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.093717" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19037433" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="TypeScript" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.20572206" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32970026" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -352,90 +363,117 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="JSON Utils" />
-      <window_info anchor="right" id="Json Parser" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="TypeScript" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20572206" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Json Parser" order="3" />
+      <window_info anchor="right" id="JSON Utils" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.js" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.js.map" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js.map" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.js" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.js.map" />
+      </list>
+    </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../libellis/tsconfig.json">
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/index.ts">
+    <entry file="file://$PROJECT_DIR$/src/index.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/tsconfig.json">
+    <entry file="file://$PROJECT_DIR$/src/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Entity.model.js.map">
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Entity.model.js.map">
+      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="sourcemapFileViewerProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Entity.model.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Entity.model.js">
+    <entry file="file://$PROJECT_DIR$/src/Entities/IAggregateRoot.ts" />
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entities/IAggregateRoot.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/ValueObjects/CategoryVO.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Entity.model.ts">
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Services/Interfaces/IIdGenerator.ts" />
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Entity.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Services/Interfaces/IIdGenerator.ts">
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/CategoryVO.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Application/Services/Interfaces/IRepository.ts">
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Choice.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        <state relative-caret-position="28">
+          <caret line="1" column="61" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts">
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
-          <caret line="2" column="65" selection-start-line="2" selection-start-column="65" selection-end-line="2" selection-end-column="65" />
+          <caret line="2" column="69" lean-forward="true" selection-start-line="2" selection-start-column="69" selection-end-line="2" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Question.model.ts">
+    <entry file="file://$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2324">
+          <caret line="83" column="36" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Question.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
@@ -445,36 +483,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.ts">
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Choice.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" column="61" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Core/Domain/Model/Entities/Survey.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="101" column="52" selection-start-line="101" selection-start-column="52" selection-end-line="101" selection-end-column="52" />
+        <state relative-caret-position="323">
+          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../libellis/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="131" column="4" selection-start-line="131" selection-start-column="4" selection-end-line="131" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
           </folding>
         </state>
       </provider>

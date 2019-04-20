@@ -1,11 +1,11 @@
 import { Entity } from "../../../Domain/Model/Entities/Entity.model";
 
 export interface IRepository {
-    add(entity: Entity): boolean;
-    addRange(entities: Entity): boolean;
-    get(id: string): Entity;
-    getAll(): Entity[];
-    remove(id: string): boolean;
-    removeRange(ids: string[]): boolean;
+    add(entity: Entity): Promise<boolean>;
+    addRange(entities: Entity): Promise<boolean>;
+    get(id: string): Promise<Entity>;
+    getAll(): Promise<Entity[]>;
+    remove(id: string): Promise<boolean>;
+    removeRange(ids: string[]): Promise<boolean>;
 }
 

@@ -11,12 +11,12 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 	}
 
 	// TODO: Implement
-	add(entity: Survey): boolean {
+	async add(entity: Survey): Promise<boolean> {
 		return false;
 	}
 
 	// TODO: Implement
-	addRange(entities: Survey): boolean {
+	async addRange(entities: Survey): Promise<boolean> {
 		return false;
 	}
 
@@ -24,7 +24,7 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 	// database query results directly into entity constructors.  Look into
 	// possibly using automapper to map to a consistent object format
 	// that the constructors expect.
-	get(id: string): Survey {
+	async get(id: string): Promise<Survey> {
 		const surveyResult = await this._db.query(
 			`SELECT id,
 				author,
@@ -120,17 +120,17 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 	}
 
 	// TODO: Implement
-	getAll(): Survey[] {
+	async getAll(): Promise<Survey[]> {
 		return [];
 	}
 
 	// TODO: Implement
-	remove(id: string): boolean {
+	async remove(id: string): Promise<boolean> {
 		return false;
 	}
 
 	// TODO: Implement
-	removeRange(ids: string[]): boolean {
+	removeRange(ids: string[]): Promise<boolean> {
 		return false;
 	}
 

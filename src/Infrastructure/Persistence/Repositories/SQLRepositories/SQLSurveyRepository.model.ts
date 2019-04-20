@@ -54,36 +54,17 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 			[]
 		);
 
-		const questionsResult = await this._db.query(`
-            SELECT id, survey_id, title, question_type as questionType
-            FROM questions
-            WHERE survey_id=$1
-            `,
-			[id]
-		);
+		const qData = await this.getQuestionsDataBySurvey(id);
 
-		const qData = questionsResult.rows[0];
-
-		const choicesResult = await this._db.query(`
-			SELECT SUM(score) AS vote_tally,
-				choices.id as id, 
-				choices.question_id as question_id, 
-				choices.title as title, 
-				choices.content as content, 
-				choices.content_type as content_type
-			FROM votes 
-			JOIN choices ON votes.choice_id = choices.id
-			WHERE question_id=$1
-			GROUP BY choices.id
-			`,
-			[qData["id"]]
-		);
+		const cDataList: Promise<object[]>[] = qData.map(async q => {
+			return (await this.getChoicesDataByQuestion(q["id"]));
+		});
 
 		const newQuestionData = {
 			id: qData["id"] as string,
 			title: qData["title"] as string,
 			questionType: qData["question_type"] as string,
-			choicesData: choicesResult.rows.map(cData => {
+			choicesData: await cDataList.map(cData => {
 				return {
 					id: cData["id"],
 					title: cData["title"],
@@ -99,8 +80,35 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 		return survey;
 	}
 
-	private getQuestionsDataBySurvey(id: string) {
+	private async getQuestionsDataBySurvey(id: string): Promise<object[]> {
+		const questionsResult = await this._db.query(`
+            SELECT id, survey_id, title, question_type as questionType
+            FROM questions
+            WHERE survey_id=$1
+            `,
+			[id]
+		);
 
+		return questionsResult.rows;
+	}
+
+	private async getChoicesDataByQuestion(questionId: string): Promise<object[]> {
+		const choicesResult = await this._db.query(`
+			SELECT SUM(score) AS vote_tally,
+				choices.id as id, 
+				choices.question_id as questionId, 
+				choices.title as title, 
+				choices.content as content, 
+				choices.content_type as contentType
+			FROM votes 
+			JOIN choices ON votes.choice_id = choices.id
+			WHERE question_id=$1
+			GROUP BY choices.id
+			`,
+			[questionId]
+		);
+
+		return choicesResult.rows;
 	}
 
 	// TODO: Implement

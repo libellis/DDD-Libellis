@@ -78,29 +78,35 @@ var SQLSurveyRepository = /** @class */ (function (_super) {
     // that the constructors expect.
     SQLSurveyRepository.prototype.get = function (id) {
         return __awaiter(this, void 0, void 0, function () {
-            var surveyResult, sData, survey, questionsResult, qData, choicesResult, newQuestionData;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var surveyResult, sData, survey, qData, cDataList, newQuestionData, _a;
+            var _this = this;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0: return [4 /*yield*/, this._db.query("SELECT id,\n\t\t\t\tauthor,\n\t\t\t\ttitle,\n\t\t\t    description,\n\t\t\t\tcategory,\n\t\t\t\tdate_posted,\n\t\t\t\tanonymous,\n\t\t\t\tpublished\n\t\tFROM surveys\n\t\tWHERE id = $1", [id])];
                     case 1:
-                        surveyResult = _a.sent();
+                        surveyResult = _b.sent();
                         if (surveyResult.rows.length < 1) {
                             throw new Error('Not Found');
                         }
                         sData = surveyResult.rows[0];
                         survey = new Survey_model_1.Survey(sData["id"], sData["author"], sData["title"], sData["description"], new CategoryVO_model_1.CategoryVO(sData["category"]), sData["date_posted"], sData["anonymous"], sData["published"], []);
-                        return [4 /*yield*/, this._db.query("\n            SELECT id, survey_id, title, question_type as questionType\n            FROM questions\n            WHERE survey_id=$1\n            ", [id])];
+                        return [4 /*yield*/, this.getQuestionsDataBySurvey(id)];
                     case 2:
-                        questionsResult = _a.sent();
-                        qData = questionsResult.rows[0];
-                        return [4 /*yield*/, this._db.query("\n\t\t\tSELECT SUM(score) AS vote_tally,\n\t\t\t\tchoices.id as id, \n\t\t\t\tchoices.question_id as question_id, \n\t\t\t\tchoices.title as title, \n\t\t\t\tchoices.content as content, \n\t\t\t\tchoices.content_type as content_type\n\t\t\tFROM votes \n\t\t\tJOIN choices ON votes.choice_id = choices.id\n\t\t\tWHERE question_id=$1\n\t\t\tGROUP BY choices.id\n\t\t\t", [qData["id"]])];
-                    case 3:
-                        choicesResult = _a.sent();
-                        newQuestionData = {
+                        qData = _b.sent();
+                        cDataList = qData.map(function (q) { return __awaiter(_this, void 0, void 0, function () {
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0: return [4 /*yield*/, this.getChoicesDataByQuestion(q["id"])];
+                                    case 1: return [2 /*return*/, (_a.sent())];
+                                }
+                            });
+                        }); });
+                        _a = {
                             id: qData["id"],
                             title: qData["title"],
-                            questionType: qData["question_type"],
-                            choicesData: choicesResult.rows.map(function (cData) {
+                            questionType: qData["question_type"]
+                        };
+                        return [4 /*yield*/, cDataList.map(function (cData) {
                                 return {
                                     id: cData["id"],
                                     title: cData["title"],
@@ -108,8 +114,10 @@ var SQLSurveyRepository = /** @class */ (function (_super) {
                                     contentType: cData["content_type"],
                                     voteTally: cData["voteTally"],
                                 };
-                            }),
-                        };
+                            })];
+                    case 3:
+                        newQuestionData = (_a.choicesData = _b.sent(),
+                            _a);
                         survey.addQuestionWithChoices(newQuestionData);
                         return [2 /*return*/, survey];
                 }
@@ -117,6 +125,30 @@ var SQLSurveyRepository = /** @class */ (function (_super) {
         });
     };
     SQLSurveyRepository.prototype.getQuestionsDataBySurvey = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var questionsResult;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this._db.query("\n            SELECT id, survey_id, title, question_type as questionType\n            FROM questions\n            WHERE survey_id=$1\n            ", [id])];
+                    case 1:
+                        questionsResult = _a.sent();
+                        return [2 /*return*/, questionsResult.rows];
+                }
+            });
+        });
+    };
+    SQLSurveyRepository.prototype.getChoicesDataByQuestion = function (questionId) {
+        return __awaiter(this, void 0, void 0, function () {
+            var choicesResult;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this._db.query("\n\t\t\tSELECT SUM(score) AS vote_tally,\n\t\t\t\tchoices.id as id, \n\t\t\t\tchoices.question_id as questionId, \n\t\t\t\tchoices.title as title, \n\t\t\t\tchoices.content as content, \n\t\t\t\tchoices.content_type as contentType\n\t\t\tFROM votes \n\t\t\tJOIN choices ON votes.choice_id = choices.id\n\t\t\tWHERE question_id=$1\n\t\t\tGROUP BY choices.id\n\t\t\t", [questionId])];
+                    case 1:
+                        choicesResult = _a.sent();
+                        return [2 /*return*/, choicesResult.rows];
+                }
+            });
+        });
     };
     // TODO: Implement
     SQLSurveyRepository.prototype.getAll = function () {

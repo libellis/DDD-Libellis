@@ -31,16 +31,16 @@ export class Survey extends Entity {
 			category: string,
 			anonymous: boolean,
 			published: boolean,
-			questionsData: [{
+			questionsData: {
 				title: string,
 				questionType: string,
-				choicesData: [{
+				choicesData: {
 					title: string,
 					content: string,
 					contentType: string,
 					voteTally: number,
-				}]
-			}],
+				}[]
+			}[],
 		}): Survey {
 
 		const questions = sData
@@ -84,13 +84,13 @@ export class Survey extends Entity {
 			id: string,
 			title: string,
 			questionType: string,
-			choicesData: [{
+			choicesData: {
 				id: string,
 				title: string,
 				content: string,
 				contentType: string,
 				voteTally: number,
-			}]
+			}[]
 		},
 	): boolean {
 		const newQuestion = new Question(

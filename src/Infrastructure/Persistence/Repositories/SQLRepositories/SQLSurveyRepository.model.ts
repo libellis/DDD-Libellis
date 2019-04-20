@@ -31,7 +31,7 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 				title,
 				description,
 				category,
-				date_posted,
+				date_posted as datePosted,
 				anonymous,
 				published
 		FROM surveys
@@ -48,43 +48,32 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 			sData["title"],
 			sData["description"],
 			new CategoryVO(sData["category"]),
-			sData["date_posted"],
+			new Date(sData["datePosted"]),
 			sData["anonymous"],
 			sData["published"],
 			[]
 		);
 
-		const qData = await this.getQuestionsDataBySurvey(id);
+		const qData: object[] = await this.attachChoiceDataToAllQuestions(
+			await this.getQuestionsDataBySurvey(id)
+		);
 
-		const cDataList: Promise<object[]>[] = qData.map(async q => {
-			return (await this.getChoicesDataByQuestion(q["id"]));
-		});
-
-		const newQuestionData = {
-			id: qData["id"] as string,
-			title: qData["title"] as string,
-			questionType: qData["question_type"] as string,
-			choicesData: await cDataList.map(cData => {
-				return {
-					id: cData["id"],
-					title: cData["title"],
-					content: cData["content"],
-					contentType: cData["content_type"],
-					voteTally: cData["voteTally"],
-				}
-			}),
-		};
-
-		survey.addQuestionWithChoices(newQuestionData);
+		for (const q of qData)
+			survey.addQuestionWithChoices({
+				id: q["id"],
+				title: q["title"],
+				questionType: q["questionType"],
+				choicesData: q["choicesData"],
+			});
 
 		return survey;
 	}
 
 	private async getQuestionsDataBySurvey(id: string): Promise<object[]> {
 		const questionsResult = await this._db.query(`
-			SELECT id, survey_id, title, question_type as questionType
+			SELECT id, survey_id as surveyId, title, question_type as questionType
 			FROM questions
-			WHERE survey_id=$1
+			WHERE surveyId=$1
 			`,
 			[id]
 		);
@@ -102,13 +91,20 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 				choices.content_type as contentType
 			FROM votes 
 			JOIN choices ON votes.choice_id = choices.id
-			WHERE question_id=$1
+			WHERE questionId=$1
 			GROUP BY choices.id
 			`,
 			[questionId]
 		);
 
 		return choicesResult.rows;
+	}
+
+	private async attachChoiceDataToAllQuestions(qData: object[]): Promise<object[]> {
+		return await Promise.all(qData.map(async q => {
+			q["choicesData"] = (await this.getChoicesDataByQuestion(q["id"]));
+			return q;
+		}));
 	}
 
 	// TODO: Implement

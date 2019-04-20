@@ -20,7 +20,7 @@ var VoteTallyVO_model_1 = require("../ValueObjects/VoteTallyVO.model");
 var Choice_model_1 = require("./Choice.model");
 var Survey = /** @class */ (function (_super) {
     __extends(Survey, _super);
-    function Survey(id, author, title, description, category, datePosted, anonymous, published, questions) {
+    function Survey(id, author, title, description, category, datePosted, anonymous, published, _questions) {
         var _this = _super.call(this, id) || this;
         _this.author = author;
         _this.title = title;
@@ -29,9 +29,19 @@ var Survey = /** @class */ (function (_super) {
         _this.datePosted = datePosted;
         _this.anonymous = anonymous;
         _this.published = published;
-        _this.questions = questions;
+        _this._questions = _questions;
         return _this;
     }
+    Object.defineProperty(Survey.prototype, "questions", {
+        // deep clone so any mutations by other aggregates don't change internal aggregate consistency.
+        get: function () {
+            return this._questions.map(function (q) {
+                return new Question_model_1.Question(q.id, q.title, q.type, q.choices.slice());
+            });
+        },
+        enumerable: true,
+        configurable: true
+    });
     // Factory method is only for the very first time entity is created.
     // Otherwise re-hydrate with constructor as per DDD practice.
     Survey.create = function (idGenerator, sData) {

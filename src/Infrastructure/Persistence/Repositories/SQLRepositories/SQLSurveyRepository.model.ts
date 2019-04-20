@@ -16,7 +16,7 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 	}
 
 	// TODO: Implement
-	async addRange(entities: Survey): Promise<boolean> {
+	async addRange(entities: Survey[]): Promise<boolean> {
 		return false;
 	}
 

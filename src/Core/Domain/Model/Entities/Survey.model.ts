@@ -15,9 +15,23 @@ export class Survey extends Entity {
 		public datePosted: Date,
 		public anonymous: boolean,
 		public published: boolean,
-		private questions: Question[],
+		private _questions: Question[],
 	) {
 		super(id);
+	}
+
+	// deep clone so any mutations by other aggregates don't change internal aggregate consistency.
+	get questions(): Question[] {
+		return this._questions.map(
+			q => {
+				return new Question(
+					q.id,
+					q.title,
+					q.type,
+					[...q.choices],
+				);
+			}
+		);
 	}
 
 	// Factory method is only for the very first time entity is created.

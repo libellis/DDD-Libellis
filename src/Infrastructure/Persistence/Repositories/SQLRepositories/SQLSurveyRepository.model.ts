@@ -29,7 +29,7 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 			`SELECT id,
 				author,
 				title,
-			    description,
+				description,
 				category,
 				date_posted,
 				anonymous,
@@ -82,10 +82,10 @@ export class SQLSurveyRepository extends SQLRepositoryBase implements IRepositor
 
 	private async getQuestionsDataBySurvey(id: string): Promise<object[]> {
 		const questionsResult = await this._db.query(`
-            SELECT id, survey_id, title, question_type as questionType
-            FROM questions
-            WHERE survey_id=$1
-            `,
+			SELECT id, survey_id, title, question_type as questionType
+			FROM questions
+			WHERE survey_id=$1
+			`,
 			[id]
 		);
 

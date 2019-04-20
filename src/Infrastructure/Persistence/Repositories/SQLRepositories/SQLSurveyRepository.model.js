@@ -82,7 +82,7 @@ var SQLSurveyRepository = /** @class */ (function (_super) {
             var _this = this;
             return __generator(this, function (_b) {
                 switch (_b.label) {
-                    case 0: return [4 /*yield*/, this._db.query("SELECT id,\n\t\t\t\tauthor,\n\t\t\t\ttitle,\n\t\t\t    description,\n\t\t\t\tcategory,\n\t\t\t\tdate_posted,\n\t\t\t\tanonymous,\n\t\t\t\tpublished\n\t\tFROM surveys\n\t\tWHERE id = $1", [id])];
+                    case 0: return [4 /*yield*/, this._db.query("SELECT id,\n\t\t\t\tauthor,\n\t\t\t\ttitle,\n\t\t\t\tdescription,\n\t\t\t\tcategory,\n\t\t\t\tdate_posted,\n\t\t\t\tanonymous,\n\t\t\t\tpublished\n\t\tFROM surveys\n\t\tWHERE id = $1", [id])];
                     case 1:
                         surveyResult = _b.sent();
                         if (surveyResult.rows.length < 1) {
@@ -129,7 +129,7 @@ var SQLSurveyRepository = /** @class */ (function (_super) {
             var questionsResult;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this._db.query("\n            SELECT id, survey_id, title, question_type as questionType\n            FROM questions\n            WHERE survey_id=$1\n            ", [id])];
+                    case 0: return [4 /*yield*/, this._db.query("\n\t\t\tSELECT id, survey_id, title, question_type as questionType\n\t\t\tFROM questions\n\t\t\tWHERE survey_id=$1\n\t\t\t", [id])];
                     case 1:
                         questionsResult = _a.sent();
                         return [2 /*return*/, questionsResult.rows];

@@ -28,7 +28,7 @@ export class Survey extends Entity {
 					q.id,
 					q.title,
 					q.type,
-					[...q.choices],
+					q.choices,
 				);
 			}
 		);
@@ -124,7 +124,7 @@ export class Survey extends Entity {
 			)
 		);
 
-		this.questions.push(newQuestion);
+		this._questions.push(newQuestion);
 
 		return true;
 	}

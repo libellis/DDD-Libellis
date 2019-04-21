@@ -1,10 +1,8 @@
 import { IRepository } from "../../../Core/Application/Services/Interfaces/IRepository";
 import { Survey } from "../../../Core/Domain/Model/Entities/Survey.model";
-import { IPSQLPool } from "../../../Infrastructure/Persistence/Abstractions/IPSQLPool.model";
 
 export class MockSurveyRepository implements IRepository {
 	constructor(
-		private _db: IPSQLPool,
 		private mockData: Survey[]
 	) {}
 

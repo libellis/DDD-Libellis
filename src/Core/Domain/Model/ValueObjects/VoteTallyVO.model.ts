@@ -12,7 +12,7 @@ export class VoteTallyVO {
 	}
 
 	static isValidTallyNumber(n: number): boolean {
-		if (VoteTallyVO.isNonNegative(n)) throw new Error("Tally cannot be negative.");
+		if (!VoteTallyVO.isNonNegative(n)) throw new Error("Tally cannot be negative.");
 		if (!VoteTallyVO.isWholeNumber(n)) throw new Error("Tally must be a whole number.");
 		return true;
 	}

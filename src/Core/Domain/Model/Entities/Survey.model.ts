@@ -3,6 +3,7 @@ import { Question } from "./Question.model";
 import { CategoryVO } from "../ValueObjects/CategoryVO.model";
 import { VoteTallyVO } from "../ValueObjects/VoteTallyVO.model";
 import { Choice } from "./Choice.model";
+import { ISurveyData } from "../Abstractions/ISurveyData";
 
 export class Survey extends Entity {
 
@@ -46,24 +47,8 @@ export class Survey extends Entity {
 	// Otherwise re-hydrate with constructor as per DDD practice.
 	static create(
 		idGenerator: () => string,
-		sData: {
-			author: string,
-			title: string,
-			description: string,
-			category: string,
-			anonymous: boolean,
-			published: boolean,
-			questionsData: {
-				title: string,
-				questionType: string,
-				choicesData: {
-					title: string,
-					content: string,
-					contentType: string,
-					voteTally: number,
-				}[]
-			}[],
-		}): Survey {
+		sData: ISurveyData
+		): Survey {
 
 		const questions = sData
 			.questionsData

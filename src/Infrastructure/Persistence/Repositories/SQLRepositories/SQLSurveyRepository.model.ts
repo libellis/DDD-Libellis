@@ -1,10 +1,10 @@
 import { SQLRepositoryBase } from "./SQLRepositoryBase.model";
-import { IRepository } from "../../../../Core/Application/Services/Interfaces/IRepository";
 import { IPSQLPool } from "../../Abstractions/IPSQLPool.model";
 import { Survey } from "../../../../Core/Domain/Model/Entities/Survey.model";
 import { CategoryVO } from "../../../../Core/Domain/Model/ValueObjects/CategoryVO.model";
+import { ISurveyRepository } from "../../../../Core/Application/Services/Interfaces/ISurveyRepository";
 
-export class SQLSurveyRepository extends SQLRepositoryBase implements IRepository {
+export class SQLSurveyRepository extends SQLRepositoryBase implements ISurveyRepository {
 
 	constructor(_db: IPSQLPool){
 		super(_db);

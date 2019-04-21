@@ -1,7 +1,7 @@
-import { IRepository } from "../../../Core/Application/Services/Interfaces/IRepository";
 import { Survey } from "../../../Core/Domain/Model/Entities/Survey.model";
+import { ISurveyRepository } from "../../../Core/Application/Services/Interfaces/ISurveyRepository";
 
-export class MockSurveyRepository implements IRepository {
+export class MockSurveyRepository implements ISurveyRepository {
 	constructor(
 		private mockData: Survey[]
 	) {}
@@ -55,5 +55,4 @@ export class MockSurveyRepository implements IRepository {
 
 		return removed.length !== 0;
 	}
-
 }

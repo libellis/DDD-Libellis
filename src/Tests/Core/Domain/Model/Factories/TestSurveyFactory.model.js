@@ -7,16 +7,16 @@ var TestSurveyFactory = /** @class */ (function () {
     function TestSurveyFactory() {
     }
     TestSurveyFactory.createFullSurvey = function (options) {
-        var s = this.createBaseSurvey(options !== undefined ?
+        var s = TestSurveyFactory.createBaseSurvey(options !== undefined ?
             options.surveyParams : undefined);
         var questions;
         if (options !== undefined) {
-            questions = this.createRandomQuestionsWithChoices((options.questionParams !== undefined ?
+            questions = TestSurveyFactory.createRandomQuestionsWithChoices((options.questionParams !== undefined ?
                 options.questionParams : undefined), (options.choiceParams !== undefined ?
                 options.choiceParams : undefined));
         }
         else {
-            questions = this.createRandomQuestionsWithChoices();
+            questions = TestSurveyFactory.createRandomQuestionsWithChoices();
         }
         for (var _i = 0, questions_1 = questions; _i < questions_1.length; _i++) {
             var q = questions_1[_i];
@@ -40,11 +40,10 @@ var TestSurveyFactory = /** @class */ (function () {
             questions: [],
         };
         if (surveyParams !== undefined)
-            this.patchObject(sData, surveyParams);
+            TestSurveyFactory.patchObject(sData, surveyParams);
         return new Survey_model_1.Survey(sData.id, sData.author, sData.title, sData.description, new CategoryVO_model_1.CategoryVO(sData.category), sData.datePosted, sData.published, sData.anonymous, sData.questions);
     };
     TestSurveyFactory.createRandomChoices = function (choiceParams) {
-        var _this = this;
         var randomArray = Array(faker.random.number({ min: 2, max: 12, precision: 1 })).fill(0);
         return randomArray.map(function (data) {
             var choiceData = {
@@ -55,7 +54,7 @@ var TestSurveyFactory = /** @class */ (function () {
                 voteTally: faker.random.number({ min: 0, max: 10000, precision: 1 })
             };
             if (choiceParams !== undefined)
-                _this.patchObject(choiceData, choiceParams);
+                TestSurveyFactory.patchObject(choiceData, choiceParams);
             return choiceData;
         });
     };
@@ -67,7 +66,7 @@ var TestSurveyFactory = /** @class */ (function () {
                 id: faker.random.uuid(),
                 title: faker.lorem.words(Math.floor(Math.random() * (8 - 3)) + 3),
                 questionType: faker.random.word(),
-                choicesData: _this.createRandomChoices(choiceParams),
+                choicesData: TestSurveyFactory.createRandomChoices(choiceParams),
             };
             if (questionParams !== undefined)
                 _this.patchObject(questionData, questionParams);

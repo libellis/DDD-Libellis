@@ -36,7 +36,9 @@ var Survey = /** @class */ (function (_super) {
         // deep clone so any mutations by other aggregates don't change internal aggregate consistency.
         get: function () {
             return this._questions.map(function (q) {
-                return new Question_model_1.Question(q.id, q.title, q.type, q.choices);
+                return new Question_model_1.Question(q.id, q.title, q.type, q.choices.map(function (c) {
+                    return new Choice_model_1.Choice(c.id, c.title, c.content, c.contentType, c.voteTally);
+                }));
             });
         },
         enumerable: true,

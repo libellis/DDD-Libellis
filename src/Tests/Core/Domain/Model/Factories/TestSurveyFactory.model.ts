@@ -4,21 +4,21 @@ import { CategoryVO } from "../../../../../Core/Domain/Model/ValueObjects/Catego
 
 export class TestSurveyFactory {
 	static createFullSurvey(options?: OptionalParams): Survey {
-		const s = this.createBaseSurvey(
+		const s = TestSurveyFactory.createBaseSurvey(
 			options !== undefined ?
 				options.surveyParams : undefined
 		);
 
 		let questions;
 		if (options !== undefined) {
-			questions = this.createRandomQuestionsWithChoices(
+			questions = TestSurveyFactory.createRandomQuestionsWithChoices(
 				(options.questionParams !== undefined ?
 					options.questionParams : undefined),
 				(options.choiceParams !== undefined ?
 					options.choiceParams : undefined)
 			);
 		} else {
-			questions = this.createRandomQuestionsWithChoices();
+			questions = TestSurveyFactory.createRandomQuestionsWithChoices();
 		}
 
 		for (const q of questions)
@@ -44,7 +44,7 @@ export class TestSurveyFactory {
 		};
 
 		if (surveyParams !== undefined)
-			this.patchObject(sData, surveyParams);
+			TestSurveyFactory.patchObject(sData, surveyParams);
 
 		return new Survey(
 			sData.id,
@@ -72,7 +72,7 @@ export class TestSurveyFactory {
 			};
 
 			if (choiceParams !== undefined)
-				this.patchObject(choiceData, choiceParams);
+				TestSurveyFactory.patchObject(choiceData, choiceParams);
 
 			return choiceData;
 		});
@@ -88,7 +88,7 @@ export class TestSurveyFactory {
 				id: faker.random.uuid(),
 				title: faker.lorem.words(Math.floor(Math.random() * (8 - 3)) + 3),
 				questionType: faker.random.word(),
-				choicesData: this.createRandomChoices(choiceParams),
+				choicesData: TestSurveyFactory.createRandomChoices(choiceParams),
 			};
 
 			if (questionParams !== undefined)
@@ -136,7 +136,7 @@ interface OptionalSurveyParams {
 	author?: string,
 	title?: string,
 	description?: string,
-	category?: CategoryVO,
+	category?: string,
 	datePosted?: Date,
 	anonymous?: boolean,
 	published?: boolean,

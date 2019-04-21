@@ -2,20 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04847df4-1dab-429b-83b0-5ef0601c3026" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Choice.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Choice.model.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Choice.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Choice.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/Mocks/Repositories/MockSurveyRepository.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/Mocks/Repositories/MockSurveyRepository.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/Mocks/Repositories/MockSurveyRepository.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/Mocks/Repositories/MockSurveyRepository.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/Mocks/Repositories/MockSurveyRepository.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/Mocks/Repositories/MockSurveyRepository.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/CategoryVO.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/CategoryVO.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/CategoryVO.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/CategoryVO.model.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/CategoryVO.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/CategoryVO.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.spec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="109" column="24" lean-forward="true" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
+            <state relative-caret-position="-221">
+              <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -41,22 +45,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tests/Mocks/Repositories/MockSurveyRepository.model.ts">
+        <entry file="file://$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#88#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.spec.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state>
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -65,10 +56,44 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tsconfig.json">
+        <entry file="file://$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+            <state>
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/CategoryVO.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -76,8 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+            <state relative-caret-position="-939">
+              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -95,40 +120,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Choice.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="1" column="61" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Question.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+            <state relative-caret-position="224">
+              <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Entity.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -180,24 +187,31 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/SurveyFactory.model.ts" />
         <option value="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.ts" />
-        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.ts" />
+        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/Survey.spec.ts" />
+        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.ts" />
+        <option value="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" />
+        <option value="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" />
+        <option value="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Choice.model.ts" />
         <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.spec.ts" />
-        <option value="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" />
-        <option value="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts" />
+        <option value="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/CategoryVO.model.ts" />
+        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts" />
+        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.ts" />
+        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.ts" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="5" />
-    <option name="y" value="23" />
+    <option name="y" value="27" />
     <option name="width" value="2550" />
-    <option name="height" value="1417" />
+    <option name="height" value="1408" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -299,11 +313,20 @@
               <item name="Model" type="462c0819:PsiDirectoryNode" />
               <item name="Factories" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="ValueObjects" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -319,11 +342,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories" />
       <recent name="$PROJECT_DIR$/src/Tests/Core" />
       <recent name="$PROJECT_DIR$/src/Tests/Core/Domain/Model" />
       <recent name="$PROJECT_DIR$/src/Tests/Core/Domain" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -351,18 +374,19 @@
       <workItem from="1555688100721" duration="22092000" />
       <workItem from="1555723786861" duration="984000" />
       <workItem from="1555731881378" duration="11850000" />
-      <workItem from="1555790001291" duration="8101000" />
+      <workItem from="1555790001291" duration="8859000" />
+      <workItem from="1555810639671" duration="3475000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43027000" />
+    <option name="totallyTimeSpent" value="47260000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="23" width="2550" height="1417" extended-state="6" />
+    <frame x="5" y="27" width="2550" height="1408" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18076617" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18236233" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -377,7 +401,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20501138" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20489296" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -390,7 +414,6 @@
     <option name="exactExcludedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/Tests/Mocks/Repositories/MockSurveyRepository.model.js" />
-        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/SurveyFactory.model.js" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.js.map" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.js" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js.map" />
@@ -398,7 +421,12 @@
         <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.js.map" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.js" />
         <option value="$PROJECT_DIR$/src/Tests/Mocks/Repositories/MockSurveyRepository.model.js.map" />
-        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/SurveyFactory.model.js.map" />
+        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.spec.js.map" />
+        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.spec.js" />
+        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js" />
+        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js.map" />
+        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.js" />
+        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.js.map" />
       </list>
     </option>
   </component>
@@ -407,8 +435,8 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Entity.model.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="sourcemapFileViewerProvider" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Entity.model.js">
       <provider selected="true" editor-type-id="text-editor" />
@@ -422,22 +450,8 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider" />
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/CategoryVO.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Entity.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
+      <provider editor-type-id="sourcemapFileViewerProvider" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.ts">
       <provider selected="true" editor-type-id="text-editor" />
@@ -466,27 +480,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Choice.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" column="61" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/Mocks/Repositories/MockSurveyRepository.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
+        <state relative-caret-position="812">
           <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
           <folding>
             <element signature="e#0#88#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -497,10 +504,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        <state relative-caret-position="140">
+          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Question.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Entity.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Choice.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-221">
+          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/CategoryVO.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -511,42 +571,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Question.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+        <state relative-caret-position="-939">
+          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Domain/Model/Entities/Survey.model.ts">
+    <entry file="file://$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="109" column="24" lean-forward="true" selection-start-line="109" selection-start-column="24" selection-end-line="109" selection-end-column="24" />
+        <state>
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>

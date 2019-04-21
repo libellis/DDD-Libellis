@@ -28,7 +28,15 @@ export class Survey extends Entity {
 					q.id,
 					q.title,
 					q.type,
-					q.choices,
+					q.choices.map(c => {
+						return new Choice(
+							c.id,
+							c.title,
+							c.content,
+							c.contentType,
+							c.voteTally,
+						)
+					}),
 				);
 			}
 		);

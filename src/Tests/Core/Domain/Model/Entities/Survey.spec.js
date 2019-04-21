@@ -3,26 +3,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var chai_1 = require("chai");
 require("mocha");
 var TestSurveyFactory_model_1 = require("../Factories/TestSurveyFactory.model");
-var Survey_model_1 = require("../../../../../Core/Domain/Model/Entities/Survey.model");
-describe('Test TestSurveyFactory', function () {
-    it('should construct an instance of Survey entity', function () {
+describe('test non-root entity purity', function () {
+    it('should not allow direct question mutation to affect aggregate consistency', function () {
         var surveyResult = TestSurveyFactory_model_1.TestSurveyFactory.createFullSurvey();
-        chai_1.expect(surveyResult).instanceOf(Survey_model_1.Survey);
+        var question = surveyResult.questions[0];
+        var wrongQuestionTitle = 'TestWrongQuestionTitle';
+        question.title = wrongQuestionTitle;
+        chai_1.assert.notEqual(surveyResult.questions[0].title, wrongQuestionTitle);
     });
-    it('should correctly pass in optional survey parameters', function () {
-        var testTitle = 'TestTitle';
-        var surveyResult = TestSurveyFactory_model_1.TestSurveyFactory.createFullSurvey({ surveyParams: { title: testTitle } });
-        chai_1.expect(surveyResult.title).equals(testTitle);
-    });
-    it('should correctly pass in optional question parameters', function () {
-        var testType = 'TestQuestionType';
-        var surveyResult = TestSurveyFactory_model_1.TestSurveyFactory.createFullSurvey({ questionParams: { questionType: testType } });
-        chai_1.expect(surveyResult.questions[0].type).equals(testType);
-    });
-    it('should correctly pass in optional choice parameters', function () {
-        var testId = 'TestUUID';
-        var surveyResult = TestSurveyFactory_model_1.TestSurveyFactory.createFullSurvey({ choiceParams: { id: testId } });
-        chai_1.expect(surveyResult.questions[0].choices[0].id).equals(testId);
+    it('should not allow direct choice mutation to affect aggregate consistency', function () {
+        var surveyResult = TestSurveyFactory_model_1.TestSurveyFactory.createFullSurvey();
+        var choice = surveyResult.questions[0].choices[0];
+        var wrongChoiceType = 'TestWrongChoiceType';
+        choice.contentType = wrongChoiceType;
+        console.log(surveyResult.questions[0].choices[0]);
+        chai_1.assert.notEqual(surveyResult.questions[0].choices[0].contentType, wrongChoiceType);
     });
 });
 //# sourceMappingURL=Survey.spec.js.map

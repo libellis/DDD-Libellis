@@ -1,0 +1,129 @@
+import { Entity } from "../../../Common/Entities/Entity.model";
+import { DateTimeRange } from "../../../../../../../SharedKernel/DateTimeRangeVO.model";
+import { Ballot } from "../../Ballot/Entities/Ballot.model";
+import { IBallotData } from "../../Ballot/Abstractions/IBallotData";
+import { MasterBallot } from "../../MasterBallot/Entities/MasterBallot.model";
+import { Guard } from "../../../../../../../SharedKernel/Guard.model";
+
+export class Election extends Entity {
+
+	constructor(
+		id: string,
+		private _electionPeriod: DateTimeRange,
+		private _anonymous: boolean,
+		private _masterBallotId: string,
+
+		private _validQuestionIds: Set<string>,
+		private _validChoiceIds: Set<string>,
+
+		// Array of ballot UUIDs that have been cast.
+		private _ballotIds: Set<string>,
+
+		// Array of user UUIDs that have already voted
+		private _whoVotedIds: Set<string>,
+	) {
+		super(id);
+	}
+
+	// Factory method for enforcing invariance:
+	// 1. Start and end date validity is checked by DateTimeRange VO
+	static create(
+		idGenerator: () => string,
+		start: Date,
+		end: Date,
+		anonymous: boolean,
+		masterBallot: MasterBallot,
+	): Election {
+		const validQuestionIds: Set<string> = new Set(masterBallot.questions.map(q => q.id));
+		const validChoiceIds: Set<string> = new Set(...masterBallot.questions.map(q => {
+				return q.choices.map(c => {
+					return c.id;
+				})
+			}
+		));
+
+		return new Election(
+			idGenerator(),
+			new DateTimeRange(start, end),
+			anonymous,
+			masterBallot.id,
+			validQuestionIds,
+			validChoiceIds,
+			new Set(),
+			new Set(),
+			);
+	}
+
+	// Here is where we should enforce invariance that would check whether
+	// the ballot data accurately matches the survey it should be attached to.
+	castBallot(
+		idGenerator: () => string,
+		ballotData: IBallotData,
+	): Ballot {
+		// Has the user in question already voted?
+		if (this._whoVotedIds.has(ballotData.voterId)) {
+			throw new Error(`That user has already voted in this election`);
+		}
+
+		// Check if ballot data matches up with survey it should be related to.
+		// Throws an error if invalid and prevents further execution
+		this.checkBallotDataAgainstMasterBallot(ballotData);
+
+		// Checks if the current time is still within the election period.
+		if (!this._electionPeriod.currentlyIn()) {
+			throw new Error(`Cannot cast a ballot for an election that is not currently active.`)
+		}
+
+		// Passed all checks so generate a new ballot using ballot factory method.
+		const ballot: Ballot = Ballot.create(
+			idGenerator,
+			ballotData,
+		);
+
+		// TODO: Once we have domain events setup, should emit a BallotCast event in the ballot factory
+		// and subscribe to it here so that we populate our ballotIds and voterIds only once the ballot
+		// has definitely been created there after further ballot side invariance checks.
+		this._ballotIds.add(ballot.id);
+		this._whoVotedIds.add(ballotData.voterId);
+
+		return ballot;
+	}
+
+	checkBallotDataAgainstMasterBallot(ballotData: IBallotData) {
+		if (this._masterBallotId !== ballotData.masterBallotId) {
+			throw new Error('This ballot was cast for an election that relates to a different master ballot.');
+		}
+
+		// Check for duplicate qIds indicating potential duplicate votes
+		const ballotQuestionIdList: string[] = ballotData.voteData.questionsData.map(q => q.qId);
+		const ballotQuestionIds: Set<string> = new Set(ballotQuestionIdList);
+		if (ballotQuestionIdList.length !== ballotQuestionIds.size) {
+			throw new Error('Duplicate votes in cast ballot.');
+		}
+
+		// Check if question ids are a match between ballot and master ballot.
+		if (!Guard.setsMatch(this._validQuestionIds, ballotQuestionIds)) {
+			throw new Error('The ballot cast does not completely match the master ballot for this election.');
+		}
+
+		// Check for duplicate cIds indicating potential duplicate votes
+		const ballotChoiceIdList: string[] = [];
+		ballotData.voteData.questionsData.forEach(q => {
+				q.choicesData.forEach(c => {
+					ballotChoiceIdList.push(c.cId);
+				})
+			});
+		const ballotChoiceIds: Set<string> = new Set(ballotChoiceIdList);
+		if (ballotChoiceIdList.length !== ballotChoiceIds.size) {
+			throw new Error('Duplicate votes in cast ballot.')
+		}
+
+		// Check if choice ids are a match between ballot and master ballot.
+		if (!Guard.setsMatch(this._validChoiceIds, ballotChoiceIds)) {
+			throw new Error('The ballot cast does not completely match the master ballot for this election.');
+		}
+
+		return true;
+	}
+
+}

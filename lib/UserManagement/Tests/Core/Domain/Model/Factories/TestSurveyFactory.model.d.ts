@@ -1,4 +1,4 @@
-import { Survey } from "../../../../../Core/Domain/Model/Aggregates/Survey/Entities/Survey.model";
+import { Survey } from "../../../../../Core/Domain/Model/Aggregates/MasterBallot/Entities/MasterBallot.model";
 export declare class TestSurveyFactory {
     static createFullSurvey(options?: OptionalParams): Survey;
     static createBaseSurvey(surveyParams?: OptionalSurveyParams): Survey;

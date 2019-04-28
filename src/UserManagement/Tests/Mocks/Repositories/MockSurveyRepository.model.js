@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Survey_model_1 = require("../../../Core/Domain/Model/Aggregates/Survey/Entities/Survey.model");
+var MasterBallot_model_1 = require("../../../Core/Domain/Model/Aggregates/MasterBallot/Entities/MasterBallot.model");
 var MockSurveyRepository = /** @class */ (function () {
     function MockSurveyRepository(mockData) {
         this.mockData = mockData;
@@ -65,7 +65,7 @@ var MockSurveyRepository = /** @class */ (function () {
                 });
                 // deep clone so we don't mutate survey in mockData as such mutation
                 // would not affect a real repository
-                return [2 /*return*/, new Survey_model_1.Survey(s.id, s.author, s.title, s.description, s.category, s.datePosted, s.anonymous, s.published, 
+                return [2 /*return*/, new MasterBallot_model_1.Survey(s.id, s.author, s.title, s.description, s.category, s.datePosted, s.anonymous, s.published, 
                     // internal getter deep clones questions and their choices.
                     s.questions)];
             });

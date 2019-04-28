@@ -32,8 +32,18 @@ var DateTimeRange = /** @class */ (function () {
     };
     // INSTANCE METHODS
     DateTimeRange.prototype.overlaps = function (other) {
-        return this._start < other._end &&
-            this._end > other._start;
+        return this._start.getTime() < other._end.getTime() &&
+            this._end.getTime() > other._start.getTime();
+    };
+    DateTimeRange.prototype.equals = function (other) {
+        return this._start.getTime() === other._start.getTime() &&
+            this._end.getTime() === other._end.getTime();
+    };
+    // Checks if we are currently inside the DateTimeRange.  Better name for this method?
+    DateTimeRange.prototype.currentlyIn = function () {
+        var now = new Date();
+        return now.getTime() >= this._start.getTime() &&
+            now.getTime() < this._end.getTime();
     };
     return DateTimeRange;
 }());

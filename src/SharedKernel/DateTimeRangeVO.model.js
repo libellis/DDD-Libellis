@@ -30,6 +30,10 @@ var DateTimeRange = /** @class */ (function () {
         end.setDate(end.getDate() + 7);
         return new DateTimeRange(start, end);
     };
+    DateTimeRange.createRangeFromMinutes = function (start, minutes) {
+        var end = new Date(start.getTime() + minutes * 60000);
+        return new DateTimeRange(start, end);
+    };
     // INSTANCE METHODS
     DateTimeRange.prototype.overlaps = function (other) {
         return this._start.getTime() < other._end.getTime() &&

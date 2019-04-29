@@ -33,8 +33,12 @@ export class DateTimeRange {
 		return new DateTimeRange(start, end);
 	}
 
-	// INSTANCE METHODS
+	static createRangeFromMinutes(start: Date, minutes: number) : DateTimeRange {
+		const end = new Date(start.getTime() + minutes * 60000);
+		return new DateTimeRange(start, end);
+	}
 
+	// INSTANCE METHODS
 	overlaps(other: DateTimeRange) {
 		return this._start.getTime() < other._end.getTime() &&
 			this._end.getTime() > other._start.getTime();

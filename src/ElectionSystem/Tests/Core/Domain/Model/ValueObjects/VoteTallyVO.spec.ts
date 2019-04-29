@@ -1,10 +1,10 @@
 import { expect } from 'chai';
 import 'mocha';
-import { TestSurveyFactory } from "../Factories/TestSurveyFactory.model";
+import { TestMasterBallotFactory } from "../Factories/TestMasterBallotFactory.model";
 
 describe('test value object construction', () => {
 	it('should successfully construct VoteTally value object with a valid tally', () => {
-		const goodFunction = TestSurveyFactory.createFullSurvey.bind(TestSurveyFactory,
+		const goodFunction = TestMasterBallotFactory.createFullSurvey.bind(TestMasterBallotFactory,
 			{choiceParams: {
 				voteTally: 50,
 				}});
@@ -12,7 +12,7 @@ describe('test value object construction', () => {
 	});
 
 	it('should fail to construct VoteTally value object with a negative tally', () => {
-		const badFunction = TestSurveyFactory.createFullSurvey.bind(TestSurveyFactory,
+		const badFunction = TestMasterBallotFactory.createFullSurvey.bind(TestMasterBallotFactory,
 			{
 				choiceParams: {
 					voteTally: -30,
@@ -22,7 +22,7 @@ describe('test value object construction', () => {
 	});
 
 	it('should fail to construct VoteTally value object with a fractional number', () => {
-		const badFunction = TestSurveyFactory.createFullSurvey.bind(TestSurveyFactory,
+		const badFunction = TestMasterBallotFactory.createFullSurvey.bind(TestMasterBallotFactory,
 			{
 				choiceParams: {
 					voteTally: 20.275,

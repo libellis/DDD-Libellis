@@ -1,24 +1,24 @@
 import * as faker from 'faker';
-import { Survey } from "../../../../../Core/Domain/Model/Aggregates/Ballot/Entities/MasterBallot.model";
 import { CategoryVO } from "../../../../../Core/Domain/Model/Common/ValueObjects/CategoryVO.model";
+import { MasterBallot } from "../../../../../Core/Domain/Model/Aggregates/MasterBallot/Entities/MasterBallot.model";
 
-export class TestSurveyFactory {
-	static createFullSurvey(options?: OptionalParams): Survey {
-		const s = TestSurveyFactory.createBaseSurvey(
+export class TestMasterBallotFactory {
+	static createFullMasterBallot(options?: OptionalParams): MasterBallot {
+		const s = TestMasterBallotFactory.createBaseMasterBallot(
 			options !== undefined ?
-				options.surveyParams : undefined
+				options.masterBallotParams : undefined
 		);
 
 		let questions;
 		if (options !== undefined) {
-			questions = TestSurveyFactory.createRandomQuestionsWithChoices(
+			questions = TestMasterBallotFactory.createRandomQuestionsWithChoices(
 				(options.questionParams !== undefined ?
 					options.questionParams : undefined),
 				(options.choiceParams !== undefined ?
 					options.choiceParams : undefined)
 			);
 		} else {
-			questions = TestSurveyFactory.createRandomQuestionsWithChoices();
+			questions = TestMasterBallotFactory.createRandomQuestionsWithChoices();
 		}
 
 		for (const q of questions)
@@ -27,10 +27,10 @@ export class TestSurveyFactory {
 		return s;
 	}
 
-	// We create the data first because if there are optional survey parameters we need
+	// We create the data first because if there are optional masterBallot parameters we need
 	// to mutate those with patchObject method before we pass them into the MasterBallot
 	// constructor.
-	static createBaseSurvey(surveyParams?: OptionalSurveyParams): Survey {
+	static createBaseMasterBallot(masterBallotParams?: OptionalMasterBallotParams): MasterBallot {
 		const sData = {
 			id: faker.random.uuid(),
 			author: `${faker.name.firstName()} ${faker.name.lastName()}`,
@@ -43,18 +43,16 @@ export class TestSurveyFactory {
 			questions: [],
 		};
 
-		if (surveyParams !== undefined)
-			TestSurveyFactory.patchObject(sData, surveyParams);
+		if (masterBallotParams !== undefined)
+			TestMasterBallotFactory.patchObject(sData, masterBallotParams);
 
-		return new Survey(
+		return new MasterBallot(
 			sData.id,
 			sData.author,
 			sData.title,
 			sData.description,
 			new CategoryVO(sData.category),
 			sData.datePosted,
-			sData.published,
-			sData.anonymous,
 			sData.questions,
 		);
 	}
@@ -68,11 +66,10 @@ export class TestSurveyFactory {
 				title: faker.lorem.words(Math.floor(Math.random() * (8 - 3)) + 3),
 				content: faker.lorem.words(Math.floor(Math.random() * (20 - 8)) + 3),
 				contentType: faker.random.word(),
-				voteTally: faker.random.number({min: 0, max: 10000, precision: 1})
 			};
 
 			if (choiceParams !== undefined)
-				TestSurveyFactory.patchObject(choiceData, choiceParams);
+				TestMasterBallotFactory.patchObject(choiceData, choiceParams);
 
 			return choiceData;
 		});
@@ -88,7 +85,7 @@ export class TestSurveyFactory {
 				id: faker.random.uuid(),
 				title: faker.lorem.words(Math.floor(Math.random() * (8 - 3)) + 3),
 				questionType: faker.random.word(),
-				choicesData: TestSurveyFactory.createRandomChoices(choiceParams),
+				choicesData: TestMasterBallotFactory.createRandomChoices(choiceParams),
 			};
 
 			if (questionParams !== undefined)
@@ -98,7 +95,7 @@ export class TestSurveyFactory {
 		});
 	}
 
-	// This allows us to patch our generated surveys/questions/choices with optional passed
+	// This allows us to patch our generated masterBallots/questions/choices with optional passed
 	// in static values.
 	private static patchObject(inputObj: object, patchObj: object) {
 		for (let [key, value] of Object.entries(patchObj)) {
@@ -119,27 +116,24 @@ class ChoiceData {
 	title: string;
 	content: string;
 	contentType: string;
-	voteTally: number;
 }
 
 // These optional params can be supplied to the primary create, so static values you want to test with
 // can be substituted in for randomly generated ones.  A good rule of thumb is to only pass in one parameter
 // that you are unit testing.
 interface OptionalParams {
-	surveyParams?: OptionalSurveyParams,
+	masterBallotParams?: OptionalMasterBallotParams,
 	questionParams?: OptionalQuestionParams,
 	choiceParams?: OptionalChoiceParams,
 }
 
-interface OptionalSurveyParams {
+interface OptionalMasterBallotParams {
 	id?: string,
 	author?: string,
 	title?: string,
 	description?: string,
 	category?: string,
 	datePosted?: Date,
-	anonymous?: boolean,
-	published?: boolean,
 }
 
 interface OptionalQuestionParams {
@@ -153,5 +147,4 @@ interface OptionalChoiceParams {
 	title?: string;
 	content?: string;
 	contentType?: string;
-	voteTally?: number;
 }

@@ -140,7 +140,7 @@ export class Election extends Entity {
 		return true;
 	}
 
-	// Subscribe here (one place) and add any sub-methods of tasks we would like
+	// Subscribe here (one place) and add any methods for tasks we would like
 	// to carry out inside the callback.
 	subscribeToBallotCastEventStream() {
 		this._ballotCastEventBus.stream

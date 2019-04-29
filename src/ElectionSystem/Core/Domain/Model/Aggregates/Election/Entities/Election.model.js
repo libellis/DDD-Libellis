@@ -107,7 +107,7 @@ var Election = /** @class */ (function (_super) {
         }
         return true;
     };
-    // Subscribe here (one place) and add any sub-methods of tasks we would like
+    // Subscribe here (one place) and add any methods for tasks we would like
     // to carry out inside the callback.
     Election.prototype.subscribeToBallotCastEventStream = function () {
         var _this = this;

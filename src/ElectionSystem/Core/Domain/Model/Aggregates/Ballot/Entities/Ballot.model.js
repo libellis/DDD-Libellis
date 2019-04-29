@@ -19,10 +19,11 @@ var QuestionVO_model_1 = require("../ValueObjects/QuestionVO.model");
 var ScoreVO_model_1 = require("../ValueObjects/ScoreVO.model");
 var Ballot = /** @class */ (function (_super) {
     __extends(Ballot, _super);
-    function Ballot(id, voterId, _questions) {
+    function Ballot(id, voterId, _questions, _ballotCreatedStream) {
         var _this = _super.call(this, id) || this;
         _this.voterId = voterId;
         _this._questions = _questions;
+        _this._ballotCreatedStream = _ballotCreatedStream;
         return _this;
     }
     // Must enforce following logic:

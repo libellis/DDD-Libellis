@@ -3,6 +3,8 @@ import { IBallotData } from "../Abstractions/IBallotData";
 import { Vote } from "./Vote.model";
 import { QuestionVO } from "../ValueObjects/QuestionVO.model";
 import { ScoreVO } from "../ValueObjects/ScoreVO.model";
+import { Subject } from "rxjs";
+import { BallotCreatedEvent } from "../../../Events/BallotCreatedEvent.model";
 
 export class Ballot extends Entity {
 
@@ -10,6 +12,7 @@ export class Ballot extends Entity {
 		id: string,
 		public voterId: string,
 		private _questions: QuestionVO[],
+		private _ballotCreatedStream: Subject<BallotCreatedEvent>,
 	) {
 		super(id);
 	}

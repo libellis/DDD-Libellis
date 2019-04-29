@@ -2,182 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04847df4-1dab-429b-83b0-5ef0601c3026" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Election/Entities/Election.model.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Entities/Choice.model.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Entities/MasterBallot.model.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SharedKernel/Guard.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Core/Domain/Model/Entities/Survey.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Core/Domain/Model/Entities/Survey.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Election/Core/Application/Services/Actors/Users/Users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Election/Core/Application/Services/Actors/Users/Users.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Election/Core/Application/Services/Interfaces/ISurveyRepository.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Election/Core/Application/Services/Interfaces/ISurveyRepository.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Election/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Election/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Election/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Election/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Election/Tests/Core/Domain/Model/Entities/Survey.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Election/Tests/Core/Domain/Model/Entities/Survey.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Election/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Election/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Election/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Election/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Election/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Election/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Election/Tests/Mocks/Repositories/MockSurveyRepository.model.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Election/Tests/Mocks/Repositories/MockSurveyRepository.model.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Election/Tests/Mocks/Repositories/MockSurveyRepository.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Election/Tests/Mocks/Repositories/MockSurveyRepository.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Entities/Survey.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Entities/Survey.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Abstractions/ISurveyData.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Abstractions/ISurveyData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Entities/Survey.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Entities/Survey.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SurveyManagement/Tests/Core/Domain/Model/Entities/Survey.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SurveyManagement/Tests/Core/Domain/Model/Entities/Survey.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SurveyManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SurveyManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/SurveyManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/SurveyManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Tests/Core/Domain/Model/Entities/Survey.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Tests/Core/Domain/Model/Entities/Survey.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/UserManagement/Tests/Core/Domain/Model/Entities/Survey.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UserManagement/Tests/Core/Domain/Model/Entities/Survey.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/UserManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UserManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/UserManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UserManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/UserManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UserManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/UserManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UserManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/UserManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UserManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Application/Models/InputObjects/ISurveyInputData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Application/Models/InputObjects/ISurveyInputData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Application/Models/InputObjects/ISurveyInputData.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Application/Models/InputObjects/ISurveyInputData.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Application/Models/InputObjects/ISurveyInputData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Application/Models/InputObjects/ISurveyInputData.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Application/Services/Actors/Users/Users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Application/Services/Actors/Users/Users.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Application/Services/Actors/Users/Users.service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Application/Services/Actors/Users/Users.service.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Application/Services/Actors/Users/Users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Application/Services/Actors/Users/Users.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Application/Services/Interfaces/IRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Application/Services/Interfaces/IRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Application/Services/Interfaces/IRepository.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Application/Services/Interfaces/IRepository.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Application/Services/Interfaces/IRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Application/Services/Interfaces/IRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Application/Services/Interfaces/ISurveyRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Application/Services/Interfaces/ISurveyRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Application/Services/Interfaces/ISurveyRepository.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Application/Services/Interfaces/ISurveyRepository.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Application/Services/Interfaces/ISurveyRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Application/Services/Interfaces/ISurveyRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Abstractions/IBallotData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Abstractions/IBallotData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Abstractions/IBallotData.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Abstractions/IBallotData.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Abstractions/IBallotData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Abstractions/IBallotData.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Entities/Vote.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Vote.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Entities/Vote.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Vote.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Entities/Vote.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Vote.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/ValueObjects/QuestionVO.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/ValueObjects/QuestionVO.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/ValueObjects/QuestionVO.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/ValueObjects/QuestionVO.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/ValueObjects/QuestionVO.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/ValueObjects/QuestionVO.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/ValueObjects/ScoreVO.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/ValueObjects/ScoreVO.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/ValueObjects/ScoreVO.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/ValueObjects/ScoreVO.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/ValueObjects/ScoreVO.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/ValueObjects/ScoreVO.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Election/Entities/Election.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Election/Entities/Election.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Election/Entities/Election.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Election/Entities/Election.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Election/Entities/Election.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Voter/Entities/User.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Voter/Entities/User.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Voter/Entities/User.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Voter/Entities/User.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Voter/Entities/User.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Voter/Entities/User.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Common/Entities/Entity.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/Entities/Entity.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Common/Entities/Entity.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/Entities/Entity.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Common/Entities/Entity.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/Entities/Entity.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Common/ValueObjects/CategoryVO.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/CategoryVO.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Common/ValueObjects/CategoryVO.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/CategoryVO.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Core/Domain/Model/Common/ValueObjects/CategoryVO.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/CategoryVO.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Infrastructure/Persistence/Abstractions/IPSQLPool.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Infrastructure/Persistence/Abstractions/IPSQLPool.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Infrastructure/Persistence/Abstractions/IPSQLPool.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Infrastructure/Persistence/Abstractions/IPSQLPool.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/Entities/Survey.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Entities/Survey.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/Entities/Survey.spec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Entities/Survey.spec.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/Entities/Survey.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Entities/Survey.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Mocks/Repositories/MockSurveyRepository.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Mocks/Repositories/MockSurveyRepository.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Mocks/Repositories/MockSurveyRepository.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Election/Tests/Mocks/Repositories/MockSurveyRepository.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Mocks/Repositories/MockSurveyRepository.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SharedKernel/DateTimeRangeVO.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedKernel/DateTimeRangeVO.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SharedKernel/DateTimeRangeVO.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedKernel/DateTimeRangeVO.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SharedKernel/DateTimeRangeVO.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedKernel/DateTimeRangeVO.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Application/Models/InputObjects/ISurveyInputData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Application/Models/InputObjects/ISurveyInputData.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Application/Models/InputObjects/ISurveyInputData.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Application/Services/Interfaces/IRepository.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Application/Services/Interfaces/IRepository.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Application/Services/Interfaces/IRepository.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Application/Services/Interfaces/ISurveyRepository.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Application/Services/Interfaces/ISurveyRepository.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Application/Services/Interfaces/ISurveyRepository.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Abstractions/ISurveyData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Abstractions/ISurveyData.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Abstractions/ISurveyData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Abstractions/IMasterBallotData.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Entities/Choice.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Entities/Choice.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Entities/Choice.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Entities/Choice.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Entities/Choice.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Entities/Question.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Entities/Question.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Entities/Question.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Entities/Question.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Entities/Question.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Entities/Question.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Entities/Survey.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Entities/MasterBallot.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Entities/Survey.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/Survey/Entities/Survey.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Entities/MasterBallot.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/User/Entities/User.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/User/Entities/User.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/User/Entities/User.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Common/Entities/Entity.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Common/Entities/Entity.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Common/Entities/Entity.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Common/ValueObjects/CategoryVO.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Common/ValueObjects/CategoryVO.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Common/ValueObjects/CategoryVO.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Common/ValueObjects/VoteTallyVO.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Common/ValueObjects/VoteTallyVO.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Common/ValueObjects/VoteTallyVO.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Infrastructure/Persistence/Abstractions/IPSQLPool.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Infrastructure/Persistence/Abstractions/IPSQLPool.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Infrastructure/Persistence/Repositories/SQLRepositories/SQLRepositoryBase.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Infrastructure/Persistence/Repositories/SQLRepositories/SQLSurveyRepository.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/Entities/Survey.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/Entities/Survey.spec.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/Entities/Survey.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Mocks/Repositories/MockSurveyRepository.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SurveyManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Entities/Survey.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Entities/Survey.spec.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Entities/Survey.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Mocks/Repositories/MockSurveyRepository.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -217,11 +50,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+            <state relative-caret-position="309">
+              <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tsconfig.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="577">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#83#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="28">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -236,19 +99,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Entities/Choice.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Election/Entities/Election.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
-              <caret line="83" column="21" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
+            <state relative-caret-position="424">
+              <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
               </folding>
@@ -261,24 +115,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="28">
               <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SharedKernel/DateTimeRangeVO.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="688">
-              <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/ValueObjects/QuestionVO.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -308,10 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Core/Domain/Model/Entities/Entity.model.ts" />
-        <option value="$PROJECT_DIR$/src/Infrastructure/Persistence/Abstractions/IPSQLPool.model.ts" />
-        <option value="$PROJECT_DIR$/src/Core/Application/Services/Interfaces/IRepository.ts" />
-        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Entities/Survey.test.ts" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/SurveyFactory.model.ts" />
         <option value="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.ts" />
@@ -359,6 +191,10 @@
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Abstractions/IBallotData.ts" />
         <option value="$PROJECT_DIR$/src/SharedKernel/Guard.model.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Election/Entities/Election.model.ts" />
+        <option value="$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.ts" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.ts" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts" />
+        <option value="$PROJECT_DIR$/tsconfig.json" />
       </list>
     </option>
   </component>
@@ -384,98 +220,6 @@
               <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
               <item name="libellis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Aggregates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Aggregates" type="462c0819:PsiDirectoryNode" />
-              <item name="Ballot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Aggregates" type="462c0819:PsiDirectoryNode" />
-              <item name="Ballot" type="462c0819:PsiDirectoryNode" />
-              <item name="Abstractions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Aggregates" type="462c0819:PsiDirectoryNode" />
-              <item name="Election" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Aggregates" type="462c0819:PsiDirectoryNode" />
-              <item name="Election" type="462c0819:PsiDirectoryNode" />
-              <item name="Entities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="SharedKernel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -538,12 +282,12 @@
       <workItem from="1555986816538" duration="436000" />
       <workItem from="1555993459622" duration="683000" />
       <workItem from="1556041273060" duration="38000" />
-      <workItem from="1556472111739" duration="15558000" />
+      <workItem from="1556472111739" duration="17453000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67280000" />
+    <option name="totallyTimeSpent" value="69175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="27" width="1670" height="1018" extended-state="6" />
@@ -564,7 +308,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.20261438" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20261438" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -582,24 +326,14 @@
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Abstractions/IMasterBallotData.js.map" />
         <option value="$PROJECT_DIR$/src/SharedKernel/Guard.model.js.map" />
         <option value="$PROJECT_DIR$/src/SharedKernel/Guard.model.js" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.js.map" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.js" />
+        <option value="$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.js" />
+        <option value="$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.js.map" />
       </list>
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/index.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -836,16 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SharedKernel/DateTimeRangeVO.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="688">
@@ -903,11 +627,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Election/Entities/Election.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="83" column="21" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
+        <state relative-caret-position="424">
+          <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
           <folding>
             <element signature="e#0#63#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>

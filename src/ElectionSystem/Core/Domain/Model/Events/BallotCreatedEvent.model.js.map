@@ -1,0 +1,1 @@
+{"version":3,"file":"BallotCreatedEvent.model.js","sourceRoot":"","sources":["BallotCreatedEvent.model.ts"],"names":[],"mappings":";;AAGA,mCAAmC;AACnC,8BAAiC;AAEjC;IAIC,4BACiB,MAAc;QAAd,WAAM,GAAN,MAAM,CAAQ;QAE9B,IAAI,CAAC,aAAa,GAAG,IAAI,IAAI,EAAE,CAAC;QAChC,IAAI,CAAC,EAAE,GAAG,IAAI,EAAE,CAAC;IAClB,CAAC;IACF,yBAAC;AAAD,CAAC,AAVD,IAUC;AAVY,gDAAkB"}

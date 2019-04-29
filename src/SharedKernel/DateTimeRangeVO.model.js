@@ -34,6 +34,10 @@ var DateTimeRange = /** @class */ (function () {
         var end = new Date(start.getTime() + minutes * 60000);
         return new DateTimeRange(start, end);
     };
+    DateTimeRange.createRangeFromSeconds = function (start, seconds) {
+        var end = new Date(start.getTime() + seconds * 1000);
+        return new DateTimeRange(start, end);
+    };
     // INSTANCE METHODS
     DateTimeRange.prototype.overlaps = function (other) {
         return this._start.getTime() < other._end.getTime() &&

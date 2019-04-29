@@ -38,6 +38,11 @@ export class DateTimeRange {
 		return new DateTimeRange(start, end);
 	}
 
+	static createRangeFromSeconds(start: Date, seconds: number) : DateTimeRange {
+		const end = new Date(start.getTime() + seconds * 1000);
+		return new DateTimeRange(start, end);
+	}
+
 	// INSTANCE METHODS
 	overlaps(other: DateTimeRange) {
 		return this._start.getTime() < other._end.getTime() &&

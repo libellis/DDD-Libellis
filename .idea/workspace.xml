@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04847df4-1dab-429b-83b0-5ef0601c3026" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCastEvent.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCastEvent.model.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCastEvent.model.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+            <state relative-caret-position="386">
+              <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
               </folding>
@@ -59,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tsconfig.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="577">
@@ -68,11 +67,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.ts">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+            <state relative-caret-position="112">
+              <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCastEvent.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
               <folding>
                 <element signature="e#0#83#0" expanded="true" />
               </folding>
@@ -85,15 +96,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="28">
               <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Abstractions/IMasterBallotData.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="30" selection-start-column="30" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -119,15 +121,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Abstractions/IBallotData.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -144,8 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/SurveyFactory.model.ts" />
         <option value="$PROJECT_DIR$/src/Core/Domain/Model/ValueObjects/VoteTallyVO.model.ts" />
         <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/Survey.spec.ts" />
         <option value="$PROJECT_DIR$/src/Tests/Core/Domain/Model/Factories/TestSurveyFactory.spec.ts" />
@@ -192,16 +183,18 @@
         <option value="$PROJECT_DIR$/src/SharedKernel/Guard.model.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Election/Entities/Election.model.ts" />
         <option value="$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.ts" />
+        <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts" />
-        <option value="$PROJECT_DIR$/tsconfig.json" />
+        <option value="$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.model.ts" />
+        <option value="$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.ts" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="5" />
     <option name="y" value="27" />
-    <option name="width" value="834" />
+    <option name="width" value="1670" />
     <option name="height" value="1018" />
   </component>
   <component name="ProjectView">
@@ -220,6 +213,105 @@
               <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
               <item name="libellis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Aggregates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Aggregates" type="462c0819:PsiDirectoryNode" />
+              <item name="Ballot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Aggregates" type="462c0819:PsiDirectoryNode" />
+              <item name="Ballot" type="462c0819:PsiDirectoryNode" />
+              <item name="Entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Aggregates" type="462c0819:PsiDirectoryNode" />
+              <item name="Election" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Aggregates" type="462c0819:PsiDirectoryNode" />
+              <item name="Election" type="462c0819:PsiDirectoryNode" />
+              <item name="Entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="SharedKernel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="SharedKernel" type="462c0819:PsiDirectoryNode" />
+              <item name="EventStreams" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -282,12 +374,12 @@
       <workItem from="1555986816538" duration="436000" />
       <workItem from="1555993459622" duration="683000" />
       <workItem from="1556041273060" duration="38000" />
-      <workItem from="1556472111739" duration="17453000" />
+      <workItem from="1556472111739" duration="17845000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69175000" />
+    <option name="totallyTimeSpent" value="69567000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="27" width="1670" height="1018" extended-state="6" />
@@ -330,24 +422,14 @@
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.js" />
         <option value="$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.js" />
         <option value="$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.js.map" />
+        <option value="$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.model.js.map" />
+        <option value="$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.model.js" />
+        <option value="$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.js.map" />
+        <option value="$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.js" />
       </list>
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Common/Entities/Entity.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Common/ValueObjects/CategoryVO.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -625,6 +707,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCastEvent.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Election/Entities/Election.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="424">
@@ -635,37 +741,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCreatedEvent.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+        <state relative-caret-position="386">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
           <folding>
             <element signature="e#0#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+    <entry file="file://$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.model.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="112">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

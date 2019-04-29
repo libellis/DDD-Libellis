@@ -23,7 +23,10 @@ var Election = /** @class */ (function (_super) {
     // Array of ballot UUIDs that have been cast.
     _ballotIds, 
     // Array of user UUIDs that have already voted
-    _whoVotedIds) {
+    _whoVotedIds, 
+    // We need the ballot cast event but so we can subscribe to it
+    // and update our list of who has voted
+    _ballotCastEventBus) {
         var _this = _super.call(this, id) || this;
         _this._electionPeriod = _electionPeriod;
         _this._anonymous = _anonymous;
@@ -32,18 +35,23 @@ var Election = /** @class */ (function (_super) {
         _this._validChoiceIds = _validChoiceIds;
         _this._ballotIds = _ballotIds;
         _this._whoVotedIds = _whoVotedIds;
+        _this._ballotCastEventBus = _ballotCastEventBus;
+        // subscribe to event bus here so we are ready to record who has already voted as
+        // early as possible.  Any better ideas for where to subscribe?
+        _this._ballotCastEventBus = _ballotCastEventBus;
+        _this.subscribeToBallotCastEventStream();
         return _this;
     }
     // Factory method for enforcing invariance:
     // 1. Start and end date validity is checked by DateTimeRange VO
-    Election.create = function (idGenerator, start, end, anonymous, masterBallot) {
+    Election.create = function (idGenerator, start, end, anonymous, masterBallot, ballotCastEventBus) {
         var validQuestionIds = new Set(masterBallot.questions.map(function (q) { return q.id; }));
         var validChoiceIds = new (Set.bind.apply(Set, [void 0].concat(masterBallot.questions.map(function (q) {
             return q.choices.map(function (c) {
                 return c.id;
             });
         }))))();
-        return new Election(idGenerator(), new DateTimeRangeVO_model_1.DateTimeRange(start, end), anonymous, masterBallot.id, validQuestionIds, validChoiceIds, new Set(), new Set());
+        return new Election(idGenerator(), new DateTimeRangeVO_model_1.DateTimeRange(start, end), anonymous, masterBallot.id, validQuestionIds, validChoiceIds, new Set(), new Set(), ballotCastEventBus);
     };
     // Here is where we should enforce invariance that would check whether
     // the ballot data accurately matches the survey it should be attached to.
@@ -60,7 +68,7 @@ var Election = /** @class */ (function (_super) {
             throw new Error("Cannot cast a ballot for an election that is not currently active.");
         }
         // Passed all checks so generate a new ballot using ballot factory method.
-        var ballot = Ballot_model_1.Ballot.create(idGenerator, ballotData);
+        var ballot = Ballot_model_1.Ballot.cast(idGenerator, this._ballotCastEventBus, ballotData);
         // TODO: Once we have domain events setup, should emit a BallotCast event in the ballot factory
         // and subscribe to it here so that we populate our ballotIds and voterIds only once the ballot
         // has definitely been created there after further ballot side invariance checks.
@@ -98,6 +106,20 @@ var Election = /** @class */ (function (_super) {
             throw new Error('The ballot cast does not completely match the master ballot for this election.');
         }
         return true;
+    };
+    // Subscribe here (one place) and add any sub-methods of tasks we would like
+    // to carry out inside the callback.
+    Election.prototype.subscribeToBallotCastEventStream = function () {
+        var _this = this;
+        this._ballotCastEventBus.stream
+            .subscribe(function (ballotCastEvent) {
+            _this.recordWhoVoted(ballotCastEvent);
+        });
+    };
+    // Records who voted in response to a ballot cast event
+    Election.prototype.recordWhoVoted = function (ballotCastEvent) {
+        this._whoVotedIds.add(ballotCastEvent.ballot.voterId);
+        this._ballotIds.add(ballotCastEvent.ballot.id);
     };
     return Election;
 }(Entity_model_1.Entity));

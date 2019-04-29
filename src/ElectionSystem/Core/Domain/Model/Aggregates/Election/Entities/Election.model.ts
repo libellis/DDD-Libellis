@@ -4,6 +4,8 @@ import { Ballot } from "../../Ballot/Entities/Ballot.model";
 import { IBallotData } from "../../Ballot/Abstractions/IBallotData";
 import { MasterBallot } from "../../MasterBallot/Entities/MasterBallot.model";
 import { Guard } from "../../../../../../../SharedKernel/Guard.model";
+import { BallotCastEventBus } from "../../../../../../../SharedKernel/EventStreams/BallotCastEventBus";
+import { BallotCastEvent } from "../../../Events/BallotCastEvent.model";
 
 export class Election extends Entity {
 
@@ -21,8 +23,17 @@ export class Election extends Entity {
 
 		// Array of user UUIDs that have already voted
 		private _whoVotedIds: Set<string>,
+
+		// We need the ballot cast event but so we can subscribe to it
+		// and update our list of who has voted
+		private _ballotCastEventBus: BallotCastEventBus,
 	) {
 		super(id);
+
+		// subscribe to event bus here so we are ready to record who has already voted as
+		// early as possible.  Any better ideas for where to subscribe?
+		this._ballotCastEventBus = _ballotCastEventBus;
+		this.subscribeToBallotCastEventStream();
 	}
 
 	// Factory method for enforcing invariance:
@@ -33,6 +44,7 @@ export class Election extends Entity {
 		end: Date,
 		anonymous: boolean,
 		masterBallot: MasterBallot,
+		ballotCastEventBus: BallotCastEventBus,
 	): Election {
 		const validQuestionIds: Set<string> = new Set(masterBallot.questions.map(q => q.id));
 		const validChoiceIds: Set<string> = new Set(...masterBallot.questions.map(q => {
@@ -51,6 +63,7 @@ export class Election extends Entity {
 			validChoiceIds,
 			new Set(),
 			new Set(),
+			ballotCastEventBus
 			);
 	}
 
@@ -75,8 +88,9 @@ export class Election extends Entity {
 		}
 
 		// Passed all checks so generate a new ballot using ballot factory method.
-		const ballot: Ballot = Ballot.create(
+		const ballot: Ballot = Ballot.cast(
 			idGenerator,
+			this._ballotCastEventBus,
 			ballotData,
 		);
 
@@ -126,4 +140,18 @@ export class Election extends Entity {
 		return true;
 	}
 
+	// Subscribe here (one place) and add any sub-methods of tasks we would like
+	// to carry out inside the callback.
+	subscribeToBallotCastEventStream() {
+		this._ballotCastEventBus.stream
+			.subscribe(ballotCastEvent => {
+				this.recordWhoVoted(ballotCastEvent);
+			})
+	}
+
+	// Records who voted in response to a ballot cast event
+	recordWhoVoted(ballotCastEvent: BallotCastEvent) {
+		this._whoVotedIds.add(ballotCastEvent.ballot.voterId);
+		this._ballotIds.add(ballotCastEvent.ballot.id);
+	}
 }

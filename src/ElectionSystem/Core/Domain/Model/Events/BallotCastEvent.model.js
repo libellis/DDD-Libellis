@@ -2,13 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 // Should this be injected instead?
 var uuid = require("uuid/v4");
-var BallotCreatedEvent = /** @class */ (function () {
-    function BallotCreatedEvent(ballot) {
+var BallotCastEvent = /** @class */ (function () {
+    function BallotCastEvent(ballot) {
         this.ballot = ballot;
         this.eventOccurred = new Date();
         this.id = uuid();
     }
-    return BallotCreatedEvent;
+    return BallotCastEvent;
 }());
-exports.BallotCreatedEvent = BallotCreatedEvent;
-//# sourceMappingURL=BallotCreatedEvent.model.js.map
+exports.BallotCastEvent = BallotCastEvent;
+//# sourceMappingURL=BallotCastEvent.model.js.map

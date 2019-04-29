@@ -4,7 +4,7 @@ import { Ballot } from "../Aggregates/Ballot/Entities/Ballot.model";
 // Should this be injected instead?
 import uuid = require("uuid/v4");
 
-export class BallotCreatedEvent implements IDomainEvent {
+export class BallotCastEvent implements IDomainEvent {
 	public readonly eventOccurred: Date;
 	public readonly id: string;
 

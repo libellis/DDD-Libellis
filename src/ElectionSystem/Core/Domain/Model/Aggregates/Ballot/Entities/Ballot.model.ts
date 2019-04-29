@@ -3,8 +3,8 @@ import { IBallotData } from "../Abstractions/IBallotData";
 import { Vote } from "./Vote.model";
 import { QuestionVO } from "../ValueObjects/QuestionVO.model";
 import { ScoreVO } from "../ValueObjects/ScoreVO.model";
-import { Subject } from "rxjs";
-import { BallotCreatedEvent } from "../../../Events/BallotCreatedEvent.model";
+import { BallotCastEvent } from "../../../Events/BallotCastEvent.model";
+import { BallotCastEventBus } from "../../../../../../../SharedKernel/EventStreams/BallotCastEventBus";
 
 export class Ballot extends Entity {
 
@@ -12,15 +12,16 @@ export class Ballot extends Entity {
 		id: string,
 		public voterId: string,
 		private _questions: QuestionVO[],
-		private _ballotCreatedStream: Subject<BallotCreatedEvent>,
+		private ballotCastEventBus: BallotCastEventBus
 	) {
 		super(id);
 	}
 
-	// Must enforce following logic:
+	// Factory method Must enforce following logic:
 	// 1. Rank logic is correct, and not manipulated - This gets enforced by QuestionVO
-	static create(
+	static cast(
 		idGenerator: () => string,
+		ballotCastEventBus: BallotCastEventBus,
 		sData: IBallotData
 		): Ballot {
 
@@ -45,10 +46,16 @@ export class Ballot extends Entity {
 				);
 			});
 
-		return new Ballot(
+		let ballot = new Ballot(
 			idGenerator(),
 			sData.voterId,
 			questions,
+			ballotCastEventBus
 		);
+
+		const ballotCastEvent = new BallotCastEvent(ballot);
+		ballotCastEventBus.stream.next(ballotCastEvent);
+
+		return ballot;
 	}
 }

@@ -17,18 +17,19 @@ var Entity_model_1 = require("../../../Common/Entities/Entity.model");
 var Vote_model_1 = require("./Vote.model");
 var QuestionVO_model_1 = require("../ValueObjects/QuestionVO.model");
 var ScoreVO_model_1 = require("../ValueObjects/ScoreVO.model");
+var BallotCastEvent_model_1 = require("../../../Events/BallotCastEvent.model");
 var Ballot = /** @class */ (function (_super) {
     __extends(Ballot, _super);
-    function Ballot(id, voterId, _questions, _ballotCreatedStream) {
+    function Ballot(id, voterId, _questions, ballotCastEventBus) {
         var _this = _super.call(this, id) || this;
         _this.voterId = voterId;
         _this._questions = _questions;
-        _this._ballotCreatedStream = _ballotCreatedStream;
+        _this.ballotCastEventBus = ballotCastEventBus;
         return _this;
     }
-    // Must enforce following logic:
+    // Factory method Must enforce following logic:
     // 1. Rank logic is correct, and not manipulated - This gets enforced by QuestionVO
-    Ballot.create = function (idGenerator, sData) {
+    Ballot.cast = function (idGenerator, ballotCastEventBus, sData) {
         var questions = sData
             .voteData
             .questionsData
@@ -40,7 +41,10 @@ var Ballot = /** @class */ (function (_super) {
             });
             return new QuestionVO_model_1.QuestionVO(qData.qId, choices);
         });
-        return new Ballot(idGenerator(), sData.voterId, questions);
+        var ballot = new Ballot(idGenerator(), sData.voterId, questions, ballotCastEventBus);
+        var ballotCastEvent = new BallotCastEvent_model_1.BallotCastEvent(ballot);
+        ballotCastEventBus.stream.next(ballotCastEvent);
+        return ballot;
     };
     return Ballot;
 }(Entity_model_1.Entity));

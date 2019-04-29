@@ -25,6 +25,9 @@ export class Ballot extends Entity {
 		sData: IBallotData
 		): Ballot {
 
+		// We push our questions voteData through score and
+		// question value objects to automatically hit their validation
+		// systems for invariance enforcement.
 		const questions = sData
 			.voteData
 			.questionsData
@@ -53,6 +56,7 @@ export class Ballot extends Entity {
 			ballotCastEventBus
 		);
 
+		// We push the ballot cast event to any interested parties
 		const ballotCastEvent = new BallotCastEvent(ballot);
 		ballotCastEventBus.stream.next(ballotCastEvent);
 

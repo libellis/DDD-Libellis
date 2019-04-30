@@ -1,0 +1,1 @@
+{"version":3,"file":"TestVoterFactory.spec.js","sourceRoot":"","sources":["TestVoterFactory.spec.ts"],"names":[],"mappings":";;AAAA,6BAA8B;AAC9B,iBAAe;AACf,mEAA4D;AAC5D,sGAA+F;AAG/F,QAAQ,CAAC,qCAAqC,EAAE;IAC/C,EAAE,CAAC,gDAAgD,EAAE;QACpD,IAAM,KAAK,GAAG,yCAAgB,CAAC,eAAe,EAAE,CAAC;QACjD,aAAM,CAAC,KAAK,CAAC,CAAC,UAAU,CAAC,mBAAK,CAAC,CAAC;IACjC,CAAC,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC"}

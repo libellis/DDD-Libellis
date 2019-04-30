@@ -16,13 +16,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Entity_model_1 = require("../../../Common/Entities/Entity.model");
 var Vote = /** @class */ (function (_super) {
     __extends(Vote, _super);
-    function Vote(id, questionId, choiceId, score) {
+    function Vote(id, _questionId, _choiceId, score) {
         var _this = _super.call(this, id) || this;
-        _this.questionId = questionId;
-        _this.choiceId = choiceId;
+        _this._questionId = _questionId;
+        _this._choiceId = _choiceId;
         _this.score = score;
         return _this;
     }
+    Object.defineProperty(Vote.prototype, "questionId", {
+        get: function () {
+            return this._questionId;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Vote.prototype, "choiceId", {
+        get: function () {
+            return this._choiceId;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return Vote;
 }(Entity_model_1.Entity));
 exports.Vote = Vote;

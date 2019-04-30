@@ -5,11 +5,17 @@ import { Entity } from "../../../Common/Entities/Entity.model";
 // issuing them a ballot, and recording their vote.
 // A more full picture of the user can be created and updated via the UserManagement
 // bounded context - which could likely be handled by a 3rd party Oauth based service.
-export class User extends Entity {
+export class Voter extends Entity {
 	constructor(
 		id: string,
-		public username: string,
 	) {
 		super(id);
 	}
+
+	static create(
+		idGenerator: () => string,
+	) : Voter {
+		return new Voter(idGenerator());
+	}
+
 }

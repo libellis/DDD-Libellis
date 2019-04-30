@@ -17,13 +17,14 @@ var Entity_model_1 = require("../../../Common/Entities/Entity.model");
 var DateTimeRangeVO_model_1 = require("../../../../../../../SharedKernel/DateTimeRangeVO.model");
 var Ballot_model_1 = require("../../Ballot/Entities/Ballot.model");
 var Guard_model_1 = require("../../../../../../../SharedKernel/Guard.model");
+var Teller_model_1 = require("./Teller.model");
 var Election = /** @class */ (function (_super) {
     __extends(Election, _super);
     function Election(id, _electionPeriod, _anonymous, _masterBallotId, _validQuestionIds, _validChoiceIds, 
     // Array of ballot UUIDs that have been cast.
     _ballotIds, 
     // Array of user UUIDs that have already voted
-    _whoVotedIds, 
+    _whoVotedIds, _teller, 
     // We need the ballot cast event but so we can subscribe to it
     // and update our list of who has voted
     _ballotCastEventBus) {
@@ -35,6 +36,7 @@ var Election = /** @class */ (function (_super) {
         _this._validChoiceIds = _validChoiceIds;
         _this._ballotIds = _ballotIds;
         _this._whoVotedIds = _whoVotedIds;
+        _this._teller = _teller;
         _this._ballotCastEventBus = _ballotCastEventBus;
         // subscribe to event bus here so we are ready to record who has already voted as
         // early as possible.  Any better ideas for where to subscribe?
@@ -46,12 +48,21 @@ var Election = /** @class */ (function (_super) {
     // 1. Start and end date validity is checked by DateTimeRange VO
     Election.create = function (idGenerator, start, end, anonymous, masterBallot, ballotCastEventBus) {
         var validQuestionIds = new Set(masterBallot.questions.map(function (q) { return q.id; }));
-        var validChoiceIds = new (Set.bind.apply(Set, [void 0].concat(masterBallot.questions.map(function (q) {
-            return q.choices.map(function (c) {
-                return c.id;
-            });
-        }))))();
-        return new Election(idGenerator(), new DateTimeRangeVO_model_1.DateTimeRange(start, end), anonymous, masterBallot.id, validQuestionIds, validChoiceIds, new Set(), new Set(), ballotCastEventBus);
+        var validChoiceIds = new Set();
+        for (var _i = 0, _a = masterBallot.questions; _i < _a.length; _i++) {
+            var question = _a[_i];
+            for (var _b = 0, _c = question.choices; _b < _c.length; _b++) {
+                var choice = _c[_b];
+                validChoiceIds.add(choice.id);
+            }
+        }
+        var teller = new Teller_model_1.Teller(idGenerator(), validChoiceIds, ballotCastEventBus);
+        return new Election(idGenerator(), new DateTimeRangeVO_model_1.DateTimeRange(start, end), anonymous, masterBallot.id, validQuestionIds, validChoiceIds, new Set(), new Set(), teller, ballotCastEventBus);
+    };
+    Election.prototype.startElection = function () {
+        if (this._electionPeriod.currentlyIn()) {
+            this._teller.beginCounting();
+        }
     };
     // Here is where we should enforce invariance that would check whether
     // the ballot data accurately matches the survey it should be attached to.
@@ -88,7 +99,7 @@ var Election = /** @class */ (function (_super) {
         }
         // Check if question ids are a match between ballot and master ballot.
         if (!Guard_model_1.Guard.setsMatch(this._validQuestionIds, ballotQuestionIds)) {
-            throw new Error('The ballot cast does not completely match the master ballot for this election.');
+            throw new Error('The ballot cast does not completely match the master ballot for this election');
         }
         // Check for duplicate cIds indicating potential duplicate votes
         var ballotChoiceIdList = [];
@@ -120,6 +131,31 @@ var Election = /** @class */ (function (_super) {
     Election.prototype.recordWhoVoted = function (ballotCastEvent) {
         this._whoVotedIds.add(ballotCastEvent.ballot.voterId);
         this._ballotIds.add(ballotCastEvent.ballot.id);
+    };
+    Election.prototype.electionIsActive = function () {
+        return this._electionPeriod.currentlyIn();
+    };
+    Election.prototype.getElectionResults = function () {
+        if (this._electionPeriod.currentlyAfterRange()) {
+            return this._teller.results;
+        }
+        else {
+            throw new Error("Cannot retrieve election results until the election is over.");
+        }
+    };
+    // Returns choice id for winning choice.  does not rule out duplicates
+    Election.prototype.getWinner = function () {
+        var electionResults = this.getElectionResults();
+        var winningScore = 0;
+        var winner = '';
+        for (var _i = 0, _a = Object.entries(electionResults); _i < _a.length; _i++) {
+            var _b = _a[_i], choice = _b[0], score = _b[1];
+            if (score.tally > winningScore) {
+                winningScore = score.tally;
+                winner = choice;
+            }
+        }
+        return winner;
     };
     return Election;
 }(Entity_model_1.Entity));

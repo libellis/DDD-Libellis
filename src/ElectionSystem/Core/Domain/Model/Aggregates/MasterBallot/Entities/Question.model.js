@@ -23,6 +23,13 @@ var Question = /** @class */ (function (_super) {
         _this.choices = choices;
         return _this;
     }
+    Object.defineProperty(Question.prototype, "choiceCount", {
+        get: function () {
+            return this.choices.length;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return Question;
 }(Entity_model_1.Entity));
 exports.Question = Question;

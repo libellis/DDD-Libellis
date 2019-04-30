@@ -10,4 +10,8 @@ export class Question extends Entity {
 	) {
 		super(id);
 	}
+
+	get choiceCount() {
+		return this.choices.length
+	}
 }

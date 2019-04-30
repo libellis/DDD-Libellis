@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Entity_model_1 = require("../../../Common/Entities/Entity.model");
 var Vote_model_1 = require("./Vote.model");
 var QuestionVO_model_1 = require("../ValueObjects/QuestionVO.model");
-var ScoreVO_model_1 = require("../ValueObjects/ScoreVO.model");
+var ScoreVO_model_1 = require("../../../Common/ValueObjects/ScoreVO.model");
 var BallotCastEvent_model_1 = require("../../../Events/BallotCastEvent.model");
 var Ballot = /** @class */ (function (_super) {
     __extends(Ballot, _super);

@@ -39,6 +39,10 @@ export class MasterBallot extends Entity {
 		);
 	}
 
+	get questionCount() {
+		return this.questions.length;
+	}
+
 	// Factory method is only for the very first time entity is created.
 	// Otherwise re-hydrate with constructor as per DDD practice.
 	static create(

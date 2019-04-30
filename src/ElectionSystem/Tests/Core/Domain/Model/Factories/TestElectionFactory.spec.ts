@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import { assert, expect } from 'chai';
 import 'mocha';
 import { TestElectionFactory } from "./TestElectionFactory.model";
 import { Election } from "../../../../../Core/Domain/Model/Aggregates/Election/Entities/Election.model";
@@ -8,25 +8,20 @@ import { TestMasterBallotFactory } from "./TestMasterBallotFactory.model";
 describe('Test TestElectionFactory constructor', () => {
 	it('should construct an instance of an Election entity', () => {
 		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
-		const electionResult = TestElectionFactory.createElectionFromMasterBallot(masterBallot);
+		const electionResult = TestElectionFactory.createElectionWithFactory(masterBallot);
 		expect(electionResult).instanceOf(Election);
 	});
 
-	// it('should correctly pass in optional election parameters', () => {
-	// 	const testTitle = 'TestTitle';
-	// 	const electionResult = TestElectionFactory.createElectionFromMasterBallot({electionParams: { title: testTitle}});
-	// 	expect(electionResult.title).equals(testTitle);
-	// });
+	it('should generate an election that is currently active', () => {
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+		const electionResult = TestElectionFactory.createElectionWithFactory(masterBallot);
+		assert(electionResult.electionIsActive());
+	});
 
-	// it('should correctly pass in optional question parameters', () => {
-	// 	const testType = 'TestQuestionType';
-	// 	const electionResult = TestElectionFactory.createElectionFromMasterBallot({questionParams: {questionType: testType}});
-	// 	expect(electionResult.questions[0].type).equals(testType);
-	// });
-	//
-	// it('should correctly pass in optional choice parameters', () => {
-	// 	const testId = 'TestUUID';
-	// 	const electionResult = TestElectionFactory.createElectionFromMasterBallot({choiceParams: { id: testId }});
-	// 	expect(electionResult.questions[0].choices[0].id).equals(testId);
-	// });
+	it('should correctly pass in optional election parameters', () => {
+		const testStart = new Date((new Date()).getTime() + 90000);
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+		const electionResult = TestElectionFactory.createElectionWithFactory(masterBallot, { start: testStart});
+		assert.isFalse(electionResult.electionIsActive());
+	});
 });

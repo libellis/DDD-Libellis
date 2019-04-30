@@ -19,14 +19,15 @@ var Entity_model_1 = require("../../../Common/Entities/Entity.model");
 // issuing them a ballot, and recording their vote.
 // A more full picture of the user can be created and updated via the UserManagement
 // bounded context - which could likely be handled by a 3rd party Oauth based service.
-var User = /** @class */ (function (_super) {
-    __extends(User, _super);
-    function User(id, username) {
-        var _this = _super.call(this, id) || this;
-        _this.username = username;
-        return _this;
+var Voter = /** @class */ (function (_super) {
+    __extends(Voter, _super);
+    function Voter(id) {
+        return _super.call(this, id) || this;
     }
-    return User;
+    Voter.create = function (idGenerator) {
+        return new Voter(idGenerator());
+    };
+    return Voter;
 }(Entity_model_1.Entity));
-exports.User = User;
-//# sourceMappingURL=User.model.js.map
+exports.Voter = Voter;
+//# sourceMappingURL=Voter.model.js.map

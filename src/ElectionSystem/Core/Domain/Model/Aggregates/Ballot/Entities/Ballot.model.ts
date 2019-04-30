@@ -2,7 +2,7 @@ import { Entity } from "../../../Common/Entities/Entity.model";
 import { IBallotData } from "../Abstractions/IBallotData";
 import { Vote } from "./Vote.model";
 import { QuestionVO } from "../ValueObjects/QuestionVO.model";
-import { ScoreVO } from "../ValueObjects/ScoreVO.model";
+import { ScoreVO } from "../../../Common/ValueObjects/ScoreVO.model";
 import { BallotCastEvent } from "../../../Events/BallotCastEvent.model";
 import { BallotCastEventBus } from "../../../../../../../SharedKernel/EventStreams/BallotCastEventBus";
 
@@ -11,7 +11,7 @@ export class Ballot extends Entity {
 	constructor(
 		id: string,
 		public voterId: string,
-		private _questions: QuestionVO[],
+		public _questions: QuestionVO[],
 		private ballotCastEventBus: BallotCastEventBus
 	) {
 		super(id);

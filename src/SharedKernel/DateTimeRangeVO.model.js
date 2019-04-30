@@ -53,6 +53,10 @@ var DateTimeRange = /** @class */ (function () {
         return now.getTime() >= this._start.getTime() &&
             now.getTime() < this._end.getTime();
     };
+    DateTimeRange.prototype.currentlyAfterRange = function () {
+        var now = new Date();
+        return now.getTime() > this._end.getTime();
+    };
     return DateTimeRange;
 }());
 exports.DateTimeRange = DateTimeRange;

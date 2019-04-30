@@ -61,4 +61,10 @@ export class DateTimeRange {
 		return now.getTime() >= this._start.getTime() &&
 			now.getTime() < this._end.getTime();
 	}
+
+	currentlyAfterRange() {
+		const now = new Date();
+
+		return now.getTime() > this._end.getTime();
+	}
 }

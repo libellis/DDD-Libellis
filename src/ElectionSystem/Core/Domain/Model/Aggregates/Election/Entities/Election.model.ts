@@ -6,6 +6,7 @@ import { MasterBallot } from "../../MasterBallot/Entities/MasterBallot.model";
 import { Guard } from "../../../../../../../SharedKernel/Guard.model";
 import { BallotCastEventBus } from "../../../../../../../SharedKernel/EventStreams/BallotCastEventBus";
 import { BallotCastEvent } from "../../../Events/BallotCastEvent.model";
+import { Teller } from "./Teller.model";
 
 export class Election extends Entity {
 
@@ -13,7 +14,7 @@ export class Election extends Entity {
 		id: string,
 		private _electionPeriod: DateTimeRange,
 		private _anonymous: boolean,
-		private _masterBallotId: string,
+		public readonly _masterBallotId: string,
 
 		private _validQuestionIds: Set<string>,
 		private _validChoiceIds: Set<string>,
@@ -23,6 +24,8 @@ export class Election extends Entity {
 
 		// Array of user UUIDs that have already voted
 		private _whoVotedIds: Set<string>,
+
+		private _teller: Teller,
 
 		// We need the ballot cast event but so we can subscribe to it
 		// and update our list of who has voted
@@ -47,12 +50,13 @@ export class Election extends Entity {
 		ballotCastEventBus: BallotCastEventBus,
 	): Election {
 		const validQuestionIds: Set<string> = new Set(masterBallot.questions.map(q => q.id));
-		const validChoiceIds: Set<string> = new Set(...masterBallot.questions.map(q => {
-				return q.choices.map(c => {
-					return c.id;
-				})
+		const validChoiceIds: Set<string> = new Set();
+		for (const question of masterBallot.questions) {
+			for (const choice of question.choices) {
+				validChoiceIds.add(choice.id);
 			}
-		));
+		}
+		const teller = new Teller(idGenerator(), validChoiceIds, ballotCastEventBus);
 
 		return new Election(
 			idGenerator(),
@@ -63,8 +67,15 @@ export class Election extends Entity {
 			validChoiceIds,
 			new Set(),
 			new Set(),
+			teller,
 			ballotCastEventBus
 			);
+	}
+
+	startElection() {
+		if (this._electionPeriod.currentlyIn()) {
+			this._teller.beginCounting();
+		}
 	}
 
 	// Here is where we should enforce invariance that would check whether
@@ -117,7 +128,7 @@ export class Election extends Entity {
 
 		// Check if question ids are a match between ballot and master ballot.
 		if (!Guard.setsMatch(this._validQuestionIds, ballotQuestionIds)) {
-			throw new Error('The ballot cast does not completely match the master ballot for this election.');
+			throw new Error('The ballot cast does not completely match the master ballot for this election');
 		}
 
 		// Check for duplicate cIds indicating potential duplicate votes
@@ -153,5 +164,31 @@ export class Election extends Entity {
 	recordWhoVoted(ballotCastEvent: BallotCastEvent) {
 		this._whoVotedIds.add(ballotCastEvent.ballot.voterId);
 		this._ballotIds.add(ballotCastEvent.ballot.id);
+	}
+
+	electionIsActive(): boolean {
+		return this._electionPeriod.currentlyIn();
+	}
+
+	getElectionResults() {
+		if (this._electionPeriod.currentlyAfterRange()) {
+			return this._teller.results;
+		} else {
+			throw new Error("Cannot retrieve election results until the election is over.");
+		}
+	}
+
+	// Returns choice id for winning choice.  does not rule out duplicates
+	getWinner() {
+		let electionResults = this.getElectionResults();
+		let winningScore = 0;
+		let winner = '';
+		for (const [choice, score] of Object.entries(electionResults)) {
+			if (score.tally > winningScore) {
+				winningScore = score.tally;
+				winner = choice;
+			}
+		}
+		return winner;
 	}
 }

@@ -41,6 +41,13 @@ var MasterBallot = /** @class */ (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(MasterBallot.prototype, "questionCount", {
+        get: function () {
+            return this.questions.length;
+        },
+        enumerable: true,
+        configurable: true
+    });
     // Factory method is only for the very first time entity is created.
     // Otherwise re-hydrate with constructor as per DDD practice.
     MasterBallot.create = function (idGenerator, sData) {

@@ -1,4 +1,4 @@
-import { Survey } from "../../../Domain/Model/Aggregates/Ballot/Entities/MasterBallot.model";
+import { Survey } from "../../../Domain/Model/BallotAggregate/Entities/MasterBallot.model";
 
 export interface ISurveyRepository {
 	add(entity: Survey): Promise<boolean>;

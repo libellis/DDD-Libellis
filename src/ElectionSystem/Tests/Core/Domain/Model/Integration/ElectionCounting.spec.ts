@@ -4,7 +4,7 @@ import * as faker from 'faker';
 import { TestMasterBallotFactory } from "../Factories/TestMasterBallotFactory.model";
 import { TestElectionFactory } from "../Factories/TestElectionFactory.model";
 import { TestVoterFactory } from "../Factories/TestVoterFactory.model";
-import { IBallotData } from "../../../../../Core/Domain/Model/Aggregates/Ballot/Abstractions/IBallotData";
+import { IBallotData } from "../../../../../Core/Domain/Model/BallotAggregate/Abstractions/IBallotData";
 
 
 describe('test election process for accuracy', () => {

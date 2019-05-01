@@ -1,7 +1,7 @@
 import { assert, expect } from 'chai';
 import 'mocha';
 import { TestElectionFactory } from "./TestElectionFactory.model";
-import { Election } from "../../../../../Core/Domain/Model/Aggregates/Election/Entities/Election.model";
+import { Election } from "../../../../../Core/Domain/Model/ElectionAggregate/Election.model";
 import { TestMasterBallotFactory } from "./TestMasterBallotFactory.model";
 
 

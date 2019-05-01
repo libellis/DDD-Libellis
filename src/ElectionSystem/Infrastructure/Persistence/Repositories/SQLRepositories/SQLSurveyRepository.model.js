@@ -49,7 +49,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var SQLRepositoryBase_model_1 = require("./SQLRepositoryBase.model");
-var MasterBallot_model_1 = require("../../../../Core/Domain/Model/Aggregates/Ballot/Entities/MasterBallot.model");
+var MasterBallot_model_1 = require("../../../../Core/Domain/Model/BallotAggregate/Entities/MasterBallot.model");
 var CategoryVO_model_1 = require("../../../../Core/Domain/Model/Common/ValueObjects/CategoryVO.model");
 var SQLSurveyRepository = /** @class */ (function (_super) {
     __extends(SQLSurveyRepository, _super);

@@ -1,4 +1,4 @@
-import { User } from "../../../Domain/Model/Aggregates/User/Entities/User.model";
+import { User } from "../../../Domain/Model/UserAggregate/User.model";
 
 export interface IUserRepository {
 	add(entity: User): Promise<boolean>;

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var chai_1 = require("chai");
 require("mocha");
 var TestElectionFactory_model_1 = require("./TestElectionFactory.model");
-var Election_model_1 = require("../../../../../Core/Domain/Model/Aggregates/Election/Entities/Election.model");
+var Election_model_1 = require("../../../../../Core/Domain/Model/ElectionAggregate/Election.model");
 var TestMasterBallotFactory_model_1 = require("./TestMasterBallotFactory.model");
 describe('Test TestElectionFactory constructor', function () {
     it('should construct an instance of an Election entity', function () {

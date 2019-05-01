@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var chai_1 = require("chai");
 require("mocha");
 var TestMasterBallotFactory_model_1 = require("./TestMasterBallotFactory.model");
-var MasterBallot_model_1 = require("../../../../../Core/Domain/Model/Aggregates/MasterBallot/Entities/MasterBallot.model");
+var MasterBallot_model_1 = require("../../../../../Core/Domain/Model/MasterBallotAggregate/MasterBallot.model");
 describe('Test TestMasterBallotFactory constructor', function () {
     it('should construct an instance of MasterBallot entity', function () {
         var masterBallotResult = TestMasterBallotFactory_model_1.TestMasterBallotFactory.createFullMasterBallot();

@@ -16,7 +16,6 @@ describe('test non-root entity purity', () => {
 		const choice = masterBallotResult.questions[0].choices[0];
 		const wrongChoiceType = 'TestWrongChoiceType';
 		choice.contentType = wrongChoiceType;
-		console.log(masterBallotResult.questions[0].choices[0]);
 		assert.notEqual(masterBallotResult.questions[0].choices[0].contentType, wrongChoiceType);
 	});
 });

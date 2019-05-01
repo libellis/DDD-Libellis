@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var MasterBallot_model_1 = require("../../../Core/Domain/Model/Aggregates/Ballot/Entities/MasterBallot.model");
+var MasterBallot_model_1 = require("../../../Core/Domain/Model/BallotAggregate/Entities/MasterBallot.model");
 var MockSurveyRepository = /** @class */ (function () {
     function MockSurveyRepository(mockData) {
         this.mockData = mockData;

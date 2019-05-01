@@ -16,7 +16,6 @@ describe('test non-root entity purity', function () {
         var choice = masterBallotResult.questions[0].choices[0];
         var wrongChoiceType = 'TestWrongChoiceType';
         choice.contentType = wrongChoiceType;
-        console.log(masterBallotResult.questions[0].choices[0]);
         chai_1.assert.notEqual(masterBallotResult.questions[0].choices[0].contentType, wrongChoiceType);
     });
 });

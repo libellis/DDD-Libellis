@@ -1,7 +1,7 @@
-import { Election } from "../../../../../Core/Domain/Model/Aggregates/Election/Entities/Election.model";
+import { Election } from "../../../../../Core/Domain/Model/ElectionAggregate/Election.model";
 import * as faker from 'faker';
 import { BallotCastEventBus } from "../../../../../../SharedKernel/EventStreams/BallotCastEventBus";
-import { MasterBallot } from "../../../../../Core/Domain/Model/Aggregates/MasterBallot/Entities/MasterBallot.model";
+import { MasterBallot } from "../../../../../Core/Domain/Model/MasterBallotAggregate/MasterBallot.model";
 
 export class TestElectionFactory {
 

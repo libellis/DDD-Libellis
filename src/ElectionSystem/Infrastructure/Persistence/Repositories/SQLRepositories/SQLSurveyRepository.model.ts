@@ -1,6 +1,6 @@
 import { SQLRepositoryBase } from "./SQLRepositoryBase.model";
 import { IPSQLPool } from "../../Abstractions/IPSQLPool.model";
-import { Survey } from "../../../../Core/Domain/Model/Aggregates/Ballot/Entities/MasterBallot.model";
+import { Survey } from "../../../../Core/Domain/Model/BallotAggregate/Entities/MasterBallot.model";
 import { CategoryVO } from "../../../../Core/Domain/Model/Common/ValueObjects/CategoryVO.model";
 import { ISurveyRepository } from "../../../../Core/Application/Services/Interfaces/ISurveyRepository";
 

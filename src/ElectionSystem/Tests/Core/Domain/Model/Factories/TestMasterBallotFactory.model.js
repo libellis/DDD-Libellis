@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var faker = require("faker");
 var CategoryVO_model_1 = require("../../../../../Core/Domain/Model/Common/ValueObjects/CategoryVO.model");
-var MasterBallot_model_1 = require("../../../../../Core/Domain/Model/Aggregates/MasterBallot/Entities/MasterBallot.model");
+var MasterBallot_model_1 = require("../../../../../Core/Domain/Model/MasterBallotAggregate/MasterBallot.model");
 var TestMasterBallotFactory = /** @class */ (function () {
     function TestMasterBallotFactory() {
     }

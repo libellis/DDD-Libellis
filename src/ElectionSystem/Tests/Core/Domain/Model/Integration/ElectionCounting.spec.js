@@ -47,7 +47,7 @@ describe('test election process for accuracy', function () {
         return new Promise(function (resolve) { return setTimeout(resolve, milliseconds); });
     };
     it('should start an election, and count test votes accurately', function () { return __awaiter(_this, void 0, void 0, function () {
-        var masterBallot, start, end, election, voters, i, voter, ballotData, highestChoiceCountQuestionIdx, winningCount, i, question;
+        var masterBallot, start, end, election, voters, i, voter, ballotData, highestChoiceCountQuestionIdx, winningCount, i, question, scores, highestScore;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -98,6 +98,13 @@ describe('test election process for accuracy', function () {
                     chai_1.expect(election.getWinner()).equals(masterBallot.questions[highestChoiceCountQuestionIdx]
                         .choices[masterBallot.questions[highestChoiceCountQuestionIdx].choiceCount - 1]
                         .id);
+                    scores = Object.values(election.getElectionResults()).map(function (result) {
+                        return result.tally;
+                    });
+                    highestScore = Math.max.apply(Math, scores);
+                    chai_1.expect(highestScore).equals((masterBallot
+                        .questions[highestChoiceCountQuestionIdx]
+                        .choiceCount - 1) * voters.length);
                     return [2 /*return*/];
             }
         });

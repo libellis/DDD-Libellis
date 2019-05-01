@@ -66,6 +66,16 @@ describe('test election process for accuracy', () => {
 			masterBallot.questions[highestChoiceCountQuestionIdx]
 				.choices[masterBallot.questions[highestChoiceCountQuestionIdx].choiceCount - 1]
 				.id
-		)
+		);
+
+		const scores = Object.values(election.getElectionResults()).map(result => {
+			return result.tally;
+		});
+		const highestScore = Math.max(...scores);
+
+		expect(highestScore).equals(
+			(masterBallot
+				.questions[highestChoiceCountQuestionIdx]
+				.choiceCount-1) * voters.length);
 	});
 });

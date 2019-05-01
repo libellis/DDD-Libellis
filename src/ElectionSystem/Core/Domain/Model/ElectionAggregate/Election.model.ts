@@ -29,7 +29,7 @@ export class Election extends Entity {
 
 		// We need the ballot cast event but so we can subscribe to it
 		// and update our list of who has voted
-		private _ballotCastEventBus: BallotCastEventBus,
+		private readonly _ballotCastEventBus: BallotCastEventBus,
 	) {
 		super(id);
 

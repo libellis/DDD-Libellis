@@ -6,7 +6,7 @@ import { MasterBallot } from "../../../../../Core/Domain/Model/MasterBallotAggre
 export class TestElectionFactory {
 
 	// MasterBallot will likely come during testing from a generation via the TestMasterBallotFactory.
-	static createElectionWithFactory(masterBallot: MasterBallot, optionalParams?: OptionalParams): Election {
+	static createElectionWithFactoryMethod(masterBallot: MasterBallot, optionalParams?: OptionalParams): Election {
 		const start = faker.date.recent(1);
 		const end = new Date(start.getTime() + faker.random.number({min: 86410000, max: 604800000}));
 

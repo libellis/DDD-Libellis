@@ -7,7 +7,7 @@ var TestElectionFactory = /** @class */ (function () {
     function TestElectionFactory() {
     }
     // MasterBallot will likely come during testing from a generation via the TestMasterBallotFactory.
-    TestElectionFactory.createElectionWithFactory = function (masterBallot, optionalParams) {
+    TestElectionFactory.createElectionWithFactoryMethod = function (masterBallot, optionalParams) {
         var start = faker.date.recent(1);
         var end = new Date(start.getTime() + faker.random.number({ min: 86410000, max: 604800000 }));
         var eData = {

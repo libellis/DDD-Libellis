@@ -42,45 +42,24 @@ var faker = require("faker");
 var TestMasterBallotFactory_model_1 = require("../Factories/TestMasterBallotFactory.model");
 var TestElectionFactory_model_1 = require("../Factories/TestElectionFactory.model");
 var TestVoterFactory_model_1 = require("../Factories/TestVoterFactory.model");
+var TestBallotDataFactory_model_1 = require("../Factories/TestBallotDataFactory.model");
 describe('test election process for accuracy', function () {
     var sleep = function (milliseconds) {
         return new Promise(function (resolve) { return setTimeout(resolve, milliseconds); });
     };
     it('should start an election, and count test votes accurately', function () { return __awaiter(_this, void 0, void 0, function () {
-        var masterBallot, start, end, election, voters, i, voter, ballotData, highestChoiceCountQuestionIdx, winningCount, i, question, scores, highestScore;
+        var masterBallot, start, end, election, voters, ballotDatas, highestChoiceCountQuestionIdx, winningCount, i, question, scores, highestScore;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     masterBallot = TestMasterBallotFactory_model_1.TestMasterBallotFactory.createFullMasterBallot();
                     start = new Date();
                     end = new Date((new Date()).getTime() + 30);
-                    election = TestElectionFactory_model_1.TestElectionFactory.createElectionWithFactory(masterBallot, { start: start, end: end });
+                    election = TestElectionFactory_model_1.TestElectionFactory.createElectionWithFactoryMethod(masterBallot, { start: start, end: end });
                     voters = TestVoterFactory_model_1.TestVoterFactory.createRandomTestVoters(1, 12);
                     election.startElection();
-                    // Let's somehow replace this with some nice factory generation
-                    for (i = 0; i < voters.length; i++) {
-                        voter = voters[i];
-                        ballotData = {
-                            voterId: voter.id,
-                            masterBallotId: masterBallot.id,
-                            voteData: {
-                                questionsData: masterBallot.questions
-                                    .map(function (q) {
-                                    return {
-                                        qId: q.id,
-                                        choicesData: q.choices
-                                            .map(function (c, j) {
-                                            return {
-                                                cId: c.id,
-                                                score: j,
-                                            };
-                                        })
-                                    };
-                                })
-                            }
-                        };
-                        election.castBallot(faker.random.uuid, ballotData);
-                    }
+                    ballotDatas = TestBallotDataFactory_model_1.TestBallotDataFactory.createTestBallotsFromVotersList(voters, masterBallot);
+                    ballotDatas.map(function (b) { return election.castBallot(faker.random.uuid, b); });
                     highestChoiceCountQuestionIdx = 0;
                     winningCount = 0;
                     for (i = 0; i < masterBallot.questionCount; i++) {

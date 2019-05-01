@@ -5,6 +5,7 @@ import { TestMasterBallotFactory } from "../Factories/TestMasterBallotFactory.mo
 import { TestElectionFactory } from "../Factories/TestElectionFactory.model";
 import { TestVoterFactory } from "../Factories/TestVoterFactory.model";
 import { IBallotData } from "../../../../../Core/Domain/Model/BallotAggregate/Abstractions/IBallotData";
+import { TestBallotDataFactory } from "../Factories/TestBallotDataFactory.model";
 
 
 describe('test election process for accuracy', () => {
@@ -16,35 +17,12 @@ describe('test election process for accuracy', () => {
 		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
 		const start = new Date();
 		const end = new Date((new Date()).getTime() + 30);
-		const election = TestElectionFactory.createElectionWithFactory(masterBallot, { start, end });
+		const election = TestElectionFactory.createElectionWithFactoryMethod(masterBallot, { start, end });
 		const voters = TestVoterFactory.createRandomTestVoters(1, 12);
 		election.startElection();
 
-		// Let's somehow replace this with some nice factory generation
-		for (let i = 0; i < voters.length; i++) {
-			let voter = voters[i];
-			let ballotData: IBallotData = {
-				voterId: voter.id,
-				masterBallotId: masterBallot.id,
-				voteData: {
-					questionsData: masterBallot.questions
-						.map(q => {
-							return {
-								qId: q.id,
-								choicesData: q.choices
-									.map((c, j) => {
-										return {
-											cId: c.id,
-											score: j,
-										}
-									})
-							}
-						})
-				}
-			};
-
-			election.castBallot(faker.random.uuid, ballotData);
-		}
+		const ballotDatas = TestBallotDataFactory.createTestBallotsFromVotersList(voters, masterBallot);
+		ballotDatas.map(b => election.castBallot(faker.random.uuid, b));
 
 		// Get highest winning count questionId this way we can match up the winning choice id.  We lazily assign
 		// the max score possible to the last choice in each array of choices per question.  Therefore the question

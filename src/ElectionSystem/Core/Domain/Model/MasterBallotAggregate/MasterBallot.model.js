@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Question_model_1 = require("./Question.model");
 var Choice_model_1 = require("./Choice.model");
 var CategoryVO_model_1 = require("../Common/ValueObjects/CategoryVO.model");
-var Entity_model_1 = require("../Common/Entities/Entity.model");
+var Entity_model_1 = require("../../../../../SharedKernel/Entities/Entity.model");
 var MasterBallot = /** @class */ (function (_super) {
     __extends(MasterBallot, _super);
     function MasterBallot(id, author, title, description, category, dateCreated, _questions) {

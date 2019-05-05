@@ -13,7 +13,10 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_model_1 = require("../Common/Entities/Entity.model");
+var EmailVO_model_1 = require("../Common/ValueObjects/EmailVO.model");
+var UsernameVO_model_1 = require("../Common/ValueObjects/UsernameVO.model");
+var NameVO_model_1 = require("../Common/ValueObjects/NameVO.model");
+var Entity_model_1 = require("../../../../../SharedKernel/Entities/Entity.model");
 var User = /** @class */ (function (_super) {
     __extends(User, _super);
     function User(id, username, firstName, lastName, email, photoUrl, isAdmin) {
@@ -26,6 +29,11 @@ var User = /** @class */ (function (_super) {
         _this.isAdmin = isAdmin;
         return _this;
     }
+    // Admin user cannot be created.  An existing user can be turned into an admin user by another
+    // admin user only.
+    User.create = function (idGenerator, userData) {
+        return new User(idGenerator(), new UsernameVO_model_1.Username(userData.username), new NameVO_model_1.Name(userData.firstName), new NameVO_model_1.Name(userData.lastName), new EmailVO_model_1.Email(userData.email), new URL(userData.photoUrl), false);
+    };
     return User;
 }(Entity_model_1.Entity));
 exports.User = User;

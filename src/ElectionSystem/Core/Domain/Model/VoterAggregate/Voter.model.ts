@@ -1,4 +1,4 @@
-import { Entity } from "../Common/Entities/Entity.model";
+import { Entity } from "../../../../../SharedKernel/Entities/Entity.model";
 
 // Within the Election System bounded context we don't need to know
 // anymore about the user than these small details to accomplish the task of

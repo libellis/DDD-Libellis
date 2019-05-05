@@ -13,7 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_model_1 = require("../Common/Entities/Entity.model");
+var Entity_model_1 = require("../../../../../SharedKernel/Entities/Entity.model");
 // Within the Election System bounded context we don't need to know
 // anymore about the user than these small details to accomplish the task of
 // issuing them a ballot, and recording their vote.

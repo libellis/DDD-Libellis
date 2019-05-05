@@ -1,4 +1,4 @@
-import { Entity } from "../../../Domain/Model/Common/Entities/Entity.model";
+import { Entity } from "../../../../../SharedKernel/Entities/Entity.model";
 
 export interface IRepository {
     add(entity: Entity): Promise<boolean>;

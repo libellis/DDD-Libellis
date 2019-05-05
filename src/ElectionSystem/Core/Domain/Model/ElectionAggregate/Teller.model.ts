@@ -1,4 +1,4 @@
-import { Entity } from "../Common/Entities/Entity.model";
+import { Entity } from "../../../../../SharedKernel/Entities/Entity.model";
 import { EventBus } from "../../../../../SharedKernel/EventStreams/EventBus";
 import { TallyVO } from "../Common/ValueObjects/TallyVO.model";
 import { Ballot } from "../BallotAggregate/Ballot.model";

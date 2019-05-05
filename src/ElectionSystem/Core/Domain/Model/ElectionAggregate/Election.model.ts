@@ -1,4 +1,4 @@
-import { Entity } from "../Common/Entities/Entity.model";
+import { Entity } from "../../../../../SharedKernel/Entities/Entity.model";
 import { DateTimeRange } from "../../../../../SharedKernel/DateTimeRangeVO.model";
 import { Ballot } from "../BallotAggregate/Ballot.model";
 import { IBallotData } from "../BallotAggregate/Abstractions/IBallotData";

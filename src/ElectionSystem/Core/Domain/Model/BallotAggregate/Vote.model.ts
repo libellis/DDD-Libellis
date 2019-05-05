@@ -1,5 +1,5 @@
-import { Entity } from "../../Common/Entities/Entity.model";
-import { ScoreVO } from "../../Common/ValueObjects/ScoreVO.model";
+import { Entity } from "../Common/Entities/Entity.model";
+import { ScoreVO } from "../Common/ValueObjects/ScoreVO.model";
 
 export class Vote extends Entity {
 	constructor(

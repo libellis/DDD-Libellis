@@ -1,5 +1,5 @@
 import { IDomainEvent } from "../../../../../SharedKernel/Interfaces/IDomainEvent";
-import { Ballot } from "../BallotAggregate/Entities/Ballot.model";
+import { Ballot } from "../BallotAggregate/Ballot.model";
 
 // Should this be injected instead?
 import uuid = require("uuid/v4");

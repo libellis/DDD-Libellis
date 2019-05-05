@@ -13,7 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_model_1 = require("../../Common/Entities/Entity.model");
+var Entity_model_1 = require("../Common/Entities/Entity.model");
 var Vote = /** @class */ (function (_super) {
     __extends(Vote, _super);
     function Vote(id, _questionId, _choiceId, score) {

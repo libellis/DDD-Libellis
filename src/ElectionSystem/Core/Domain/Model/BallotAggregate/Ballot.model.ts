@@ -1,10 +1,10 @@
-import { Entity } from "../../Common/Entities/Entity.model";
-import { IBallotData } from "../Abstractions/IBallotData";
+import { Entity } from "../Common/Entities/Entity.model";
+import { IBallotData } from "./Abstractions/IBallotData";
 import { Vote } from "./Vote.model";
-import { QuestionVO } from "../ValueObjects/QuestionVO.model";
-import { ScoreVO } from "../../Common/ValueObjects/ScoreVO.model";
-import { BallotCastEvent } from "../../Events/BallotCastEvent.model";
-import { BallotCastEventBus } from "../../../../../../SharedKernel/EventStreams/BallotCastEventBus";
+import { QuestionVO } from "./ValueObjects/QuestionVO.model";
+import { ScoreVO } from "../Common/ValueObjects/ScoreVO.model";
+import { BallotCastEvent } from "../Events/BallotCastEvent.model";
+import { BallotCastEventBus } from "../../../../../SharedKernel/EventStreams/BallotCastEventBus";
 
 export class Ballot extends Entity {
 

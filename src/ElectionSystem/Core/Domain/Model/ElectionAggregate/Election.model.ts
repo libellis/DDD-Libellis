@@ -1,6 +1,6 @@
 import { Entity } from "../Common/Entities/Entity.model";
 import { DateTimeRange } from "../../../../../SharedKernel/DateTimeRangeVO.model";
-import { Ballot } from "../BallotAggregate/Entities/Ballot.model";
+import { Ballot } from "../BallotAggregate/Ballot.model";
 import { IBallotData } from "../BallotAggregate/Abstractions/IBallotData";
 import { MasterBallot } from "../MasterBallotAggregate/MasterBallot.model";
 import { Guard } from "../../../../../SharedKernel/Guard.model";

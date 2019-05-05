@@ -1,4 +1,4 @@
-import { Vote } from "../Entities/Vote.model";
+import { Vote } from "../Vote.model";
 
 export class QuestionVO {
 	constructor(

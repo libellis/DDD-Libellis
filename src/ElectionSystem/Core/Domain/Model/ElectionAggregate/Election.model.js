@@ -15,7 +15,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var Entity_model_1 = require("../Common/Entities/Entity.model");
 var DateTimeRangeVO_model_1 = require("../../../../../SharedKernel/DateTimeRangeVO.model");
-var Ballot_model_1 = require("../BallotAggregate/Entities/Ballot.model");
+var Ballot_model_1 = require("../BallotAggregate/Ballot.model");
 var Guard_model_1 = require("../../../../../SharedKernel/Guard.model");
 var Teller_model_1 = require("./Teller.model");
 var Election = /** @class */ (function (_super) {

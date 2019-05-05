@@ -3,7 +3,6 @@ import 'mocha';
 import * as faker from 'faker';
 import { TestElectionFactory } from "../Factories/TestElectionFactory.model";
 import { TestMasterBallotFactory } from "../Factories/TestMasterBallotFactory.model";
-import { ScoreVO } from "../../../../../Core/Domain/Model/Common/ValueObjects/ScoreVO.model";
 import { TestVoterFactory } from "../Factories/TestVoterFactory.model";
 import { TestBallotDataFactory } from "../Factories/TestBallotDataFactory.model";
 

@@ -1,4 +1,4 @@
-import { Ballot } from "../../../../../Core/Domain/Model/BallotAggregate/Entities/Ballot.model";
+import { Ballot } from "../../../../../Core/Domain/Model/BallotAggregate/Ballot.model";
 import * as faker from 'faker';
 import { Election } from "../../../../../Core/Domain/Model/ElectionAggregate/Election.model";
 import { IBallotData } from "../../../../../Core/Domain/Model/BallotAggregate/Abstractions/IBallotData";

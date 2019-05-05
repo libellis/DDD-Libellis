@@ -1,7 +1,7 @@
 import { Entity } from "../Common/Entities/Entity.model";
 import { BallotCastEventBus } from "../../../../../SharedKernel/EventStreams/BallotCastEventBus";
 import { TallyVO } from "../Common/ValueObjects/TallyVO.model";
-import { Ballot } from "../BallotAggregate/Entities/Ballot.model";
+import { Ballot } from "../BallotAggregate/Ballot.model";
 
 // This is part of the election aggregate because the Election is the only entity that knows about the timespan that an
 // election is valid in (electionPeriod) and therefore must enforce when the final results can be retrieved.  Otherwise

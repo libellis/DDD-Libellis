@@ -106,5 +106,33 @@ describe('test invariance enforcement by root', () => {
 
 		expect(() => { election.castBallot(faker.random.uuid, ballotData) }).to.throw();
 	});
+
+	it('should not allow a voter to cast a ballot in a restricted election if they are not permitted.', () => {
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+
+		const start = new Date();
+		const end = new Date((new Date()).getTime() + 30);
+		const permittedVoterIds = new Set(TestVoterFactory.createRandomTestVoters(1, 12).map(v => v.id));
+		const election = TestElectionFactory.createRestrictedElectionWithFactoryMethod(masterBallot, permittedVoterIds, { start, end });
+
+		const notPermittedVoter = TestVoterFactory.createTestVoter();
+		const ballotData = TestBallotDataFactory.createTestBallot(notPermittedVoter.id, masterBallot);
+
+		expect(() => { election.castBallot(faker.random.uuid, ballotData) }).to.throw();
+	});
+
+	it('should allow a voter to cast a ballot in a restricted election if they are permitted.', () => {
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+
+		const start = new Date();
+		const end = new Date((new Date()).getTime() + 30);
+		const permittedVoters = TestVoterFactory.createRandomTestVoters(1, 12);
+		const permittedVoterIds = new Set(permittedVoters.map(v => v.id));
+		const election = TestElectionFactory.createRestrictedElectionWithFactoryMethod(masterBallot, permittedVoterIds, { start, end });
+
+		const ballotData = TestBallotDataFactory.createTestBallot(permittedVoters[0].id, masterBallot);
+
+		expect(() => { election.castBallot(faker.random.uuid, ballotData) }).to.not.throw();
+	});
 });
 

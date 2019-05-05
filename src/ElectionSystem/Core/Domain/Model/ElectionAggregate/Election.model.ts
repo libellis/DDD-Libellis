@@ -16,6 +16,9 @@ export class Election extends Entity {
 		private _anonymous: boolean,
 		public readonly _masterBallotId: string,
 
+		private _restricted: boolean,
+		private _permittedVoters: Set<string>,
+
 		private _validQuestionIds: Set<string>,
 		private _validChoiceIds: Set<string>,
 
@@ -48,6 +51,7 @@ export class Election extends Entity {
 		anonymous: boolean,
 		masterBallot: MasterBallot,
 		ballotCastEventBus: BallotCastEventBus,
+		permittedVoters?: Set<string>,
 	): Election {
 		const validQuestionIds: Set<string> = new Set(masterBallot.questions.map(q => q.id));
 		const validChoiceIds: Set<string> = new Set();
@@ -57,12 +61,21 @@ export class Election extends Entity {
 			}
 		}
 		const teller = new Teller(idGenerator(), validChoiceIds, ballotCastEventBus);
+		let restricted = false;
+
+		if (permittedVoters === undefined) {
+			permittedVoters = new Set();
+		} else {
+			restricted = true;
+		}
 
 		return new Election(
 			idGenerator(),
 			new DateTimeRange(start, end),
 			anonymous,
 			masterBallot.id,
+			restricted,
+			permittedVoters,
 			validQuestionIds,
 			validChoiceIds,
 			new Set(),
@@ -84,9 +97,14 @@ export class Election extends Entity {
 		idGenerator: () => string,
 		ballotData: IBallotData,
 	): Ballot {
+		// Is the election restricted? If so, see if user is in permitted list
+		if (this._restricted && !this._permittedVoters.has(ballotData.voterId)) {
+			throw new Error(`That user is not permitted to vote in this election.`);
+		}
+
 		// Has the user in question already voted?
 		if (this._whoVotedIds.has(ballotData.voterId)) {
-			throw new Error(`That user has already voted in this election`);
+			throw new Error(`That voter has already voted in this election`);
 		}
 
 		// Check if ballot data matches up with survey it should be related to.

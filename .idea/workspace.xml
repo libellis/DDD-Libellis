@@ -3,21 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="04847df4-1dab-429b-83b0-5ef0601c3026" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Entities/Ballot.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Ballot.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Entities/Ballot.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Ballot.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Entities/Ballot.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Ballot.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Entities/Vote.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Vote.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Entities/Vote.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Vote.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Entities/Vote.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Vote.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/ValueObjects/QuestionVO.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/ValueObjects/QuestionVO.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Election.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Election.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Election.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Election.model.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Election.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Election.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Teller.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Teller.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCastEvent.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Events/BallotCastEvent.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotFactory.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotFactory.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/ElectionCounting.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/Election.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/ElectionCounting.spec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/Election.spec.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/ElectionCounting.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/Election.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/ScoreVO.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/ScoreVO.spec.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/ScoreVO.spec.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,19 +37,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Election.model.ts">
+        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/Election.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2128">
-              <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/ElectionCounting.spec.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+            <state relative-caret-position="1624">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -54,7 +51,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestMasterBallotFactory.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
+            <state relative-caret-position="580">
               <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
@@ -64,22 +61,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotDataFactory.model.ts">
+        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestMasterBallotFactory.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="868">
-              <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#104#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            <state relative-caret-position="1680">
+              <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -88,30 +73,54 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Teller.model.ts">
+        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1092">
-              <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
+            <state relative-caret-position="56">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/MasterBallot.spec.ts">
+        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/ScoreVO.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="353">
+              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#0#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.ts">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/ScoreVO.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/TallyVO.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="452">
+              <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="64" column="29" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+            <state relative-caret-position="332">
+              <caret line="132" column="86" selection-start-line="132" selection-start-column="86" selection-end-line="132" selection-end-column="86" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -120,24 +129,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#93#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.ts">
+        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
+              <caret column="9" selection-start-column="9" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -158,9 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Entities/Choice.model.ts" />
-        <option value="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Entities/Vote.model.ts" />
-        <option value="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/ValueObjects/ScoreVO.model.ts" />
         <option value="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/ValueObjects/QuestionVO.model.ts" />
         <option value="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Abstractions/IBallotData.ts" />
         <option value="$PROJECT_DIR$/src/Election/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts" />
@@ -186,7 +178,6 @@
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestMasterBallotFactory.spec.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestMasterBallotFactory.model.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Voter/Entities/User.model.ts" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Teller/Entities/Teller.model.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/TallyVO.model.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Entities/Ballot.model.ts" />
@@ -204,11 +195,15 @@
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Election/Entities/Election.model.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.model.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/MasterBallot.spec.ts" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.ts" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Election.model.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotDataFactory.model.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/ElectionCounting.spec.ts" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Election.model.ts" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.ts" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.ts" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/Election.spec.ts" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/ScoreVO.spec.ts" />
       </list>
     </option>
   </component>
@@ -273,7 +268,18 @@
               <item name="Core" type="462c0819:PsiDirectoryNode" />
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="BallotAggregate" type="462c0819:PsiDirectoryNode" />
+              <item name="Common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Common" type="462c0819:PsiDirectoryNode" />
+              <item name="ValueObjects" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
@@ -318,29 +324,7 @@
               <item name="Core" type="462c0819:PsiDirectoryNode" />
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Aggregates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Factories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Integration" type="462c0819:PsiDirectoryNode" />
+              <item name="ValueObjects" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -353,7 +337,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -370,6 +354,7 @@
       <recent name="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/MasterBallotAggregate" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects" />
       <recent name="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects" />
       <recent name="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories" />
       <recent name="$PROJECT_DIR$/src/Election" />
@@ -388,8 +373,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.test invariance enforcement by root">
-    <configuration name="test election process for accuracy" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Mocha.test value object construction (1)">
+    <configuration name="test election process for accuracy (1)" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -398,13 +383,45 @@
       <ui>bdd</ui>
       <extra-mocha-options>--require ts-node/register</extra-mocha-options>
       <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/ElectionCounting.spec.ts</test-file>
+      <test-file>$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/Election.spec.ts</test-file>
       <test-names>
         <name value="test election process for accuracy" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="test invariance enforcement by root" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+    <configuration name="test invariance enforcement by root.should allow a voter to cast a ballot in a restricted election if they are permitted." type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.ts</test-file>
+      <test-names>
+        <name value="test invariance enforcement by root" />
+        <name value="should allow a voter to cast a ballot in a restricted election if they are permitted." />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="test invariance enforcement by root.should not allow a voter to cast a ballot in a restricted election if they are not permitted." type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.ts</test-file>
+      <test-names>
+        <name value="test invariance enforcement by root" />
+        <name value="should not allow a voter to cast a ballot in a restricted election if they are not permitted." />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="test value object construction (1)" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -413,13 +430,13 @@
       <ui>bdd</ui>
       <extra-mocha-options>--require ts-node/register</extra-mocha-options>
       <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.ts</test-file>
+      <test-file>$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/ScoreVO.spec.ts</test-file>
       <test-names>
-        <name value="test invariance enforcement by root" />
+        <name value="test value object construction" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="test invariance enforcement by root.should not allow a voter to cast a ballot twice" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+    <configuration name="test value object construction" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -427,53 +444,20 @@
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
       <extra-mocha-options>--require ts-node/register</extra-mocha-options>
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.ts</test-file>
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts</test-file>
       <test-names>
-        <name value="test invariance enforcement by root" />
-        <name value="should not allow a voter to cast a ballot twice" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="test invariance enforcement by root.should not allow a voter to cast a ballot with duplicate choices" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.ts</test-file>
-      <test-names>
-        <name value="test invariance enforcement by root" />
-        <name value="should not allow a voter to cast a ballot with duplicate choices" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="test invariance enforcement by root.should not allow a voter to cast a ballot with missing questions" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.ts</test-file>
-      <test-names>
-        <name value="test invariance enforcement by root" />
-        <name value="should not allow a voter to cast a ballot with missing questions" />
+        <name value="test value object construction" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Mocha.test invariance enforcement by root" />
-        <item itemvalue="Mocha.test invariance enforcement by root.should not allow a voter to cast a ballot with missing questions" />
-        <item itemvalue="Mocha.test invariance enforcement by root.should not allow a voter to cast a ballot with duplicate choices" />
-        <item itemvalue="Mocha.test election process for accuracy" />
-        <item itemvalue="Mocha.test invariance enforcement by root.should not allow a voter to cast a ballot twice" />
+        <item itemvalue="Mocha.test value object construction (1)" />
+        <item itemvalue="Mocha.test value object construction" />
+        <item itemvalue="Mocha.test invariance enforcement by root.should allow a voter to cast a ballot in a restricted election if they are permitted." />
+        <item itemvalue="Mocha.test invariance enforcement by root.should not allow a voter to cast a ballot in a restricted election if they are not permitted." />
+        <item itemvalue="Mocha.test election process for accuracy (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -498,48 +482,47 @@
       <workItem from="1556472111739" duration="22955000" />
       <workItem from="1556586599636" duration="12985000" />
       <workItem from="1556673441457" duration="4801000" />
-      <workItem from="1557087201219" duration="83000" />
+      <workItem from="1557087201219" duration="2947000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_election_process_for_accuracy - 2019.05.01 at 09h 36m 32s.xml">
-      <configuration name="test election process for accuracy" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test__process_for_accuracy_should_permit_a_permitted_voter_to_vote_in_a_restricted_election_ - 2019.05.05 at 13h 42m 52s.xml">
+      <configuration name="test  process for accuracy.should permit a permitted voter to vote in a restricted election." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_invariance_enforcement_by_root_should_not_allow_a_voter_to_cast_a_ballot_twice - 2019.05.01 at 09h 39m 01s.xml">
-      <configuration name="test invariance enforcement by root.should not allow a voter to cast a ballot twice" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test__process_for_accuracy_should_permit_a_permitted_voter_to_vote_in_a_restricted_election_ - 2019.05.05 at 13h 43m 08s.xml">
+      <configuration name="test  process for accuracy.should permit a permitted voter to vote in a restricted election." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_invariance_enforcement_by_root - 2019.05.01 at 09h 40m 07s.xml">
-      <configuration name="test invariance enforcement by root" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test__process_for_accuracy_should_permit_a_permitted_voter_to_vote_in_a_restricted_election_ - 2019.05.05 at 13h 44m 32s.xml">
+      <configuration name="test  process for accuracy.should permit a permitted voter to vote in a restricted election." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_election_process_for_accuracy - 2019.05.01 at 09h 40m 53s.xml">
-      <configuration name="test election process for accuracy" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test_election_process_for_accuracy_(1) - 2019.05.05 at 13h 44m 40s.xml">
+      <configuration name="test election process for accuracy (1)" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_invariance_enforcement_by_root - 2019.05.01 at 09h 42m 38s.xml">
-      <configuration name="test invariance enforcement by root" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test_invariance_enforcement_by_root_should_not_allow_a_voter_to_cast_a_ballot_in_a_restricted_election_if_they_are_not_permitted_ - 2019.05.05 at 13h 47m 53s.xml">
+      <configuration name="test invariance enforcement by root.should not allow a voter to cast a ballot in a restricted election if they are not permitted." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_invariance_enforcement_by_root_should_not_allow_a_voter_to_cast_a_ballot_with_duplicate_choices - 2019.05.01 at 09h 44m 10s.xml">
-      <configuration name="test invariance enforcement by root.should not allow a voter to cast a ballot with duplicate choices" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test_invariance_enforcement_by_root_should_not_allow_a_voter_to_cast_a_ballot_in_a_restricted_election_if_they_are_not_permitted_ - 2019.05.05 at 13h 48m 14s.xml">
+      <configuration name="test invariance enforcement by root.should not allow a voter to cast a ballot in a restricted election if they are not permitted." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_invariance_enforcement_by_root_should_not_allow_a_voter_to_cast_a_ballot_with_duplicate_choices - 2019.05.01 at 09h 46m 20s.xml">
-      <configuration name="test invariance enforcement by root.should not allow a voter to cast a ballot with duplicate choices" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test_invariance_enforcement_by_root_should_allow_a_voter_to_cast_a_ballot_in_a_restricted_election_if_they_are_permitted_ - 2019.05.05 at 13h 49m 17s.xml">
+      <configuration name="test invariance enforcement by root.should allow a voter to cast a ballot in a restricted election if they are permitted." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_invariance_enforcement_by_root_should_not_allow_a_voter_to_cast_a_ballot_with_missing_questions - 2019.05.01 at 09h 47m 57s.xml">
-      <configuration name="test invariance enforcement by root.should not allow a voter to cast a ballot with missing questions" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test_invariance_enforcement_by_root_should_allow_a_voter_to_cast_a_ballot_in_a_restricted_election_if_they_are_permitted_ - 2019.05.05 at 13h 50m 48s.xml">
+      <configuration name="test invariance enforcement by root.should allow a voter to cast a ballot in a restricted election if they are permitted." configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_invariance_enforcement_by_root - 2019.05.01 at 09h 50m 11s.xml">
-      <configuration name="test invariance enforcement by root" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test_value_object_construction - 2019.05.05 at 13h 55m 40s.xml">
+      <configuration name="test value object construction" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_invariance_enforcement_by_root - 2019.05.01 at 09h 54m 07s.xml">
-      <configuration name="test invariance enforcement by root" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test_value_object_construction_(1) - 2019.05.05 at 14h 00m 05s.xml">
+      <configuration name="test value object construction (1)" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92546000" />
+    <option name="totallyTimeSpent" value="95410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="27" width="1670" height="1018" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1506765" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -547,7 +530,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3267974" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3267974" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -556,7 +539,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20915033" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.20915033" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -568,41 +551,34 @@
     <option name="version" value="1" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/ElectionCounting.spec.js" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.js" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotFactory.model.js.map" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.model.js" />
         <option value="$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.js.map" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.model.js.map" />
         <option value="$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.js" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/ElectionCounting.spec.js.map" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.js.map" />
         <option value="$PROJECT_DIR$/src/UserManagement/Core/Application/Services/Interfaces/IUserRepository.js" />
         <option value="$PROJECT_DIR$/src/UserManagement/Core/Application/Services/Interfaces/IUserRepository.js.map" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.js" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotDataFactory.model.js.map" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotDataFactory.model.js" />
         <option value="$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.js" />
         <option value="$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.js.map" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Abstractions/IMasterBallotData.js.map" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/TallyVO.model.js.map" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Abstractions/IMasterBallotData.js" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.spec.js" />
         <option value="$PROJECT_DIR$/src/SharedKernel/Guard.model.js.map" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.spec.js.map" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.js" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/TallyVO.model.js" />
         <option value="$PROJECT_DIR$/src/SharedKernel/Guard.model.js" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.js.map" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.js.map" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.model.js.map" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.model.js" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.spec.js" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.spec.js.map" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotFactory.model.js" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotFactory.model.js.map" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.js" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.js.map" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotDataFactory.model.js" />
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotDataFactory.model.js.map" />
+        <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.js.map" />
       </list>
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/SurveyManagement/Tests/Core/Domain/Model/Factories/TestSurveyFactory.model.ts" />
-    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Application/Services/Actors/Users/Users.service.ts" />
-    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Application/Services/Interfaces/IRepository.ts" />
     <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/Entities/Entity.model.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -700,26 +676,12 @@
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/CategoryVO.model.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/ScoreVO.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Application/Services/ElectionCreation.service.ts" />
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Application/Services/ElectionManagement.service.ts" />
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/VoterAggregate/Voter.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" selection-start-column="9" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -740,16 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestMasterBallotFactory.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/MasterBallotAggregate/Choice.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -764,13 +716,6 @@
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/TallyVO.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -811,33 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Election.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2128">
-          <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/ElectionCounting.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestMasterBallotFactory.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotDataFactory.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="868">
@@ -874,10 +792,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/ElectionAggregate/Election.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="106" column="38" selection-start-line="106" selection-start-column="38" selection-end-line="106" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        <state relative-caret-position="416">
+          <caret line="60" column="26" lean-forward="true" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
           <folding>
             <element signature="e#0#93#0" expanded="true" />
           </folding>
@@ -886,22 +811,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="470">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestVoterFactory.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="9" selection-start-column="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="64" column="29" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+        <state relative-caret-position="332">
+          <caret line="132" column="86" selection-start-line="132" selection-start-column="86" selection-end-line="132" selection-end-column="86" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Integration/Election.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1624">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestMasterBallotFactory.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestMasterBallotFactory.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/CategoryVO.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/TallyVO.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Common/ValueObjects/ScoreVO.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/ScoreVO.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/VoteTallyVO.spec.ts">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

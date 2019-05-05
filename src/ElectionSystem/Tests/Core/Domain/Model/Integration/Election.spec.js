@@ -89,4 +89,4 @@ describe('test election process for accuracy', function () {
         });
     }); });
 });
-//# sourceMappingURL=ElectionCounting.spec.js.map
+//# sourceMappingURL=Election.spec.js.map

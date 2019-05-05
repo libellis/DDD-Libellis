@@ -5,7 +5,7 @@ require("mocha");
 var TestElectionFactory_model_1 = require("./TestElectionFactory.model");
 var Election_model_1 = require("../../../../../Core/Domain/Model/ElectionAggregate/Election.model");
 var TestMasterBallotFactory_model_1 = require("./TestMasterBallotFactory.model");
-describe('Test TestElectionFactory constructor', function () {
+describe('Test TestElectionFactory generator', function () {
     it('should construct an instance of an Election entity', function () {
         var masterBallot = TestMasterBallotFactory_model_1.TestMasterBallotFactory.createFullMasterBallot();
         var electionResult = TestElectionFactory_model_1.TestElectionFactory.createElectionWithFactoryMethod(masterBallot);

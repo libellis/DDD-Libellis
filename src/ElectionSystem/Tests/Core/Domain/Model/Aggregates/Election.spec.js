@@ -87,5 +87,25 @@ describe('test invariance enforcement by root', function () {
         ballotData.voteData.questionsData[0].choicesData.push(foreignChoice);
         chai_1.expect(function () { election.castBallot(faker.random.uuid, ballotData); }).to.throw();
     });
+    it('should not allow a voter to cast a ballot in a restricted election if they are not permitted.', function () {
+        var masterBallot = TestMasterBallotFactory_model_1.TestMasterBallotFactory.createFullMasterBallot();
+        var start = new Date();
+        var end = new Date((new Date()).getTime() + 30);
+        var permittedVoterIds = new Set(TestVoterFactory_model_1.TestVoterFactory.createRandomTestVoters(1, 12).map(function (v) { return v.id; }));
+        var election = TestElectionFactory_model_1.TestElectionFactory.createRestrictedElectionWithFactoryMethod(masterBallot, permittedVoterIds, { start: start, end: end });
+        var notPermittedVoter = TestVoterFactory_model_1.TestVoterFactory.createTestVoter();
+        var ballotData = TestBallotDataFactory_model_1.TestBallotDataFactory.createTestBallot(notPermittedVoter.id, masterBallot);
+        chai_1.expect(function () { election.castBallot(faker.random.uuid, ballotData); }).to.throw();
+    });
+    it('should allow a voter to cast a ballot in a restricted election if they are permitted.', function () {
+        var masterBallot = TestMasterBallotFactory_model_1.TestMasterBallotFactory.createFullMasterBallot();
+        var start = new Date();
+        var end = new Date((new Date()).getTime() + 30);
+        var permittedVoters = TestVoterFactory_model_1.TestVoterFactory.createRandomTestVoters(1, 12);
+        var permittedVoterIds = new Set(permittedVoters.map(function (v) { return v.id; }));
+        var election = TestElectionFactory_model_1.TestElectionFactory.createRestrictedElectionWithFactoryMethod(masterBallot, permittedVoterIds, { start: start, end: end });
+        var ballotData = TestBallotDataFactory_model_1.TestBallotDataFactory.createTestBallot(permittedVoters[0].id, masterBallot);
+        chai_1.expect(function () { election.castBallot(faker.random.uuid, ballotData); }).to.not.throw();
+    });
 });
 //# sourceMappingURL=Election.spec.js.map

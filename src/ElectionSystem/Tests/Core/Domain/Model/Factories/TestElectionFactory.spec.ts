@@ -5,7 +5,7 @@ import { Election } from "../../../../../Core/Domain/Model/ElectionAggregate/Ele
 import { TestMasterBallotFactory } from "./TestMasterBallotFactory.model";
 
 
-describe('Test TestElectionFactory constructor', () => {
+describe('Test TestElectionFactory generator', () => {
 	it('should construct an instance of an Election entity', () => {
 		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
 		const electionResult = TestElectionFactory.createElectionWithFactoryMethod(masterBallot);

@@ -20,7 +20,7 @@ var Guard_model_1 = require("../../../../../SharedKernel/Guard.model");
 var Teller_model_1 = require("./Teller.model");
 var Election = /** @class */ (function (_super) {
     __extends(Election, _super);
-    function Election(id, _electionPeriod, _anonymous, _masterBallotId, _validQuestionIds, _validChoiceIds, 
+    function Election(id, _electionPeriod, _anonymous, _masterBallotId, _restricted, _permittedVoters, _validQuestionIds, _validChoiceIds, 
     // Array of ballot UUIDs that have been cast.
     _ballotIds, 
     // Array of user UUIDs that have already voted
@@ -32,6 +32,8 @@ var Election = /** @class */ (function (_super) {
         _this._electionPeriod = _electionPeriod;
         _this._anonymous = _anonymous;
         _this._masterBallotId = _masterBallotId;
+        _this._restricted = _restricted;
+        _this._permittedVoters = _permittedVoters;
         _this._validQuestionIds = _validQuestionIds;
         _this._validChoiceIds = _validChoiceIds;
         _this._ballotIds = _ballotIds;
@@ -46,7 +48,7 @@ var Election = /** @class */ (function (_super) {
     }
     // Factory method for enforcing invariance:
     // 1. Start and end date validity is checked by DateTimeRange VO
-    Election.create = function (idGenerator, start, end, anonymous, masterBallot, ballotCastEventBus) {
+    Election.create = function (idGenerator, start, end, anonymous, masterBallot, ballotCastEventBus, permittedVoters) {
         var validQuestionIds = new Set(masterBallot.questions.map(function (q) { return q.id; }));
         var validChoiceIds = new Set();
         for (var _i = 0, _a = masterBallot.questions; _i < _a.length; _i++) {
@@ -57,7 +59,14 @@ var Election = /** @class */ (function (_super) {
             }
         }
         var teller = new Teller_model_1.Teller(idGenerator(), validChoiceIds, ballotCastEventBus);
-        return new Election(idGenerator(), new DateTimeRangeVO_model_1.DateTimeRange(start, end), anonymous, masterBallot.id, validQuestionIds, validChoiceIds, new Set(), new Set(), teller, ballotCastEventBus);
+        var restricted = false;
+        if (permittedVoters === undefined) {
+            permittedVoters = new Set();
+        }
+        else {
+            restricted = true;
+        }
+        return new Election(idGenerator(), new DateTimeRangeVO_model_1.DateTimeRange(start, end), anonymous, masterBallot.id, restricted, permittedVoters, validQuestionIds, validChoiceIds, new Set(), new Set(), teller, ballotCastEventBus);
     };
     Election.prototype.startElection = function () {
         if (this._electionPeriod.currentlyIn()) {
@@ -67,9 +76,13 @@ var Election = /** @class */ (function (_super) {
     // Here is where we should enforce invariance that would check whether
     // the ballot data accurately matches the survey it should be attached to.
     Election.prototype.castBallot = function (idGenerator, ballotData) {
+        // Is the election restricted? If so, see if user is in permitted list
+        if (this._restricted && !this._permittedVoters.has(ballotData.voterId)) {
+            throw new Error("That user is not permitted to vote in this election.");
+        }
         // Has the user in question already voted?
         if (this._whoVotedIds.has(ballotData.voterId)) {
-            throw new Error("That user has already voted in this election");
+            throw new Error("That voter has already voted in this election");
         }
         // Check if ballot data matches up with survey it should be related to.
         // Throws an error if invalid and prevents further execution

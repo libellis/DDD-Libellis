@@ -23,6 +23,23 @@ var TestElectionFactory = /** @class */ (function () {
         }
         return Election_model_1.Election.create(eData.id, eData.start, eData.end, eData.anonymous, eData.masterBallot, eData.ballotCastEventBus);
     };
+    TestElectionFactory.createRestrictedElectionWithFactoryMethod = function (masterBallot, permittedVoters, optionalParams) {
+        var start = faker.date.recent(1);
+        var end = new Date(start.getTime() + faker.random.number({ min: 86410000, max: 604800000 }));
+        var eData = {
+            id: faker.random.uuid,
+            start: start,
+            end: end,
+            anonymous: faker.random.boolean(),
+            permittedVoters: permittedVoters,
+            masterBallot: masterBallot,
+            ballotCastEventBus: new BallotCastEventBus_1.BallotCastEventBus()
+        };
+        if (optionalParams !== undefined) {
+            TestElectionFactory.patchObject(eData, optionalParams);
+        }
+        return Election_model_1.Election.create(eData.id, eData.start, eData.end, eData.anonymous, eData.masterBallot, eData.ballotCastEventBus, eData.permittedVoters);
+    };
     // This allows us to patch our generated masterBallots/questions/choices with optional passed
     // in static values.
     TestElectionFactory.patchObject = function (inputObj, patchObj) {

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Election_model_1 = require("../../../../../Core/Domain/Model/ElectionAggregate/Election.model");
 var faker = require("faker");
-var BallotCastEventBus_1 = require("../../../../../../SharedKernel/EventStreams/BallotCastEventBus");
+var EventBus_1 = require("../../../../../../SharedKernel/EventStreams/EventBus");
 var TestElectionFactory = /** @class */ (function () {
     function TestElectionFactory() {
     }
@@ -16,7 +16,7 @@ var TestElectionFactory = /** @class */ (function () {
             end: end,
             anonymous: faker.random.boolean(),
             masterBallot: masterBallot,
-            ballotCastEventBus: new BallotCastEventBus_1.BallotCastEventBus()
+            ballotCastEventBus: new EventBus_1.EventBus()
         };
         if (optionalParams !== undefined) {
             TestElectionFactory.patchObject(eData, optionalParams);
@@ -33,7 +33,7 @@ var TestElectionFactory = /** @class */ (function () {
             anonymous: faker.random.boolean(),
             permittedVoters: permittedVoters,
             masterBallot: masterBallot,
-            ballotCastEventBus: new BallotCastEventBus_1.BallotCastEventBus()
+            ballotCastEventBus: new EventBus_1.EventBus()
         };
         if (optionalParams !== undefined) {
             TestElectionFactory.patchObject(eData, optionalParams);

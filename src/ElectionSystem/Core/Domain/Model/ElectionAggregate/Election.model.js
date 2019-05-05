@@ -135,7 +135,7 @@ var Election = /** @class */ (function (_super) {
     // to carry out inside the callback.
     Election.prototype.subscribeToBallotCastEventStream = function () {
         var _this = this;
-        this._ballotCastEventBus.stream
+        this._ballotCastEventBus.ballotCastEventStream
             .subscribe(function (ballotCastEvent) {
             _this.recordWhoVoted(ballotCastEvent);
         });

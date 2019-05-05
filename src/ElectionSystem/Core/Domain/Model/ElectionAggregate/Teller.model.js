@@ -38,7 +38,7 @@ var Teller = /** @class */ (function (_super) {
     // Might need to do some concurrency testing with this.
     Teller.prototype.beginCounting = function () {
         var _this = this;
-        this._ballotCastEventBus.stream.subscribe(function (ballotCastEvent) {
+        this._ballotCastEventBus.ballotCastEventStream.subscribe(function (ballotCastEvent) {
             _this.countBallots(ballotCastEvent.ballot);
         });
     };

@@ -47,7 +47,7 @@ var Ballot = /** @class */ (function (_super) {
         var ballot = new Ballot(idGenerator(), sData.voterId, questions, ballotCastEventBus);
         // We push the ballot cast event to any interested parties
         var ballotCastEvent = new BallotCastEvent_model_1.BallotCastEvent(ballot);
-        ballotCastEventBus.stream.next(ballotCastEvent);
+        ballotCastEventBus.ballotCastEventStream.next(ballotCastEvent);
         return ballot;
     };
     return Ballot;

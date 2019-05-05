@@ -4,7 +4,7 @@ import { Ballot } from "../BallotAggregate/Ballot.model";
 import { IBallotData } from "../BallotAggregate/Abstractions/IBallotData";
 import { MasterBallot } from "../MasterBallotAggregate/MasterBallot.model";
 import { Guard } from "../../../../../SharedKernel/Guard.model";
-import { BallotCastEventBus } from "../../../../../SharedKernel/EventStreams/BallotCastEventBus";
+import { EventBus } from "../../../../../SharedKernel/EventStreams/EventBus";
 import { BallotCastEvent } from "../Events/BallotCastEvent.model";
 import { Teller } from "./Teller.model";
 
@@ -32,7 +32,7 @@ export class Election extends Entity {
 
 		// We need the ballot cast event but so we can subscribe to it
 		// and update our list of who has voted
-		private readonly _ballotCastEventBus: BallotCastEventBus,
+		private readonly _ballotCastEventBus: EventBus,
 	) {
 		super(id);
 
@@ -50,7 +50,7 @@ export class Election extends Entity {
 		end: Date,
 		anonymous: boolean,
 		masterBallot: MasterBallot,
-		ballotCastEventBus: BallotCastEventBus,
+		ballotCastEventBus: EventBus,
 		permittedVoters?: Set<string>,
 	): Election {
 		const validQuestionIds: Set<string> = new Set(masterBallot.questions.map(q => q.id));
@@ -172,7 +172,7 @@ export class Election extends Entity {
 	// Subscribe here (one place) and add any methods for tasks we would like
 	// to carry out inside the callback.
 	subscribeToBallotCastEventStream() {
-		this._ballotCastEventBus.stream
+		this._ballotCastEventBus.ballotCastEventStream
 			.subscribe(ballotCastEvent => {
 				this.recordWhoVoted(ballotCastEvent);
 			})

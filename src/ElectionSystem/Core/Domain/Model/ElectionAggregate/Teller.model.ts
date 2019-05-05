@@ -1,5 +1,5 @@
 import { Entity } from "../Common/Entities/Entity.model";
-import { BallotCastEventBus } from "../../../../../SharedKernel/EventStreams/BallotCastEventBus";
+import { EventBus } from "../../../../../SharedKernel/EventStreams/EventBus";
 import { TallyVO } from "../Common/ValueObjects/TallyVO.model";
 import { Ballot } from "../BallotAggregate/Ballot.model";
 
@@ -13,7 +13,7 @@ export class Teller extends Entity {
 	constructor(
 		id: string,
 		choiceIds: Set<string>,
-		private _ballotCastEventBus: BallotCastEventBus,
+		private _ballotCastEventBus: EventBus,
 	) {
 		super(id);
 		this._voteTally = Teller.mapSetValuesToKeys(choiceIds);
@@ -30,7 +30,7 @@ export class Teller extends Entity {
 	// This should be started from aggregate root where electionPeriod is enforced.
 	// Might need to do some concurrency testing with this.
 	beginCounting() {
-		this._ballotCastEventBus.stream.subscribe(
+		this._ballotCastEventBus.ballotCastEventStream.subscribe(
 			ballotCastEvent => {
 				this.countBallots(ballotCastEvent.ballot);
 			}

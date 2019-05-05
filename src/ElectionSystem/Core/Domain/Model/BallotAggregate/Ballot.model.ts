@@ -4,7 +4,7 @@ import { Vote } from "./Vote.model";
 import { QuestionVO } from "./ValueObjects/QuestionVO.model";
 import { ScoreVO } from "../Common/ValueObjects/ScoreVO.model";
 import { BallotCastEvent } from "../Events/BallotCastEvent.model";
-import { BallotCastEventBus } from "../../../../../SharedKernel/EventStreams/BallotCastEventBus";
+import { EventBus } from "../../../../../SharedKernel/EventStreams/EventBus";
 
 export class Ballot extends Entity {
 
@@ -12,7 +12,7 @@ export class Ballot extends Entity {
 		id: string,
 		public voterId: string,
 		public _questions: QuestionVO[],
-		private ballotCastEventBus: BallotCastEventBus
+		private ballotCastEventBus: EventBus
 	) {
 		super(id);
 	}
@@ -21,7 +21,7 @@ export class Ballot extends Entity {
 	// 1. Rank logic is correct, and not manipulated - This gets enforced by QuestionVO
 	static cast(
 		idGenerator: () => string,
-		ballotCastEventBus: BallotCastEventBus,
+		ballotCastEventBus: EventBus,
 		sData: IBallotData
 		): Ballot {
 
@@ -58,7 +58,7 @@ export class Ballot extends Entity {
 
 		// We push the ballot cast event to any interested parties
 		const ballotCastEvent = new BallotCastEvent(ballot);
-		ballotCastEventBus.stream.next(ballotCastEvent);
+		ballotCastEventBus.ballotCastEventStream.next(ballotCastEvent);
 
 		return ballot;
 	}

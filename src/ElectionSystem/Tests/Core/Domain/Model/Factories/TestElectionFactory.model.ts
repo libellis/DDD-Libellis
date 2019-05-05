@@ -1,6 +1,6 @@
 import { Election } from "../../../../../Core/Domain/Model/ElectionAggregate/Election.model";
 import * as faker from 'faker';
-import { BallotCastEventBus } from "../../../../../../SharedKernel/EventStreams/BallotCastEventBus";
+import { EventBus } from "../../../../../../SharedKernel/EventStreams/EventBus";
 import { MasterBallot } from "../../../../../Core/Domain/Model/MasterBallotAggregate/MasterBallot.model";
 
 export class TestElectionFactory {
@@ -16,7 +16,7 @@ export class TestElectionFactory {
 			end,
 			anonymous: faker.random.boolean(),
 			masterBallot,
-			ballotCastEventBus: new BallotCastEventBus()
+			ballotCastEventBus: new EventBus()
 		};
 
 		if (optionalParams !== undefined) {
@@ -44,7 +44,7 @@ export class TestElectionFactory {
 			anonymous: faker.random.boolean(),
 			permittedVoters,
 			masterBallot,
-			ballotCastEventBus: new BallotCastEventBus()
+			ballotCastEventBus: new EventBus()
 		};
 
 		if (optionalParams !== undefined) {
@@ -75,5 +75,5 @@ interface OptionalParams {
 	start?: Date,
 	end?: Date,
 	anonymous?: boolean,
-	ballotCastEventBus?: BallotCastEventBus,
+	ballotCastEventBus?: EventBus,
 }

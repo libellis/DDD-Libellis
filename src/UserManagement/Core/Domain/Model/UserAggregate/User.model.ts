@@ -3,13 +3,15 @@ import { Email } from "../Common/ValueObjects/EmailVO.model";
 import { Username } from "../Common/ValueObjects/UsernameVO.model";
 import { Name } from "../Common/ValueObjects/NameVO.model";
 import { Entity } from "../../../../../SharedKernel/Entities/Entity.model";
-import { bcrypt } from 'bcryptjs';
 import { EventBus } from "../../../../../SharedKernel/EventStreams/EventBus";
 import { UserCreatedEvent } from "../Events/UserCreatedEvent.model";
 
+// TODO: Should this be injected so our domain layer doesn't have a hard dependency on bcrypt?
+const bcrypt = require('bcryptjs');
+
 export class User extends Entity {
 	private _username: Username;
-	private _password: string;
+	private _hashedPassword: string;
 	private _firstName: Name;
 	private _lastName: Name;
 	private _email: Email;
@@ -29,6 +31,7 @@ export class User extends Entity {
 		super(id);
 		this._username = new Username(username);
 		this._firstName = new Name(firstName);
+		this._hashedPassword = password;
 		this._lastName = new Name(lastName);
 		this._email = new Email(email);
 		this._photoUrl = new URL(photoUrl);
@@ -37,6 +40,10 @@ export class User extends Entity {
 
 	get username() {
 		return this._username.value;
+	}
+
+	get hashedPassword() {
+		return this._hashedPassword;
 	}
 
 	get firstName() {
@@ -92,7 +99,7 @@ export class User extends Entity {
 	}
 
 	private validatePassword(password: string): boolean {
-		return bcrypt.compareSync(password, this._password);
+		return bcrypt.compareSync(password, this._hashedPassword);
 	}
 
 	changePassword(oldPassword: string, newPassword: string): boolean {
@@ -100,9 +107,7 @@ export class User extends Entity {
 			throw new Error(`You did not enter the correct current password for account under username: ${this._username}`);
 		}
 
-		const hashedPw = User.hashPassword(newPassword);
-
-		this._password = hashedPw;
+		this._hashedPassword = User.hashPassword(newPassword);
 		return true;
 	}
 }

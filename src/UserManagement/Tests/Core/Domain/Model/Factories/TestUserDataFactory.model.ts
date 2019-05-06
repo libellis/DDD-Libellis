@@ -1,10 +1,12 @@
 import { IUserData } from "../../../../../Core/Domain/Model/UserAggregate/Abstractions/IUserData";
 import * as faker from 'faker';
+import { OptionalParams } from "./TestUserFactory.model";
 
 export class TestUserDataFactory {
 	static createUserData(options?: OptionalParams): IUserData {
 		const userData: IUserData = {
 			username: faker.internet.userName(),
+			password: faker.lorem.slug(3),
 			firstName: faker.name.firstName(),
 			lastName: faker.name.lastName(),
 			email: faker.internet.email(),
@@ -34,12 +36,4 @@ export class TestUserDataFactory {
 			if (inputObj.hasOwnProperty(key)) inputObj[key] = value;
 		}
 	}
-}
-
-interface OptionalParams {
-	username?: string
-	firstName?: string,
-	lastName?: string,
-	email?: string,
-	photoUrl?: string,
 }

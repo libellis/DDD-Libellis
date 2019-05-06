@@ -17,14 +17,16 @@ var EmailVO_model_1 = require("../Common/ValueObjects/EmailVO.model");
 var UsernameVO_model_1 = require("../Common/ValueObjects/UsernameVO.model");
 var NameVO_model_1 = require("../Common/ValueObjects/NameVO.model");
 var Entity_model_1 = require("../../../../../SharedKernel/Entities/Entity.model");
-var bcryptjs_1 = require("bcryptjs");
 var UserCreatedEvent_model_1 = require("../Events/UserCreatedEvent.model");
+// TODO: Should this be injected so our domain layer doesn't have a hard dependency on bcrypt?
+var bcrypt = require('bcryptjs');
 var User = /** @class */ (function (_super) {
     __extends(User, _super);
     function User(id, username, password, firstName, lastName, email, photoUrl, isAdmin) {
         var _this = _super.call(this, id) || this;
         _this._username = new UsernameVO_model_1.Username(username);
         _this._firstName = new NameVO_model_1.Name(firstName);
+        _this._hashedPassword = password;
         _this._lastName = new NameVO_model_1.Name(lastName);
         _this._email = new EmailVO_model_1.Email(email);
         _this._photoUrl = new URL(photoUrl);
@@ -34,6 +36,13 @@ var User = /** @class */ (function (_super) {
     Object.defineProperty(User.prototype, "username", {
         get: function () {
             return this._username.value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "hashedPassword", {
+        get: function () {
+            return this._hashedPassword;
         },
         enumerable: true,
         configurable: true
@@ -83,18 +92,17 @@ var User = /** @class */ (function (_super) {
         return user;
     };
     User.hashPassword = function (password) {
-        var salt = bcryptjs_1.bcrypt.genSaltSync(10);
-        return bcryptjs_1.bcrypt.hashSync(password, salt);
+        var salt = bcrypt.genSaltSync(10);
+        return bcrypt.hashSync(password, salt);
     };
     User.prototype.validatePassword = function (password) {
-        return bcryptjs_1.bcrypt.compareSync(password, this._password);
+        return bcrypt.compareSync(password, this._hashedPassword);
     };
     User.prototype.changePassword = function (oldPassword, newPassword) {
         if (!this.validatePassword(oldPassword)) {
             throw new Error("You did not enter the correct current password for account under username: " + this._username);
         }
-        var hashedPw = User.hashPassword(newPassword);
-        this._password = hashedPw;
+        this._hashedPassword = User.hashPassword(newPassword);
         return true;
     };
     return User;

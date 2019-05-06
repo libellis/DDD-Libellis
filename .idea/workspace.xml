@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04847df4-1dab-429b-83b0-5ef0601c3026" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/Username.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/User.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/Username.spec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/User.spec.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/Username.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/User.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserFactory.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserFactory.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserFactory.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserFactory.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserFactory.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserFactory.model.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2044">
-              <caret line="73" column="30" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
+            <state relative-caret-position="491">
+              <caret line="111" column="65" selection-start-line="111" selection-start-column="65" selection-end-line="111" selection-end-column="65" />
               <folding>
                 <element signature="e#0#53#0" expanded="true" />
               </folding>
@@ -42,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/User.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
+            <state relative-caret-position="1208">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -96,6 +86,11 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Events/PasswordChangedEvent.model.ts">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.ts">
           <provider selected="true" editor-type-id="text-editor">
@@ -113,15 +108,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="56">
               <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/NameVO.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -200,15 +186,15 @@
         <option value="$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.ts" />
         <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.ts" />
         <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserFactory.model.ts" />
-        <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts" />
         <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/User.spec.ts" />
+        <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="5" />
     <option name="y" value="27" />
-    <option name="width" value="834" />
+    <option name="width" value="1670" />
     <option name="height" value="1018" />
   </component>
   <component name="ProjectView">
@@ -319,7 +305,28 @@
               <item name="Core" type="462c0819:PsiDirectoryNode" />
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Events" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="UserManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
               <item name="UserAggregate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="UserManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="UserAggregate" type="462c0819:PsiDirectoryNode" />
+              <item name="Abstractions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
@@ -435,7 +442,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.test invariance enforcement by root.Should store password as a hashed password">
+  <component name="RunManager" selected="Mocha.test mutation methods">
     <configuration name="test invariance enforcement by root" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -445,9 +452,25 @@
       <ui>bdd</ui>
       <extra-mocha-options>--require ts-node/register</extra-mocha-options>
       <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/Username.spec.ts</test-file>
+      <test-file>$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/User.spec.ts</test-file>
       <test-names>
         <name value="test invariance enforcement by root" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="test invariance enforcement by root.Should allow a user to change their password." type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/User.spec.ts</test-file>
+      <test-names>
+        <name value="test invariance enforcement by root" />
+        <name value="Should allow a user to change their password." />
       </test-names>
       <method v="2" />
     </configuration>
@@ -467,7 +490,7 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="test username value object validity testing" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+    <configuration name="test mutation methods" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -476,9 +499,9 @@
       <ui>bdd</ui>
       <extra-mocha-options>--require ts-node/register</extra-mocha-options>
       <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/UsernameVO.spec.ts</test-file>
+      <test-file>$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/User.spec.ts</test-file>
       <test-names>
-        <name value="test username value object validity testing" />
+        <name value="test mutation methods" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -498,29 +521,13 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="test username value object validity testing.should successfully store a valid username." type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/UsernameVO.spec.ts</test-file>
-      <test-names>
-        <name value="test username value object validity testing" />
-        <name value="should successfully store a valid username." />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha.test mutation methods" />
+        <item itemvalue="Mocha.test invariance enforcement by root" />
+        <item itemvalue="Mocha.test invariance enforcement by root.Should allow a user to change their password." />
         <item itemvalue="Mocha.test invariance enforcement by root.Should store password as a hashed password" />
         <item itemvalue="Mocha.test username value object validity testing.should fail to store a username that is too long." />
-        <item itemvalue="Mocha.test username value object validity testing" />
-        <item itemvalue="Mocha.test username value object validity testing.should successfully store a valid username." />
-        <item itemvalue="Mocha.test invariance enforcement by root" />
       </list>
     </recent_temporary>
   </component>
@@ -545,56 +552,55 @@
       <workItem from="1556472111739" duration="22955000" />
       <workItem from="1556586599636" duration="12985000" />
       <workItem from="1556673441457" duration="4801000" />
-      <workItem from="1557087201219" duration="13387000" />
+      <workItem from="1557087201219" duration="14467000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_invariance_enforcement_by_root - 2019.05.05 at 16h 03m 56s.xml">
+    <history-entry file="test_invariance_enforcement_by_root_Should_allow_a_user_to_change_their_password_ - 2019.05.05 at 22h 10m 15s.xml">
+      <configuration name="test invariance enforcement by root.Should allow a user to change their password." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_invariance_enforcement_by_root_Should_allow_a_user_to_change_their_password_ - 2019.05.05 at 22h 11m 41s.xml">
+      <configuration name="test invariance enforcement by root.Should allow a user to change their password." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_invariance_enforcement_by_root_Should_allow_a_user_to_change_their_password_ - 2019.05.05 at 22h 12m 45s.xml">
+      <configuration name="test invariance enforcement by root.Should allow a user to change their password." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_invariance_enforcement_by_root_Should_allow_a_user_to_change_their_password_ - 2019.05.05 at 22h 12m 59s.xml">
+      <configuration name="test invariance enforcement by root.Should allow a user to change their password." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_invariance_enforcement_by_root_Should_allow_a_user_to_change_their_password_ - 2019.05.05 at 22h 14m 00s.xml">
+      <configuration name="test invariance enforcement by root.Should allow a user to change their password." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_invariance_enforcement_by_root_Should_allow_a_user_to_change_their_password_ - 2019.05.05 at 22h 14m 43s.xml">
+      <configuration name="test invariance enforcement by root.Should allow a user to change their password." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_invariance_enforcement_by_root_Should_allow_a_user_to_change_their_password_ - 2019.05.05 at 22h 15m 24s.xml">
+      <configuration name="test invariance enforcement by root.Should allow a user to change their password." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_invariance_enforcement_by_root_Should_allow_a_user_to_change_their_password_ - 2019.05.05 at 22h 15m 42s.xml">
+      <configuration name="test invariance enforcement by root.Should allow a user to change their password." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_invariance_enforcement_by_root - 2019.05.05 at 22h 15m 54s.xml">
       <configuration name="test invariance enforcement by root" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="test_username_value_object_validity_testing - 2019.05.05 at 16h 12m 16s.xml">
-      <configuration name="test username value object validity testing" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_username_value_object_validity_testing_should_successfully_store_a_valid_username_ - 2019.05.05 at 16h 13m 09s.xml">
-      <configuration name="test username value object validity testing.should successfully store a valid username." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_username_value_object_validity_testing_should_successfully_store_a_valid_username_ - 2019.05.05 at 16h 13m 16s.xml">
-      <configuration name="test username value object validity testing.should successfully store a valid username." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_username_value_object_validity_testing_should_successfully_store_a_valid_username_ - 2019.05.05 at 16h 13m 57s.xml">
-      <configuration name="test username value object validity testing.should successfully store a valid username." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_username_value_object_validity_testing - 2019.05.05 at 16h 14m 38s.xml">
-      <configuration name="test username value object validity testing" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_username_value_object_validity_testing_should_fail_to_store_a_username_that_is_too_long_ - 2019.05.05 at 16h 14m 59s.xml">
-      <configuration name="test username value object validity testing.should fail to store a username that is too long." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_username_value_object_validity_testing_should_fail_to_store_a_username_that_is_too_long_ - 2019.05.05 at 16h 15m 23s.xml">
-      <configuration name="test username value object validity testing.should fail to store a username that is too long." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_username_value_object_validity_testing_should_fail_to_store_a_username_that_is_too_long_ - 2019.05.05 at 18h 46m 57s.xml">
-      <configuration name="test username value object validity testing.should fail to store a username that is too long." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_invariance_enforcement_by_root_Should_store_password_as_a_hashed_password - 2019.05.05 at 22h 01m 57s.xml">
-      <configuration name="test invariance enforcement by root.Should store password as a hashed password" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="test_mutation_methods - 2019.05.05 at 22h 17m 03s.xml">
+      <configuration name="test mutation methods" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105850000" />
+    <option name="totallyTimeSpent" value="106930000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="27" width="1670" height="1018" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1506765" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1506765" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3267974" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3267974" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -603,7 +609,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.20915033" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20915033" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -663,13 +669,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/MasterBallotAggregate/Abstractions/IMasterBallotData.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="30" selection-start-column="30" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Abstractions/IBallotData.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
@@ -995,16 +994,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Events/UserCreatedEvent.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding>
-            <element signature="n#uuid#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -1022,16 +1011,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="42" lean-forward="true" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#98#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserFactory.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1042,10 +1021,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="42" lean-forward="true" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/User.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
+        <state relative-caret-position="1208">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
@@ -1054,13 +1043,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2044">
-          <caret line="73" column="30" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
+        <state relative-caret-position="491">
+          <caret line="111" column="65" selection-start-line="111" selection-start-column="65" selection-end-line="111" selection-end-column="65" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Events/UserCreatedEvent.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding>
+            <element signature="n#uuid#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Events/PasswordChangedEvent.model.ts">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

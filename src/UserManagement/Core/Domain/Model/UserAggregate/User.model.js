@@ -18,11 +18,12 @@ var UsernameVO_model_1 = require("../Common/ValueObjects/UsernameVO.model");
 var NameVO_model_1 = require("../Common/ValueObjects/NameVO.model");
 var Entity_model_1 = require("../../../../../SharedKernel/Entities/Entity.model");
 var UserCreatedEvent_model_1 = require("../Events/UserCreatedEvent.model");
+var UserUpdatedEvent_model_1 = require("../Events/UserUpdatedEvent.model");
 // TODO: Should this be injected so our domain layer doesn't have a hard dependency on bcrypt?
 var bcrypt = require('bcryptjs');
 var User = /** @class */ (function (_super) {
     __extends(User, _super);
-    function User(id, username, password, firstName, lastName, email, photoUrl, isAdmin) {
+    function User(id, username, password, firstName, lastName, email, photoUrl, isAdmin, eventBus) {
         var _this = _super.call(this, id) || this;
         _this._username = new UsernameVO_model_1.Username(username);
         _this._firstName = new NameVO_model_1.Name(firstName);
@@ -31,6 +32,7 @@ var User = /** @class */ (function (_super) {
         _this._email = new EmailVO_model_1.Email(email);
         _this._photoUrl = new URL(photoUrl);
         _this._isAdmin = isAdmin;
+        _this._eventBus = eventBus;
         return _this;
     }
     Object.defineProperty(User.prototype, "username", {
@@ -86,7 +88,7 @@ var User = /** @class */ (function (_super) {
         // hash incoming password so the user instance never has the plain text pw stored.
         // Q: Should this be done in a service instead and passed in already hashed?
         var hashedPw = User.hashPassword(userData.password);
-        var user = new User(idGenerator(), userData.username, hashedPw, userData.firstName, userData.lastName, userData.email, userData.photoUrl, false);
+        var user = new User(idGenerator(), userData.username, hashedPw, userData.firstName, userData.lastName, userData.email, userData.photoUrl, false, eventBus);
         var userCreatedEvent = new UserCreatedEvent_model_1.UserCreatedEvent(user);
         eventBus.userCreatedEventStream.next(userCreatedEvent);
         return user;
@@ -103,6 +105,8 @@ var User = /** @class */ (function (_super) {
             throw new Error("You did not enter the correct current password for account under username: " + this._username);
         }
         this._hashedPassword = User.hashPassword(newPassword);
+        var userUpdatedEvent = new UserUpdatedEvent_model_1.UserUpdatedEvent(this);
+        this._eventBus.userUpdatedEventStream.next(userUpdatedEvent);
         return true;
     };
     return User;

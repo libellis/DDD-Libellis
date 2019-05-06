@@ -5,6 +5,7 @@ import { Name } from "../Common/ValueObjects/NameVO.model";
 import { Entity } from "../../../../../SharedKernel/Entities/Entity.model";
 import { EventBus } from "../../../../../SharedKernel/EventStreams/EventBus";
 import { UserCreatedEvent } from "../Events/UserCreatedEvent.model";
+import { UserUpdatedEvent } from "../Events/UserUpdatedEvent.model";
 
 // TODO: Should this be injected so our domain layer doesn't have a hard dependency on bcrypt?
 const bcrypt = require('bcryptjs');
@@ -17,6 +18,7 @@ export class User extends Entity {
 	private _email: Email;
 	private _photoUrl: URL;
 	private _isAdmin: boolean;
+	private _eventBus: EventBus;
 
 	constructor(
 		id: string,
@@ -27,6 +29,7 @@ export class User extends Entity {
 		email: string,
 		photoUrl: string,
 		isAdmin: boolean,
+		eventBus: EventBus,
 	) {
 		super(id);
 		this._username = new Username(username);
@@ -36,6 +39,7 @@ export class User extends Entity {
 		this._email = new Email(email);
 		this._photoUrl = new URL(photoUrl);
 		this._isAdmin = isAdmin;
+		this._eventBus = eventBus;
 	}
 
 	get username() {
@@ -85,6 +89,7 @@ export class User extends Entity {
 			userData.email,
 			userData.photoUrl,
 			false,
+			eventBus,
 		);
 
 		const userCreatedEvent = new UserCreatedEvent(user);
@@ -108,6 +113,9 @@ export class User extends Entity {
 		}
 
 		this._hashedPassword = User.hashPassword(newPassword);
+
+		const userUpdatedEvent = new UserUpdatedEvent(this);
+		this._eventBus.userUpdatedEventStream.next(userUpdatedEvent);
 		return true;
 	}
 }

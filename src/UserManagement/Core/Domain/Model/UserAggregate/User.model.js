@@ -17,22 +17,85 @@ var EmailVO_model_1 = require("../Common/ValueObjects/EmailVO.model");
 var UsernameVO_model_1 = require("../Common/ValueObjects/UsernameVO.model");
 var NameVO_model_1 = require("../Common/ValueObjects/NameVO.model");
 var Entity_model_1 = require("../../../../../SharedKernel/Entities/Entity.model");
+var bcryptjs_1 = require("bcryptjs");
+var UserCreatedEvent_model_1 = require("../Events/UserCreatedEvent.model");
 var User = /** @class */ (function (_super) {
     __extends(User, _super);
-    function User(id, username, firstName, lastName, email, photoUrl, isAdmin) {
+    function User(id, username, password, firstName, lastName, email, photoUrl, isAdmin) {
         var _this = _super.call(this, id) || this;
-        _this.username = username;
-        _this.firstName = firstName;
-        _this.lastName = lastName;
-        _this.email = email;
-        _this.photoUrl = photoUrl;
-        _this.isAdmin = isAdmin;
+        _this._username = new UsernameVO_model_1.Username(username);
+        _this._firstName = new NameVO_model_1.Name(firstName);
+        _this._lastName = new NameVO_model_1.Name(lastName);
+        _this._email = new EmailVO_model_1.Email(email);
+        _this._photoUrl = new URL(photoUrl);
+        _this._isAdmin = isAdmin;
         return _this;
     }
-    // Admin user cannot be created.  An existing user can be turned into an admin user by another
-    // admin user only.
-    User.create = function (idGenerator, userData) {
-        return new User(idGenerator(), new UsernameVO_model_1.Username(userData.username), new NameVO_model_1.Name(userData.firstName), new NameVO_model_1.Name(userData.lastName), new EmailVO_model_1.Email(userData.email), new URL(userData.photoUrl), false);
+    Object.defineProperty(User.prototype, "username", {
+        get: function () {
+            return this._username.value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "firstName", {
+        get: function () {
+            return this._firstName.value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "lastName", {
+        get: function () {
+            return this._lastName.value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "email", {
+        get: function () {
+            return this._email.value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "photoUrl", {
+        get: function () {
+            return this._photoUrl;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "isAdmin", {
+        get: function () {
+            return this._isAdmin;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    User.create = function (idGenerator, userData, eventBus) {
+        // hash incoming password so the user instance never has the plain text pw stored.
+        // Q: Should this be done in a service instead and passed in already hashed?
+        var hashedPw = User.hashPassword(userData.password);
+        var user = new User(idGenerator(), userData.username, hashedPw, userData.firstName, userData.lastName, userData.email, userData.photoUrl, false);
+        var userCreatedEvent = new UserCreatedEvent_model_1.UserCreatedEvent(user);
+        eventBus.userCreatedEventStream.next(userCreatedEvent);
+        return user;
+    };
+    User.hashPassword = function (password) {
+        var salt = bcryptjs_1.bcrypt.genSaltSync(10);
+        return bcryptjs_1.bcrypt.hashSync(password, salt);
+    };
+    User.prototype.validatePassword = function (password) {
+        return bcryptjs_1.bcrypt.compareSync(password, this._password);
+    };
+    User.prototype.changePassword = function (oldPassword, newPassword) {
+        if (!this.validatePassword(oldPassword)) {
+            throw new Error("You did not enter the correct current password for account under username: " + this._username);
+        }
+        var hashedPw = User.hashPassword(newPassword);
+        this._password = hashedPw;
+        return true;
     };
     return User;
 }(Entity_model_1.Entity));

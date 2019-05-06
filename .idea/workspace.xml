@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04847df4-1dab-429b-83b0-5ef0601c3026" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/EmailVO.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/NameVO.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/UsernameVO.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/Abstractions/IUserData.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/Username.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserFactory.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/EmailVO.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/NameVO.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/UsernameVO.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/Abstractions/IUserData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/Abstractions/IUserData.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts" afterDir="false" />
@@ -28,22 +24,87 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="815">
-              <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+            <state relative-caret-position="598">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
               <folding>
-                <element signature="e#0#57#0" expanded="true" />
+                <element signature="e#0#53#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/Entities/Entity.model.ts">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-320" />
+            <state relative-caret-position="252">
+              <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/Abstractions/IUserData.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="56">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/UsernameVO.spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="756">
+              <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/EmailVO.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-330">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/NameVO.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="457">
+              <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/UsernameVO.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-219">
+              <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/EmailVO.spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -60,39 +121,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserFactory.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
-              <folding>
-                <element signature="e#0#81#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotDataFactory.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="924">
-              <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#104#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestBallotFactory.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="234">
@@ -100,38 +128,6 @@
               <folding>
                 <element signature="e#0#98#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Aggregates/Election.spec.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/Factories/TestElectionFactory.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
-              <folding>
-                <element signature="e#0#93#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/NameVO.spec.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -152,7 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/MasterBallot/Abstractions/IMasterBallotData.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/Aggregates/Ballot/Abstractions/IBallotData.ts" />
         <option value="$PROJECT_DIR$/src/SharedKernel/Guard.model.ts" />
         <option value="$PROJECT_DIR$/src/SharedKernel/Interfaces/IDomainEvent.ts" />
@@ -190,19 +185,20 @@
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/ScoreVO.spec.ts" />
         <option value="$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/TallyVO.spec.ts" />
         <option value="$PROJECT_DIR$/src/SharedKernel/EventStreams/BallotCastEventBus.ts" />
-        <option value="$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.ts" />
-        <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/Abstractions/IUserData.ts" />
         <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/EmailVO.spec.ts" />
         <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/EmailVO.model.ts" />
-        <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/UsernameVO.spec.ts" />
         <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/NameVO.model.ts" />
-        <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/UsernameVO.model.ts" />
         <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/NameVO.spec.ts" />
-        <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts" />
         <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Entities/Username.spec.ts" />
         <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.ts" />
         <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserFactory.model.ts" />
         <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Aggregates/Username.spec.ts" />
+        <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/UsernameVO.model.ts" />
+        <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/UsernameVO.spec.ts" />
+        <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/Abstractions/IUserData.ts" />
+        <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/PasswordVO.model.ts" />
+        <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts" />
+        <option value="$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.ts" />
       </list>
     </option>
   </component>
@@ -247,22 +243,6 @@
               <item name="libellis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
               <item name="Core" type="462c0819:PsiDirectoryNode" />
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -271,7 +251,6 @@
               <item name="libellis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
               <item name="Core" type="462c0819:PsiDirectoryNode" />
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
@@ -281,35 +260,40 @@
               <item name="libellis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
               <item name="Core" type="462c0819:PsiDirectoryNode" />
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Aggregates" type="462c0819:PsiDirectoryNode" />
+              <item name="Events" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
               <item name="libellis" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ElectionSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="UserManagement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="UserManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="UserManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libellis" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="UserManagement" type="462c0819:PsiDirectoryNode" />
               <item name="Core" type="462c0819:PsiDirectoryNode" />
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Factories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="SharedKernel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="libellis.core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="libellis" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="SharedKernel" type="462c0819:PsiDirectoryNode" />
-              <item name="Interfaces" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -322,7 +306,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="CONST" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Events" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -332,11 +316,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/SharedKernel/Entities" />
+      <recent name="$PROJECT_DIR$/src/SharedKernel" />
       <recent name="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate" />
       <recent name="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model" />
       <recent name="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Aggregates/UserAggregate" />
-      <recent name="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/VoterAggregate" />
-      <recent name="$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/MasterBallotAggregate" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects" />
@@ -358,7 +342,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.test invariance enforcement by root">
+  <component name="RunManager" selected="Mocha.test username value object validity testing.should fail to store a username that is too long.">
     <configuration name="test invariance enforcement by root" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -390,7 +374,7 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="test name value object validity testing" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+    <configuration name="test username value object validity testing" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -399,25 +383,9 @@
       <ui>bdd</ui>
       <extra-mocha-options>--require ts-node/register</extra-mocha-options>
       <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/NameVO.spec.ts</test-file>
+      <test-file>$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/UsernameVO.spec.ts</test-file>
       <test-names>
-        <name value="test name value object validity testing" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="test name value object validity testing.should fail to store a name that is too long." type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/NameVO.spec.ts</test-file>
-      <test-names>
-        <name value="test name value object validity testing" />
-        <name value="should fail to store a name that is too long." />
+        <name value="test username value object validity testing" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -437,13 +405,29 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="test username value object validity testing.should successfully store a valid username." type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/UsernameVO.spec.ts</test-file>
+      <test-names>
+        <name value="test username value object validity testing" />
+        <name value="should successfully store a valid username." />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha.test username value object validity testing.should fail to store a username that is too long." />
+        <item itemvalue="Mocha.test username value object validity testing" />
+        <item itemvalue="Mocha.test username value object validity testing.should successfully store a valid username." />
         <item itemvalue="Mocha.test invariance enforcement by root" />
         <item itemvalue="Mocha.test invariance enforcement by root.Should not allow someone to create a username with an invalid photo url." />
-        <item itemvalue="Mocha.test name value object validity testing" />
-        <item itemvalue="Mocha.test name value object validity testing.should fail to store a name that is too long." />
-        <item itemvalue="Mocha.test username value object validity testing.should fail to store a username that is too long." />
       </list>
     </recent_temporary>
   </component>
@@ -468,44 +452,44 @@
       <workItem from="1556472111739" duration="22955000" />
       <workItem from="1556586599636" duration="12985000" />
       <workItem from="1556673441457" duration="4801000" />
-      <workItem from="1557087201219" duration="9002000" />
+      <workItem from="1557087201219" duration="12203000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test_name_value_object_validity_testing - 2019.05.05 at 15h 40m 01s.xml">
-      <configuration name="test name value object validity testing" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_name_value_object_validity_testing_should_fail_to_store_a_name_that_is_too_long_ - 2019.05.05 at 15h 40m 50s.xml">
-      <configuration name="test name value object validity testing.should fail to store a name that is too long." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_name_value_object_validity_testing_should_fail_to_store_a_name_that_is_too_long_ - 2019.05.05 at 15h 41m 54s.xml">
-      <configuration name="test name value object validity testing.should fail to store a name that is too long." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_name_value_object_validity_testing_should_fail_to_store_a_name_that_is_too_long_ - 2019.05.05 at 15h 43m 02s.xml">
-      <configuration name="test name value object validity testing.should fail to store a name that is too long." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_username_value_object_validity_testing_should_fail_to_store_a_username_that_is_too_long_ - 2019.05.05 at 15h 43m 52s.xml">
-      <configuration name="test username value object validity testing.should fail to store a username that is too long." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_name_value_object_validity_testing_should_fail_to_store_a_name_that_is_too_long_ - 2019.05.05 at 15h 44m 10s.xml">
-      <configuration name="test name value object validity testing.should fail to store a name that is too long." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_name_value_object_validity_testing - 2019.05.05 at 15h 44m 19s.xml">
-      <configuration name="test name value object validity testing" configurationId="mocha-javascript-test-runner" />
-    </history-entry>
-    <history-entry file="test_invariance_enforcement_by_root_Should_not_allow_someone_to_create_a_username_with_an_invalid_photo_url_ - 2019.05.05 at 16h 01m 18s.xml">
-      <configuration name="test invariance enforcement by root.Should not allow someone to create a username with an invalid photo url." configurationId="mocha-javascript-test-runner" />
-    </history-entry>
     <history-entry file="test_invariance_enforcement_by_root - 2019.05.05 at 16h 02m 09s.xml">
       <configuration name="test invariance enforcement by root" configurationId="mocha-javascript-test-runner" />
     </history-entry>
     <history-entry file="test_invariance_enforcement_by_root - 2019.05.05 at 16h 03m 56s.xml">
       <configuration name="test invariance enforcement by root" configurationId="mocha-javascript-test-runner" />
     </history-entry>
+    <history-entry file="test_username_value_object_validity_testing - 2019.05.05 at 16h 12m 16s.xml">
+      <configuration name="test username value object validity testing" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_username_value_object_validity_testing_should_successfully_store_a_valid_username_ - 2019.05.05 at 16h 13m 09s.xml">
+      <configuration name="test username value object validity testing.should successfully store a valid username." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_username_value_object_validity_testing_should_successfully_store_a_valid_username_ - 2019.05.05 at 16h 13m 16s.xml">
+      <configuration name="test username value object validity testing.should successfully store a valid username." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_username_value_object_validity_testing_should_successfully_store_a_valid_username_ - 2019.05.05 at 16h 13m 57s.xml">
+      <configuration name="test username value object validity testing.should successfully store a valid username." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_username_value_object_validity_testing - 2019.05.05 at 16h 14m 38s.xml">
+      <configuration name="test username value object validity testing" configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_username_value_object_validity_testing_should_fail_to_store_a_username_that_is_too_long_ - 2019.05.05 at 16h 14m 59s.xml">
+      <configuration name="test username value object validity testing.should fail to store a username that is too long." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_username_value_object_validity_testing_should_fail_to_store_a_username_that_is_too_long_ - 2019.05.05 at 16h 15m 23s.xml">
+      <configuration name="test username value object validity testing.should fail to store a username that is too long." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
+    <history-entry file="test_username_value_object_validity_testing_should_fail_to_store_a_username_that_is_too_long_ - 2019.05.05 at 18h 46m 57s.xml">
+      <configuration name="test username value object validity testing.should fail to store a username that is too long." configurationId="mocha-javascript-test-runner" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101465000" />
+    <option name="totallyTimeSpent" value="104666000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="27" width="1670" height="1018" extended-state="6" />
@@ -516,7 +500,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3267974" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3267974" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -525,7 +509,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.20915033" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20915033" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -585,11 +569,12 @@
         <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserFactory.model.js" />
         <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.js.map" />
         <option value="$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/Factories/TestUserDataFactory.model.js" />
+        <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/PasswordVO.model.js" />
+        <option value="$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/PasswordVO.model.js.map" />
       </list>
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Election/Core/Domain/Model/Common/Abstractions/IMasterBallot.ts" />
     <entry file="file://$PROJECT_DIR$/src/SurveyManagement/Core/Domain/Model/Aggregates/User/Entities/User.model.ts" />
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/MasterBallotAggregate/Abstractions/IMasterBallotData.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -811,16 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Core/Domain/Model/BallotAggregate/Ballot.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -828,57 +803,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/Abstractions/IUserData.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ElectionSystem/Tests/Core/Domain/Model/ValueObjects/TallyVO.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/EmailVO.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="980">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/EmailVO.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/NameVO.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/UsernameVO.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/UsernameVO.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-200">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
@@ -958,19 +885,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts">
+    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/Entities/Entity.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="815">
-          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+        <state relative-caret-position="-320" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/EmailVO.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/Entities/Entity.model.ts">
+    <entry file="file://$PROJECT_DIR$/src/UserManagement/Tests/Core/Domain/Model/ValueObjects/UsernameVO.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-320" />
+        <state relative-caret-position="756">
+          <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/EmailVO.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/NameVO.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/UsernameVO.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-219">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/Abstractions/IUserData.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/Common/ValueObjects/PasswordVO.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SharedKernel/EventStreams/EventBus.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UserManagement/Core/Domain/Model/UserAggregate/User.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

@@ -5,6 +5,7 @@ var rxjs_1 = require("rxjs");
 var EventBus = /** @class */ (function () {
     function EventBus() {
         this.ballotCastEventStream = new rxjs_1.Subject();
+        this.userCreatedEventStream = new rxjs_1.Subject();
     }
     return EventBus;
 }());

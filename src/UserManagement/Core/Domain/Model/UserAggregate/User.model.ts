@@ -63,7 +63,7 @@ export class User extends Entity {
 	}
 
 	get photoUrl() {
-		return this._photoUrl;
+		return this._photoUrl.href;
 	}
 
 	get isAdmin() {
@@ -103,19 +103,41 @@ export class User extends Entity {
 		return bcrypt.hashSync(password, salt);
 	}
 
-	private validatePassword(password: string): boolean {
-		return bcrypt.compareSync(password, this._hashedPassword);
+	private validatePassword(password: string) {
+		if (!bcrypt.compareSync(password, this._hashedPassword)) {
+			throw new Error(`You did not enter the correct current password for account under username: ${this._username}`);
+		}
 	}
 
 	changePassword(oldPassword: string, newPassword: string): boolean {
-		if (!this.validatePassword(oldPassword)) {
-			throw new Error(`You did not enter the correct current password for account under username: ${this._username}`);
-		}
-
+		this.validatePassword(oldPassword);
 		this._hashedPassword = User.hashPassword(newPassword);
 
 		const userUpdatedEvent = new UserUpdatedEvent(this);
 		this._eventBus.userUpdatedEventStream.next(userUpdatedEvent);
 		return true;
 	}
+
+
+	// TODO: Might be good to move this out to a service layer.
+	changeAccountDetails(currentPassword: string, changeSet: UserChangeSet) {
+		this.validatePassword(currentPassword);
+
+		let userData: IUserData = {
+			username: this.username,
+			password: this.hashedPassword,
+			email: this.email,
+			firstName: this.firstName,
+			lastName: this.lastName,
+			photoUrl: this.photoUrl,
+		}
+	}
+}
+
+interface UserChangeSet {
+	firstName?: string,
+	lastName?: string,
+	password?: string,
+	email?: string,
+	photoUrl?: string,
 }

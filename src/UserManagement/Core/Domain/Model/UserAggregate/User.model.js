@@ -72,7 +72,7 @@ var User = /** @class */ (function (_super) {
     });
     Object.defineProperty(User.prototype, "photoUrl", {
         get: function () {
-            return this._photoUrl;
+            return this._photoUrl.href;
         },
         enumerable: true,
         configurable: true
@@ -98,16 +98,28 @@ var User = /** @class */ (function (_super) {
         return bcrypt.hashSync(password, salt);
     };
     User.prototype.validatePassword = function (password) {
-        return bcrypt.compareSync(password, this._hashedPassword);
-    };
-    User.prototype.changePassword = function (oldPassword, newPassword) {
-        if (!this.validatePassword(oldPassword)) {
+        if (!bcrypt.compareSync(password, this._hashedPassword)) {
             throw new Error("You did not enter the correct current password for account under username: " + this._username);
         }
+    };
+    User.prototype.changePassword = function (oldPassword, newPassword) {
+        this.validatePassword(oldPassword);
         this._hashedPassword = User.hashPassword(newPassword);
         var userUpdatedEvent = new UserUpdatedEvent_model_1.UserUpdatedEvent(this);
         this._eventBus.userUpdatedEventStream.next(userUpdatedEvent);
         return true;
+    };
+    // TODO: Might be good to move this out to a service layer.
+    User.prototype.changeAccountDetails = function (currentPassword, changeSet) {
+        this.validatePassword(currentPassword);
+        var userData = {
+            username: this.username,
+            password: this.hashedPassword,
+            email: this.email,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            photoUrl: this.photoUrl,
+        };
     };
     return User;
 }(Entity_model_1.Entity));

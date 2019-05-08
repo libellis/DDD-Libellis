@@ -30,6 +30,10 @@ help: ## This help.
 docker-build:
 	docker-compose -f docker-compose.yml build
 
+docker-dev:
+	cd application && npm install
+	make docker-build
+
 docker-up:
 	docker-compose -f docker-compose.yml up -d
 
@@ -48,7 +52,7 @@ docker-deep-clean:
 	-docker rm `docker ps -aq`
 	-docker rmi `docker images -qf dangling=true`
 	-docker volume rm `docker volume ls -qf dangling=true`
-    -docker rmi `docker images --format '{{.Repository}}:{{.Tag}}' | grep "libellis/"` -f
+	-docker rmi `docker images --format '{{.Repository}}:{{.Tag}}' | grep "libellis/"` -f
 
 docker-stop:
 	@echo 'stopping libellis api container'

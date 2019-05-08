@@ -39,17 +39,17 @@ A Teller in any election is the person that counts the votes.  This system talli
 
 ## Setup
 
-If you are in development, you are going to want to build your local node
-modules before you build your docker container.  Inside of the /application
-directory run `npm install`.
+If you are in development just run `make docker-dev`.  This will first locally
+install npm modules for the project so you get full IDE support, and then it
+will build the docker container for the project.
 
-To build the docker container for the project, simply run `make docker-build` from the root directory.  For now there is no web api layer for endpoint testing, or manual interaction with the application. 
+If you only want to build the docker container for the project, simply run `make docker-build` from the root directory.  For now there is no web api layer for endpoint testing, or manual interaction with the application. 
 
 ## Tests
 
 You can run tests by running `make docker-test` from the root directory.  This
 will run all tests from inside of the docker container that got built in the
-last step.
+setup step above.
 
 ## Cleaning up Containers
 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../libellis/.idea/libellis.iml" filepath="$PROJECT_DIR$/../libellis/.idea/libellis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/libellis-ddd.iml" filepath="$PROJECT_DIR$/.idea/libellis-ddd.iml" />
     </modules>
   </component>
 </project>

@@ -17,3 +17,6 @@ install:
 
 script:
   - make docker-test
+
+notifications:
+  slack: libellis:7v5cSuqlayq37v0Qaeyrvbg7

@@ -2,7 +2,7 @@ import { SQLRepositoryBase } from "./SQLRepositoryBase.model";
 import { IPSQLPool } from "../../abstractions/IPSQLPool.model";
 import { Category } from "../../../../core/domain/model/common/value-objects/CategoryVO.model";
 import {MasterBallot} from "../../../../core/domain/model/master-ballot-aggregate/MasterBallot.model";
-import {IMasterBallotRepository} from "../../../../core/application/Services/Interfaces/ISurveyRepository";
+import {IMasterBallotRepository} from "../../../../core/application/abstractions/IMasterBallotRepository";
 
 export class SQLMasterBallotRepository extends SQLRepositoryBase implements IMasterBallotRepository {
 	constructor(_db: IPSQLPool){

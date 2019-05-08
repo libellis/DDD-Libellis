@@ -1,4 +1,4 @@
-import {MasterBallot} from "../../../domain/model/master-ballot-aggregate/MasterBallot.model";
+import {MasterBallot} from "../../domain/model/master-ballot-aggregate/MasterBallot.model";
 
 export interface IMasterBallotRepository {
 	add(entity: MasterBallot): Promise<boolean>;

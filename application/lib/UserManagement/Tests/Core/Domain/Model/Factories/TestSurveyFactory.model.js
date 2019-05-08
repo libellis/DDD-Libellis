@@ -9,7 +9,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var faker = __importStar(require("faker"));
 var Survey_model_1 = require("../../../../../Core/Domain/Model/Aggregates/MasterBallot/entities/MasterBallot.model");
-var CategoryVO_model_1 = require("../../../../../Core/Domain/Model/Common/value-objects/CategoryVO.model");
+var CategoryVO_model_1 = require("../../../../../Core/Domain/Model/Common/value-objects/Category.model");
 var TestSurveyFactory = /** @class */ (function () {
     function TestSurveyFactory() {
     }

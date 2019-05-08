@@ -23,4 +23,4 @@ describe('test value object construction', function () {
         chai_1.expect(badFunction).to.throw();
     });
 });
-//# sourceMappingURL=CategoryVO.spec.js.map
+//# sourceMappingURL=Category.spec.js.map

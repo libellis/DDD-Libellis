@@ -1,8 +1,8 @@
 import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
 import { IBallotData } from "./abstractions/IBallotData";
 import { Vote } from "./Vote.model";
-import { QuestionVO } from "./value-objects/QuestionVO.model";
-import { ScoreVO } from "../common/value-objects/ScoreVO.model";
+import { Question } from "./value-objects/QuestionVO.model";
+import { Score } from "../common/value-objects/ScoreVO.model";
 import { BallotCastEvent } from "../events/BallotCastEvent.model";
 import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
 
@@ -11,14 +11,14 @@ export class Ballot extends Entity {
 	constructor(
 		id: string,
 		public voterId: string,
-		public _questions: QuestionVO[],
+		public _questions: Question[],
 		private ballotCastEventBus: EventBus
 	) {
 		super(id);
 	}
 
 	// Factory method Must enforce following logic:
-	// 1. Rank logic is correct, and not manipulated - This gets enforced by QuestionVO
+	// 1. Rank logic is correct, and not manipulated - This gets enforced by Question VO
 	static cast(
 		idGenerator: () => string,
 		ballotCastEventBus: EventBus,
@@ -39,11 +39,11 @@ export class Ballot extends Entity {
 							idGenerator(),
 							qData.qId,
 							cData.cId,
-							new ScoreVO(cData.score)
+							new Score(cData.score)
 						);
 					});
 
-				return new QuestionVO(
+				return new Question(
 					qData.qId,
 					choices,
 				);

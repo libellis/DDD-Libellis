@@ -1,6 +1,6 @@
 import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
 import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
-import { TallyVO } from "../common/value-objects/TallyVO.model";
+import { Tally } from "../common/value-objects/TallyVO.model";
 import { Ballot } from "../ballot-aggregate/Ballot.model";
 
 // This is part of the election aggregate because the Election is the only entity that knows about the timespan that an
@@ -8,7 +8,7 @@ import { Ballot } from "../ballot-aggregate/Ballot.model";
 // someone could access the teller directly before the election is over.
 // Also, deleting an election facilitates deleting the teller associated with that election
 export class Teller extends Entity {
-	private _voteTally: {[choiceId: string]: TallyVO};
+	private _voteTally: {[choiceId: string]: Tally};
 
 	constructor(
 		id: string,
@@ -19,10 +19,10 @@ export class Teller extends Entity {
 		this._voteTally = Teller.mapSetValuesToKeys(choiceIds);
 	}
 
-	private static mapSetValuesToKeys(choiceIds: Set<string>): {[key: string]: TallyVO} {
+	private static mapSetValuesToKeys(choiceIds: Set<string>): {[key: string]: Tally} {
 		const dict = {};
 		choiceIds.forEach(c => {
-			dict[c] = new TallyVO(0);
+			dict[c] = new Tally(0);
 		});
 		return dict;
 	}

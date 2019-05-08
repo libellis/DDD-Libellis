@@ -30,7 +30,7 @@ var Teller = /** @class */ (function (_super) {
     Teller.mapSetValuesToKeys = function (choiceIds) {
         var dict = {};
         choiceIds.forEach(function (c) {
-            dict[c] = new TallyVO_model_1.TallyVO(0);
+            dict[c] = new TallyVO_model_1.Tally(0);
         });
         return dict;
     };

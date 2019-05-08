@@ -1,7 +1,7 @@
 import { Question } from "./Question.model";
 import { Choice } from "./Choice.model";
 import { IMasterBallotData } from "./abstractions/IMasterBallotData";
-import { CategoryVO } from "../common/value-objects/CategoryVO.model";
+import { Category } from "../common/value-objects/CategoryVO.model";
 import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
 
 export class MasterBallot extends Entity {
@@ -11,7 +11,7 @@ export class MasterBallot extends Entity {
 		public author: string,
 		public title: string,
 		public description: string,
-		public category: CategoryVO,
+		public category: Category,
 		public dateCreated: Date,
 		private _questions: Question[],
 	) {
@@ -77,7 +77,7 @@ export class MasterBallot extends Entity {
 			sData.author,
 			sData.title,
 			sData.description,
-			new CategoryVO(sData.category),
+			new Category(sData.category),
 			new Date(),
 			questions,
 		);

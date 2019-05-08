@@ -28,7 +28,7 @@ var Ballot = /** @class */ (function (_super) {
         return _this;
     }
     // Factory method Must enforce following logic:
-    // 1. Rank logic is correct, and not manipulated - This gets enforced by QuestionVO
+    // 1. Rank logic is correct, and not manipulated - This gets enforced by Question VO
     Ballot.cast = function (idGenerator, ballotCastEventBus, sData) {
         // We push our questions voteData through score and
         // question value objects to automatically hit their validation
@@ -40,9 +40,9 @@ var Ballot = /** @class */ (function (_super) {
             var choices = qData
                 .choicesData
                 .map(function (cData) {
-                return new Vote_model_1.Vote(idGenerator(), qData.qId, cData.cId, new ScoreVO_model_1.ScoreVO(cData.score));
+                return new Vote_model_1.Vote(idGenerator(), qData.qId, cData.cId, new ScoreVO_model_1.Score(cData.score));
             });
-            return new QuestionVO_model_1.QuestionVO(qData.qId, choices);
+            return new QuestionVO_model_1.Question(qData.qId, choices);
         });
         var ballot = new Ballot(idGenerator(), sData.voterId, questions, ballotCastEventBus);
         // We push the ballot cast event to any interested parties

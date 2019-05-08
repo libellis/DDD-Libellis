@@ -6,19 +6,19 @@ var ScoreVO_model_1 = require("../../../../../core/domain/model/common/value-obj
 describe('test value object construction', function () {
     it('should successfully construct Score value object with a valid tally', function () {
         var goodFunction = function () {
-            new ScoreVO_model_1.ScoreVO(50);
+            new ScoreVO_model_1.Score(50);
         };
         chai_1.expect(goodFunction).to.not.throw();
     });
     it('should fail to construct Score value object with a negative tally', function () {
         var badFunction = function () {
-            new ScoreVO_model_1.ScoreVO(-50);
+            new ScoreVO_model_1.Score(-50);
         };
         chai_1.expect(badFunction).to.throw();
     });
     it('should fail to construct Score value object with a fractional number', function () {
         var badFunction = function () {
-            new ScoreVO_model_1.ScoreVO(20.275);
+            new ScoreVO_model_1.Score(20.275);
         };
         chai_1.expect(badFunction).to.throw();
     });

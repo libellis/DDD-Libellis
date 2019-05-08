@@ -61,7 +61,7 @@ var MasterBallot = /** @class */ (function (_super) {
             });
             return new Question_model_1.Question(idGenerator(), qData.title, qData.questionType, choices);
         });
-        return new MasterBallot(idGenerator(), sData.author, sData.title, sData.description, new CategoryVO_model_1.CategoryVO(sData.category), new Date(), questions);
+        return new MasterBallot(idGenerator(), sData.author, sData.title, sData.description, new CategoryVO_model_1.Category(sData.category), new Date(), questions);
     };
     MasterBallot.prototype.addQuestionWithChoices = function (questionData) {
         var newQuestion = new Question_model_1.Question(questionData.id, questionData.title, questionData.questionType, questionData.choicesData.map(function (cData) {

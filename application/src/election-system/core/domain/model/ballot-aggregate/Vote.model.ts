@@ -1,12 +1,12 @@
 import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
-import { ScoreVO } from "../common/value-objects/ScoreVO.model";
+import { Score } from "../common/value-objects/ScoreVO.model";
 
 export class Vote extends Entity {
 	constructor(
 		id: string,
 		private _questionId: string,
 		private _choiceId: string,
-		public score: ScoreVO,
+		public score: Score,
 	) {
 		super(id);
 	}

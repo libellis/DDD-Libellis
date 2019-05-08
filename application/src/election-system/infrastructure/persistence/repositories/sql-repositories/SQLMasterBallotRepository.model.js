@@ -88,7 +88,7 @@ var SQLMasterBallotRepository = /** @class */ (function (_super) {
                             throw new Error('Not Found');
                         }
                         sData = surveyResult.rows[0];
-                        survey = new MasterBallot_model_1.MasterBallot(sData["id"], sData["author"], sData["title"], sData["description"], new CategoryVO_model_1.CategoryVO(sData["category"]), new Date(sData["datePosted"]), sData["anonymous"]);
+                        survey = new MasterBallot_model_1.MasterBallot(sData["id"], sData["author"], sData["title"], sData["description"], new CategoryVO_model_1.Category(sData["category"]), new Date(sData["datePosted"]), sData["anonymous"]);
                         _a = this.attachChoiceDataToAllQuestions;
                         return [4 /*yield*/, this.getQuestionsDataByMasterBallot(id)];
                     case 2: return [4 /*yield*/, _a.apply(this, [_b.sent()])];

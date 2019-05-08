@@ -1,4 +1,4 @@
-export class CategoryVO {
+export class Category {
     constructor(
         private readonly _name: string,
     ) {

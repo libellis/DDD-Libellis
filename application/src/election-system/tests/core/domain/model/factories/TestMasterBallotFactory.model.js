@@ -41,7 +41,7 @@ var TestMasterBallotFactory = /** @class */ (function () {
         };
         if (masterBallotParams !== undefined)
             TestMasterBallotFactory.patchObject(sData, masterBallotParams);
-        return new MasterBallot_model_1.MasterBallot(sData.id, sData.author, sData.title, sData.description, new CategoryVO_model_1.CategoryVO(sData.category), sData.datePosted, sData.questions);
+        return new MasterBallot_model_1.MasterBallot(sData.id, sData.author, sData.title, sData.description, new CategoryVO_model_1.Category(sData.category), sData.datePosted, sData.questions);
     };
     TestMasterBallotFactory.createRandomChoices = function (choiceParams) {
         var randomArray = Array(faker.random.number({ min: 2, max: 12, precision: 1 })).fill(0);

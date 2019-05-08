@@ -7,25 +7,25 @@ var ScoreVO_model_1 = require("../../../../../core/domain/model/common/value-obj
 describe('test value object construction', function () {
     it('should successfully construct Tally value object with a valid tally', function () {
         var goodFunction = function () {
-            new TallyVO_model_1.TallyVO(50);
+            new TallyVO_model_1.Tally(50);
         };
         chai_1.expect(goodFunction).to.not.throw();
     });
     it('should fail to construct Tally value object with a negative tally', function () {
         var badFunction = function () {
-            new TallyVO_model_1.TallyVO(-50);
+            new TallyVO_model_1.Tally(-50);
         };
         chai_1.expect(badFunction).to.throw();
     });
     it('should fail to construct Tally value object with a fractional number', function () {
         var badFunction = function () {
-            new TallyVO_model_1.TallyVO(20.275);
+            new TallyVO_model_1.Tally(20.275);
         };
         chai_1.expect(badFunction).to.throw();
     });
     it('should correctly increment tally by taking a new Score value object and returning a new tally.', function () {
-        var tally = new TallyVO_model_1.TallyVO(50);
-        var score = new ScoreVO_model_1.ScoreVO(20);
+        var tally = new TallyVO_model_1.Tally(50);
+        var score = new ScoreVO_model_1.Score(20);
         var updatedTally = tally.incrementTally(score);
         chai_1.expect(updatedTally.tally).equals(70);
     });

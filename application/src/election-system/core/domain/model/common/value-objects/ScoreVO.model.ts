@@ -1,8 +1,8 @@
-export class ScoreVO {
+export class Score {
 	constructor(
 		private readonly _tally: number,
 	) {
-		if (ScoreVO.isValidScore(_tally)) {
+		if (Score.isValidScore(_tally)) {
 			this._tally = _tally;
 		}
 	}
@@ -12,8 +12,8 @@ export class ScoreVO {
 	}
 
 	static isValidScore(n: number): boolean {
-		if (!ScoreVO.isNonNegative(n)) throw new Error("Score cannot be negative.");
-		if (!ScoreVO.isWholeNumber(n)) throw new Error("Score must be a whole number.");
+		if (!Score.isNonNegative(n)) throw new Error("Score cannot be negative.");
+		if (!Score.isWholeNumber(n)) throw new Error("Score must be a whole number.");
 		return true;
 	}
 

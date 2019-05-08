@@ -1,10 +1,10 @@
-import { ScoreVO } from "./ScoreVO.model";
+import { Score } from "./ScoreVO.model";
 
-export class TallyVO {
+export class Tally {
 	constructor(
 		private readonly _tally: number,
 	) {
-		if (TallyVO.isValidTally(_tally)) {
+		if (Tally.isValidTally(_tally)) {
 			this._tally = _tally;
 		}
 	}
@@ -13,15 +13,15 @@ export class TallyVO {
 		return this._tally;
 	}
 
-	incrementTally(score: ScoreVO): TallyVO {
-		return new TallyVO(
+	incrementTally(score: Score): Tally {
+		return new Tally(
 			this._tally + score.tally
 		);
 	}
 
 	static isValidTally(n: number): boolean {
-		if (!TallyVO.isNonNegative(n)) throw new Error("Tally cannot be negative.");
-		if (!TallyVO.isWholeNumber(n)) throw new Error("Tally must be a whole number.");
+		if (!Tally.isNonNegative(n)) throw new Error("Tally cannot be negative.");
+		if (!Tally.isWholeNumber(n)) throw new Error("Tally must be a whole number.");
 		return true;
 	}
 

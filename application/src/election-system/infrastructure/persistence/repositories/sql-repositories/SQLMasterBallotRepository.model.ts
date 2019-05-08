@@ -1,6 +1,6 @@
 import { SQLRepositoryBase } from "./SQLRepositoryBase.model";
 import { IPSQLPool } from "../../abstractions/IPSQLPool.model";
-import { CategoryVO } from "../../../../core/domain/model/common/value-objects/CategoryVO.model";
+import { Category } from "../../../../core/domain/model/common/value-objects/CategoryVO.model";
 import {MasterBallot} from "../../../../core/domain/model/master-ballot-aggregate/MasterBallot.model";
 import {IMasterBallotRepository} from "../../../../core/application/Services/Interfaces/ISurveyRepository";
 
@@ -45,7 +45,7 @@ export class SQLMasterBallotRepository extends SQLRepositoryBase implements IMas
 			sData["author"],
 			sData["title"],
 			sData["description"],
-			new CategoryVO(sData["category"]),
+			new Category(sData["category"]),
 			new Date(sData["datePosted"]),
 			sData["anonymous"],
 		);

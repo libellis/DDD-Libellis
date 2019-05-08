@@ -1,5 +1,5 @@
 import * as faker from 'faker';
-import { CategoryVO } from "../../../../../core/domain/model/common/value-objects/CategoryVO.model";
+import { Category } from "../../../../../core/domain/model/common/value-objects/CategoryVO.model";
 import { MasterBallot } from "../../../../../core/domain/model/master-ballot-aggregate/MasterBallot.model";
 
 export class TestMasterBallotFactory {
@@ -51,7 +51,7 @@ export class TestMasterBallotFactory {
 			sData.author,
 			sData.title,
 			sData.description,
-			new CategoryVO(sData.category),
+			new Category(sData.category),
 			sData.datePosted,
 			sData.questions,
 		);

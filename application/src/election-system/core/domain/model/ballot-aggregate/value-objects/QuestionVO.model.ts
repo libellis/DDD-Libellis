@@ -1,6 +1,6 @@
 import { Vote } from "../Vote.model";
 
-export class QuestionVO {
+export class Question {
 	constructor(
 		private readonly _questionId: string,
 		private readonly _votes: Vote[],

@@ -18,4 +18,4 @@ var CategoryVO = /** @class */ (function () {
     return CategoryVO;
 }());
 exports.CategoryVO = CategoryVO;
-//# sourceMappingURL=CategoryVO.model.js.map
+//# sourceMappingURL=Category.model.js.map

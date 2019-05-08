@@ -5,5 +5,6 @@ export interface IBallotRepository {
 	addRange(entities: Ballot[]): Promise<boolean>;
 	get(id: string): Promise<Ballot>;
 	getPagedResults(pageSize: number, pageNumber: number): Promise<Ballot[]>;
+	update(entity: Ballot): Promise<boolean>;
 	remove(id: string): Promise<boolean>;
 }

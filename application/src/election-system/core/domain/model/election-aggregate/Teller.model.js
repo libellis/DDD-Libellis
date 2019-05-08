@@ -25,6 +25,7 @@ var Teller = /** @class */ (function (_super) {
         var _this = _super.call(this, id) || this;
         _this._ballotCastEventBus = _ballotCastEventBus;
         _this._voteTally = Teller.mapSetValuesToKeys(choiceIds);
+        _this._choiceIds = choiceIds;
         return _this;
     }
     Teller.mapSetValuesToKeys = function (choiceIds) {
@@ -59,6 +60,9 @@ var Teller = /** @class */ (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Teller.prototype.clone = function () {
+        return new Teller(this.id, new Set(this._choiceIds), this._ballotCastEventBus);
+    };
     return Teller;
 }(Entity_model_1.Entity));
 exports.Teller = Teller;

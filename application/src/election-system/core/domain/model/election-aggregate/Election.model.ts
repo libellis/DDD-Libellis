@@ -7,8 +7,9 @@ import { Guard } from "../../../../../shared-kernel/Guard.model";
 import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
 import { BallotCastEvent } from "../events/BallotCastEvent.model";
 import { Teller } from "./Teller.model";
+import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
 
-export class Election extends Entity {
+export class Election extends Entity implements IClonable<Election> {
 
 	constructor(
 		id: string,
@@ -208,5 +209,28 @@ export class Election extends Entity {
 			}
 		}
 		return winner;
+	}
+
+	clone(): Election {
+		const election = new Election(
+			this.id,
+			this._electionPeriod,
+			this._anonymous,
+			this._masterBallotId,
+			this._restricted,
+			new Set(this._permittedVoters),
+			new Set(this._validQuestionIds),
+			new Set(this._validChoiceIds),
+			new Set(this._ballotIds),
+			new Set(this._whoVotedIds),
+			this._teller.clone(),
+			this._ballotCastEventBus
+		);
+
+		while (election.version !== this.version) {
+			election.incrementVersion();
+		}
+
+		return election;
 	}
 }

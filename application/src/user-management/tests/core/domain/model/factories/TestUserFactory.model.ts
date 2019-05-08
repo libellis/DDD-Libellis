@@ -8,6 +8,13 @@ export class TestUserFactory {
 		const userData = TestUserDataFactory.createUserData(options);
 		return User.create(faker.random.uuid, userData, eventBus);
 	}
+
+	static createRandomUsers(eventBus: EventBus): User[] {
+		const usersData = TestUserDataFactory.createUserDatas(2, 12);
+		return usersData.map(u => {
+			return User.create(faker.random.uuid, u, eventBus);
+		});
+	}
 }
 
 export interface OptionalParams {

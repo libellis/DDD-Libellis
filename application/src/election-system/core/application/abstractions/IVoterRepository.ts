@@ -5,5 +5,6 @@ export interface IVoterRepository {
 	addRange(entities: Voter[]): Promise<boolean>;
 	get(id: string): Promise<Voter>;
 	getPagedResults(pageSize: number, pageNumber: number): Promise<Voter[]>;
+	update(entity: Voter): Promise<boolean>;
 	remove(id: string): Promise<boolean>;
 }

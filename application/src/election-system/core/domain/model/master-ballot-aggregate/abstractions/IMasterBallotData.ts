@@ -10,7 +10,6 @@ export interface IMasterBallotData {
 			title: string,
 			content: string,
 			contentType: string,
-			voteTally: number,
 		}[]
 	}[]
 }

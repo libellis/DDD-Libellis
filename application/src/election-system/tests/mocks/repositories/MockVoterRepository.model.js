@@ -35,63 +35,83 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var MasterBallot_model_1 = require("../../../core/domain/model/ballot-aggregate/entities/MasterBallot.model");
-var MockSurveyRepository = /** @class */ (function () {
-    function MockSurveyRepository(mockData) {
-        this.mockData = mockData;
+var MockVoterRepository = /** @class */ (function () {
+    function MockVoterRepository(mockData) {
+        this._mockData = [];
+        if (mockData !== undefined) {
+            this._mockData = mockData;
+        }
     }
-    MockSurveyRepository.prototype.add = function (entity) {
+    MockVoterRepository.prototype.add = function (entity) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                this.mockData.push(entity);
+                this._mockData.push(entity);
                 return [2 /*return*/, true];
             });
         });
     };
-    MockSurveyRepository.prototype.addRange = function (entities) {
+    MockVoterRepository.prototype.addRange = function (entities) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                this.mockData.concat(entities);
+                this._mockData = this._mockData.concat(entities);
                 return [2 /*return*/, true];
             });
         });
     };
-    MockSurveyRepository.prototype.get = function (id) {
+    MockVoterRepository.prototype.get = function (id) {
         return __awaiter(this, void 0, void 0, function () {
-            var s;
+            var v;
             return __generator(this, function (_a) {
-                s = this.mockData.find(function (s) {
-                    return s.id === id;
+                v = this._mockData.find(function (v) {
+                    return v.id === id;
                 });
-                // deep clone so we don't mutate survey in mockData as such mutation
-                // would not affect a real repository
-                return [2 /*return*/, new MasterBallot_model_1.Survey(s.id, s.author, s.title, s.description, s.category, s.datePosted, s.anonymous, s.published, 
-                    // internal getter deep clones questions and their choices.
-                    s.questions)];
+                if (v === undefined) {
+                    return [2 /*return*/, v];
+                }
+                return [2 /*return*/, v.clone()];
             });
         });
     };
-    MockSurveyRepository.prototype.getPagedResults = function (pageSize, pageNumber) {
+    MockVoterRepository.prototype.getPagedResults = function (pageSize, pageNumber) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, this.mockData
-                        .slice(pageSize * (pageNumber - 1), pageSize * pageNumber)];
+                return [2 /*return*/, this._mockData
+                        .slice(pageSize * (pageNumber - 1), pageSize * pageNumber)
+                        .map(function (v) {
+                        return v.clone();
+                    })];
             });
         });
     };
-    MockSurveyRepository.prototype.remove = function (id) {
+    MockVoterRepository.prototype.update = function (entity) {
+        return __awaiter(this, void 0, void 0, function () {
+            var vIdx;
+            return __generator(this, function (_a) {
+                vIdx = this._mockData.findIndex(function (v) {
+                    return v.id === entity.id;
+                });
+                // Should we bother putting error return in mock repo?
+                if (vIdx === -1) {
+                    return [2 /*return*/, false];
+                }
+                this._mockData[vIdx] = entity;
+                return [2 /*return*/, true];
+            });
+        });
+    };
+    MockVoterRepository.prototype.remove = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             var index, removed;
             return __generator(this, function (_a) {
-                index = this.mockData.findIndex(function (s) {
-                    return s.id === id;
+                index = this._mockData.findIndex(function (v) {
+                    return v.id === id;
                 });
-                removed = this.mockData.splice(index, 1);
+                removed = this._mockData.splice(index, 1);
                 return [2 /*return*/, removed.length !== 0];
             });
         });
     };
-    return MockSurveyRepository;
+    return MockVoterRepository;
 }());
-exports.MockSurveyRepository = MockSurveyRepository;
-//# sourceMappingURL=MockSurveyRepository.model.js.map
+exports.MockVoterRepository = MockVoterRepository;
+//# sourceMappingURL=MockVoterRepository.model.js.map

@@ -27,6 +27,13 @@ var Voter = /** @class */ (function (_super) {
     Voter.create = function (idGenerator) {
         return new Voter(idGenerator());
     };
+    Voter.prototype.clone = function () {
+        var voter = new Voter(this.id);
+        while (voter.version !== this.version) {
+            voter.incrementVersion();
+        }
+        return voter;
+    };
     return Voter;
 }(Entity_model_1.Entity));
 exports.Voter = Voter;

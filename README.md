@@ -1,5 +1,5 @@
 # DDD-Libellis
-[![Build Status](https://travis-ci.org/libellis/DDD-Libellis.svg?branch=master)](https://travis-ci.org/libellis/libellis-api)
+[![Build Status](https://travis-ci.org/libellis/DDD-Libellis.svg?branch=master)](https://travis-ci.org/libellis/DDD-Libellis)
 [![Coverage Status](https://coveralls.io/repos/github/libellis/DDD-Libellis/badge.svg?branch=master)](https://coveralls.io/github/libellis/DDD-Libellis?branch=master)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
@@ -40,10 +40,12 @@ A Teller in any election is the person that counts the votes.  This system talli
 
 ## Setup
 
-To setup the project for development, simply run `make docker-build` from the root directory.  For now there is no web api layer for endpoint testing, or manual interaction with the application.  To run all current tests simply run `make docker-test`.  
-
-Various npm commands have also been customized for your convenience.  Rather than the more explicit docker commands, you can use npm scripts built into the `package.json` file.  `npm start` is the equivalent of docker-build.  `npm test` will likewise run tests from inside of your built docker container.
+To setup the project for development, simply run `make docker-build` from the root directory.  For now there is no web api layer for endpoint testing, or manual interaction with the application. 
 
 ## Tests
 
-You can run tests by running `make docker-test` from the root directory, or by using `npm start` from the root directory.
+You can run tests by running `make docker-test` from the root directory.
+
+## Cleaning up Containers
+
+If you need to clean up libellis api containers, just run `make docker-clean`.  If you would like to deep clean all of your docker images you can use `make docker-deep-clean`.

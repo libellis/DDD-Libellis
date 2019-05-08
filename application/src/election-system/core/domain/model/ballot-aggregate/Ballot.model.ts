@@ -12,7 +12,7 @@ export class Ballot extends Entity {
 		id: string,
 		public voterId: string,
 		public _questions: Question[],
-		private ballotCastEventBus: EventBus
+		private eventBus: EventBus
 	) {
 		super(id);
 	}
@@ -21,7 +21,7 @@ export class Ballot extends Entity {
 	// 1. Rank logic is correct, and not manipulated - This gets enforced by Question VO
 	static cast(
 		idGenerator: () => string,
-		ballotCastEventBus: EventBus,
+		eventBus: EventBus,
 		sData: IBallotData
 		): Ballot {
 
@@ -53,13 +53,25 @@ export class Ballot extends Entity {
 			idGenerator(),
 			sData.voterId,
 			questions,
-			ballotCastEventBus
+			eventBus
 		);
 
 		// We push the ballot cast event to any interested parties
 		const ballotCastEvent = new BallotCastEvent(ballot);
-		ballotCastEventBus.ballotCastEventStream.next(ballotCastEvent);
+		eventBus.ballotCastEventStream.next(ballotCastEvent);
 
 		return ballot;
+	}
+
+	// Generates a new cloned instance of the entity
+	// Note: _questions is simply an array of value objects, which
+	// are immutable so we can pass them without deep cloning them.
+	clone(): Ballot {
+		return new Ballot(
+			this.id,
+			this.voterId,
+			this._questions,
+			this.eventBus,
+		)
 	}
 }

@@ -1,6 +1,5 @@
-import { expect, assert } from 'chai';
+import { expect } from 'chai';
 import 'mocha';
-import * as faker from 'faker';
 import {TestMasterBallotFactory} from "../../core/domain/model/factories/TestMasterBallotFactory.model";
 import {MockMasterBallotRepository} from "./MockMasterBallotRepository.model";
 

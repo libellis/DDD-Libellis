@@ -2,6 +2,12 @@ import { Election } from "../../../../../core/domain/model/election-aggregate/El
 import * as faker from 'faker';
 import { EventBus } from "../../../../../../shared-kernel/event-streams/EventBus";
 import { MasterBallot } from "../../../../../core/domain/model/master-ballot-aggregate/MasterBallot.model";
+import {IBallotData} from "../../../../../core/domain/model/ballot-aggregate/abstractions/IBallotData";
+import {Ballot} from "../../../../../core/domain/model/ballot-aggregate/Ballot.model";
+import {Voter} from "../../../../../core/domain/model/voter-aggregate/Voter.model";
+import {TestBallotDataFactory} from "./TestBallotDataFactory.model";
+import {TestVoterFactory} from "./TestVoterFactory.model";
+import {TestMasterBallotFactory} from "./TestMasterBallotFactory.model";
 
 export class TestElectionFactory {
 
@@ -69,6 +75,59 @@ export class TestElectionFactory {
 			if (inputObj.hasOwnProperty(key)) inputObj[key] = value;
 		}
 	}
+
+	// Should this be here or in the election test factory model?
+	static castBallot(election: Election, ballotData: IBallotData): Ballot {
+		return election.castBallot(
+			faker.random.uuid,
+			ballotData
+		);
+	}
+
+	static castBallots(election: Election, ballotDatas: IBallotData[]): Ballot[] {
+		return ballotDatas.map(b => {
+			return TestElectionFactory.castBallot(election, b);
+		});
+	}
+
+	// This is a very meta method that handles all the steps leading up to and including
+	// casting a ballot.  It returns all relevant class instances stored in an object.
+	// Intention is to destructure what you need from the final output object
+	static createElectionAndCastBallot(): ElectionData {
+		const eventBus = new EventBus();
+
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+		const election = TestElectionFactory.createElectionWithFactoryMethod(masterBallot, {ballotCastEventBus: eventBus});
+		const voter = TestVoterFactory.createTestVoter();
+		const ballotData = TestBallotDataFactory.createTestBallot(voter.id, masterBallot);
+		const ballot = TestElectionFactory.castBallot(election, ballotData);
+
+		return {
+			election,
+			masterBallot,
+			ballot,
+			voter,
+			eventBus
+		}
+	}
+
+	static createElectionAndCastBallots(): ElectionDatas {
+		const eventBus = new EventBus();
+
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+		const election = TestElectionFactory.createElectionWithFactoryMethod(masterBallot, {ballotCastEventBus: eventBus});
+		const voters = TestVoterFactory.createRandomTestVoters(6, 12);
+		const ballotDatas = TestBallotDataFactory.createTestBallotsFromVotersList(voters, masterBallot);
+		const ballots = TestElectionFactory.castBallots(election, ballotDatas);
+
+		return {
+			election,
+			masterBallot,
+			ballots,
+			voters,
+			eventBus
+		}
+	}
 }
 
 interface OptionalParams {
@@ -76,4 +135,20 @@ interface OptionalParams {
 	end?: Date,
 	anonymous?: boolean,
 	ballotCastEventBus?: EventBus,
+}
+
+interface ElectionData {
+	election: Election,
+	masterBallot: MasterBallot,
+	ballot: Ballot,
+	voter: Voter,
+	eventBus: EventBus,
+}
+
+interface ElectionDatas {
+	election: Election,
+	masterBallot: MasterBallot,
+	ballots: Ballot[],
+	voters: Voter[],
+	eventBus: EventBus,
 }

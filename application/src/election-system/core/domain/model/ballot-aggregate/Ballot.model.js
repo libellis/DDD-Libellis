@@ -20,16 +20,16 @@ var ScoreVO_model_1 = require("../common/value-objects/ScoreVO.model");
 var BallotCastEvent_model_1 = require("../events/BallotCastEvent.model");
 var Ballot = /** @class */ (function (_super) {
     __extends(Ballot, _super);
-    function Ballot(id, voterId, _questions, ballotCastEventBus) {
+    function Ballot(id, voterId, _questions, eventBus) {
         var _this = _super.call(this, id) || this;
         _this.voterId = voterId;
         _this._questions = _questions;
-        _this.ballotCastEventBus = ballotCastEventBus;
+        _this.eventBus = eventBus;
         return _this;
     }
     // Factory method Must enforce following logic:
     // 1. Rank logic is correct, and not manipulated - This gets enforced by Question VO
-    Ballot.cast = function (idGenerator, ballotCastEventBus, sData) {
+    Ballot.cast = function (idGenerator, eventBus, sData) {
         // We push our questions voteData through score and
         // question value objects to automatically hit their validation
         // systems for invariance enforcement.
@@ -44,11 +44,17 @@ var Ballot = /** @class */ (function (_super) {
             });
             return new QuestionVO_model_1.Question(qData.qId, choices);
         });
-        var ballot = new Ballot(idGenerator(), sData.voterId, questions, ballotCastEventBus);
+        var ballot = new Ballot(idGenerator(), sData.voterId, questions, eventBus);
         // We push the ballot cast event to any interested parties
         var ballotCastEvent = new BallotCastEvent_model_1.BallotCastEvent(ballot);
-        ballotCastEventBus.ballotCastEventStream.next(ballotCastEvent);
+        eventBus.ballotCastEventStream.next(ballotCastEvent);
         return ballot;
+    };
+    // Generates a new cloned instance of the entity
+    // Note: _questions is simply an array of value objects, which
+    // are immutable so we can pass them without deep cloning them.
+    Ballot.prototype.clone = function () {
+        return new Ballot(this.id, this.voterId, this._questions, this.eventBus);
     };
     return Ballot;
 }(Entity_model_1.Entity));

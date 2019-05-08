@@ -31,19 +31,7 @@ export class MockMasterBallotRepository implements IMasterBallotRepository {
 			return s;
 		}
 
-		// deep clone so we don't mutate survey in mockData as such mutation
-		// would not affect a real repository
-		return new MasterBallot(
-			s.id,
-			s.author,
-			s.title,
-			s.description,
-			s.category,
-			s.dateCreated,
-
-			// internal getter deep clones questions and their choices.
-			s.questions,
-		)
+		return s.clone();
 	}
 
 	async getPagedResults(pageSize: number, pageNumber: number): Promise<MasterBallot[]> {
@@ -51,7 +39,10 @@ export class MockMasterBallotRepository implements IMasterBallotRepository {
 			.slice(
 				pageSize * (pageNumber - 1),
 				pageSize * pageNumber
-			);
+			)
+			.map(b => {
+				return b.clone();
+			});
 	}
 
 	async remove(id: string): Promise<boolean> {

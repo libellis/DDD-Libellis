@@ -70,6 +70,9 @@ var MasterBallot = /** @class */ (function (_super) {
         this._questions.push(newQuestion);
         return true;
     };
+    MasterBallot.prototype.clone = function () {
+        return new MasterBallot(this.id, this.author, this.title, this.description, this.category, new Date(this.dateCreated), this.questions);
+    };
     return MasterBallot;
 }(Entity_model_1.Entity));
 exports.MasterBallot = MasterBallot;

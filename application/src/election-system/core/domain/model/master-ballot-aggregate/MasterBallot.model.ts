@@ -3,8 +3,9 @@ import { Choice } from "./Choice.model";
 import { IMasterBallotData } from "./abstractions/IMasterBallotData";
 import { Category } from "../common/value-objects/CategoryVO.model";
 import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
+import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
 
-export class MasterBallot extends Entity {
+export class MasterBallot extends Entity implements IClonable<MasterBallot> {
 
 	constructor(
 		id: string,
@@ -93,7 +94,6 @@ export class MasterBallot extends Entity {
 				title: string,
 				content: string,
 				contentType: string,
-				voteTally: number,
 			}[]
 		},
 	): boolean {
@@ -116,6 +116,18 @@ export class MasterBallot extends Entity {
 		this._questions.push(newQuestion);
 
 		return true;
+	}
+
+	clone(): MasterBallot {
+		return new MasterBallot(
+			this.id,
+			this.author,
+			this.title,
+			this.description,
+			this.category,
+			new Date(this.dateCreated),
+			this.questions
+		);
 	}
 }
 

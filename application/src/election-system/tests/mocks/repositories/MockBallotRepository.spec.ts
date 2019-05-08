@@ -18,6 +18,37 @@ describe('test all mock methods', () => {
 		expect(retrievedBallot).to.eql(ballot);
 	});
 
+	it('get() should not return an entity that when directly mutated affects repository data', async () => {
+		const { eventBus, ballot } = TestElectionFactory.createElectionAndCastBallot();
+
+		const ballotRepository = new MockBallotRepository();
+		await ballotRepository.add(ballot);
+		const ballotToMutate = await ballotRepository.get(ballot.id);
+
+		ballotToMutate.incrementVersion();
+
+		const retrievedBallot = await ballotRepository.get(ballot.id);
+
+		expect(retrievedBallot).to.eql(ballot);
+		expect(retrievedBallot).to.not.eql(ballotToMutate);
+	});
+
+	it('getPaged() should not return entities that when directly mutated affects repository data', async () => {
+		const { eventBus, ballots } = TestElectionFactory.createElectionAndCastBallots();
+
+		const ballotRepository = new MockBallotRepository();
+		await ballotRepository.addRange(ballots);
+		const retrievedBallotsToMutate = await ballotRepository.getPagedResults(ballots.length, 1);
+
+		const ballotToMutate = retrievedBallotsToMutate[0];
+		ballotToMutate.incrementVersion();
+
+		const retrievedBallots = await ballotRepository.getPagedResults(ballots.length, 1);
+
+		expect(retrievedBallots).to.eql(ballots);
+		expect(retrievedBallots).to.not.eql(retrievedBallotsToMutate);
+	});
+
 	it('should store a range of ballots', async () => {
 		const { eventBus, ballots } = TestElectionFactory.createElectionAndCastBallots();
 

@@ -59,6 +59,53 @@ describe('test all mock methods', function () {
             }
         });
     }); });
+    it('get() should not return an entity that when directly mutated affects repository data', function () { return __awaiter(_this, void 0, void 0, function () {
+        var _a, eventBus, ballot, ballotRepository, ballotToMutate, retrievedBallot;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _a = TestElectionFactory_model_1.TestElectionFactory.createElectionAndCastBallot(), eventBus = _a.eventBus, ballot = _a.ballot;
+                    ballotRepository = new MockBallotRepository_model_1.MockBallotRepository();
+                    return [4 /*yield*/, ballotRepository.add(ballot)];
+                case 1:
+                    _b.sent();
+                    return [4 /*yield*/, ballotRepository.get(ballot.id)];
+                case 2:
+                    ballotToMutate = _b.sent();
+                    ballotToMutate.incrementVersion();
+                    return [4 /*yield*/, ballotRepository.get(ballot.id)];
+                case 3:
+                    retrievedBallot = _b.sent();
+                    chai_1.expect(retrievedBallot).to.eql(ballot);
+                    chai_1.expect(retrievedBallot).to.not.eql(ballotToMutate);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('getPaged() should not return entities that when directly mutated affects repository data', function () { return __awaiter(_this, void 0, void 0, function () {
+        var _a, eventBus, ballots, ballotRepository, retrievedBallotsToMutate, ballotToMutate, retrievedBallots;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    _a = TestElectionFactory_model_1.TestElectionFactory.createElectionAndCastBallots(), eventBus = _a.eventBus, ballots = _a.ballots;
+                    ballotRepository = new MockBallotRepository_model_1.MockBallotRepository();
+                    return [4 /*yield*/, ballotRepository.addRange(ballots)];
+                case 1:
+                    _b.sent();
+                    return [4 /*yield*/, ballotRepository.getPagedResults(ballots.length, 1)];
+                case 2:
+                    retrievedBallotsToMutate = _b.sent();
+                    ballotToMutate = retrievedBallotsToMutate[0];
+                    ballotToMutate.incrementVersion();
+                    return [4 /*yield*/, ballotRepository.getPagedResults(ballots.length, 1)];
+                case 3:
+                    retrievedBallots = _b.sent();
+                    chai_1.expect(retrievedBallots).to.eql(ballots);
+                    chai_1.expect(retrievedBallots).to.not.eql(retrievedBallotsToMutate);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
     it('should store a range of ballots', function () { return __awaiter(_this, void 0, void 0, function () {
         var _a, eventBus, ballots, ballotRepository, retrievedBallots;
         return __generator(this, function (_b) {

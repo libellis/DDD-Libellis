@@ -40,7 +40,10 @@ export class MockBallotRepository implements IBallotRepository {
 			.slice(
 				pageSize * (pageNumber - 1),
 				pageSize * pageNumber
-			);
+			)
+			.map(b => {
+				return b.clone();
+			});
 	}
 
 	async remove(id: string): Promise<boolean> {

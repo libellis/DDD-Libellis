@@ -43,7 +43,7 @@ var MockElectionRepository_model_1 = require("./MockElectionRepository.model");
 var TestMasterBallotFactory_model_1 = require("../../core/domain/model/factories/TestMasterBallotFactory.model");
 describe('test all mock methods', function () {
     it('should store and retrieve a election', function () { return __awaiter(_this, void 0, void 0, function () {
-        var masterBallot, election, electionRepository, retrievedBallot;
+        var masterBallot, election, electionRepository, retrievedElection;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -55,14 +55,14 @@ describe('test all mock methods', function () {
                     _a.sent();
                     return [4 /*yield*/, electionRepository.get(election.id)];
                 case 2:
-                    retrievedBallot = _a.sent();
-                    chai_1.expect(retrievedBallot).to.eql(election);
+                    retrievedElection = _a.sent();
+                    chai_1.expect(retrievedElection).to.eql(election);
                     return [2 /*return*/];
             }
         });
     }); });
-    it('should not allow mutations to change data in repository', function () { return __awaiter(_this, void 0, void 0, function () {
-        var masterBallot, election, electionRepository, ballotToMutate, retrievedBallot;
+    it('get() should not return an entity that when mutated changes data in repository', function () { return __awaiter(_this, void 0, void 0, function () {
+        var masterBallot, election, electionRepository, ballotToMutate, retrievedElection;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -78,15 +78,15 @@ describe('test all mock methods', function () {
                     ballotToMutate.incrementVersion();
                     return [4 /*yield*/, electionRepository.get(election.id)];
                 case 3:
-                    retrievedBallot = _a.sent();
-                    chai_1.expect(retrievedBallot).to.eql(election);
-                    chai_1.expect(ballotToMutate).to.not.eql(retrievedBallot);
+                    retrievedElection = _a.sent();
+                    chai_1.expect(retrievedElection).to.eql(election);
+                    chai_1.expect(ballotToMutate).to.not.eql(retrievedElection);
                     return [2 /*return*/];
             }
         });
     }); });
-    it('should store a range of elections', function () { return __awaiter(_this, void 0, void 0, function () {
-        var masterBallots, elections, electionRepository, retrievedBallots;
+    it('getPaged() should not return entities that when mutated changes data in repository', function () { return __awaiter(_this, void 0, void 0, function () {
+        var masterBallots, elections, electionRepository, retrievedElectionsToMutate, electionToMutate, retrievedElections;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -98,14 +98,39 @@ describe('test all mock methods', function () {
                     _a.sent();
                     return [4 /*yield*/, electionRepository.getPagedResults(elections.length, 1)];
                 case 2:
-                    retrievedBallots = _a.sent();
-                    chai_1.expect(retrievedBallots).to.eql(elections);
+                    retrievedElectionsToMutate = _a.sent();
+                    electionToMutate = retrievedElectionsToMutate[0];
+                    electionToMutate.incrementVersion();
+                    return [4 /*yield*/, electionRepository.getPagedResults(elections.length, 1)];
+                case 3:
+                    retrievedElections = _a.sent();
+                    chai_1.expect(retrievedElections).to.eql(elections);
+                    chai_1.expect(retrievedElections).to.not.eql(retrievedElectionsToMutate);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('should store a range of elections', function () { return __awaiter(_this, void 0, void 0, function () {
+        var masterBallots, elections, electionRepository, retrievedElections;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    masterBallots = TestMasterBallotFactory_model_1.TestMasterBallotFactory.createMultipleMasterBallots();
+                    elections = TestElectionFactory_model_1.TestElectionFactory.createElectionsFromMasterBallots(masterBallots);
+                    electionRepository = new MockElectionRepository_model_1.MockElectionRepository();
+                    return [4 /*yield*/, electionRepository.addRange(elections)];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, electionRepository.getPagedResults(elections.length, 1)];
+                case 2:
+                    retrievedElections = _a.sent();
+                    chai_1.expect(retrievedElections).to.eql(elections);
                     return [2 /*return*/];
             }
         });
     }); });
     it('should remove an election successfully', function () { return __awaiter(_this, void 0, void 0, function () {
-        var masterBallot, election, electionRepository, retrievedBallot, attemptedRetrievedBallot;
+        var masterBallot, election, electionRepository, retrievedElection, attemptedRetrievedBallot;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -117,8 +142,8 @@ describe('test all mock methods', function () {
                     _a.sent();
                     return [4 /*yield*/, electionRepository.get(election.id)];
                 case 2:
-                    retrievedBallot = _a.sent();
-                    chai_1.expect(retrievedBallot).to.eql(election);
+                    retrievedElection = _a.sent();
+                    chai_1.expect(retrievedElection).to.eql(election);
                     return [4 /*yield*/, electionRepository.remove(election.id)];
                 case 3:
                     _a.sent();

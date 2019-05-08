@@ -40,7 +40,10 @@ export class MockElectionRepository implements IElectionRepository {
 			.slice(
 				pageSize * (pageNumber - 1),
 				pageSize * pageNumber
-			);
+			)
+			.map(e => {
+				return e.clone()
+			})
 	}
 
 	async remove(id: string): Promise<boolean> {

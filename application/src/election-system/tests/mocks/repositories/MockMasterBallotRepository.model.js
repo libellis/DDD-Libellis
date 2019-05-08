@@ -35,7 +35,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var MasterBallot_model_1 = require("../../../core/domain/model/master-ballot-aggregate/MasterBallot.model");
 var MockMasterBallotRepository = /** @class */ (function () {
     function MockMasterBallotRepository(mockData) {
         this._mockData = [];
@@ -69,11 +68,7 @@ var MockMasterBallotRepository = /** @class */ (function () {
                 if (s === undefined) {
                     return [2 /*return*/, s];
                 }
-                // deep clone so we don't mutate survey in mockData as such mutation
-                // would not affect a real repository
-                return [2 /*return*/, new MasterBallot_model_1.MasterBallot(s.id, s.author, s.title, s.description, s.category, s.dateCreated, 
-                    // internal getter deep clones questions and their choices.
-                    s.questions)];
+                return [2 /*return*/, s.clone()];
             });
         });
     };
@@ -81,7 +76,10 @@ var MockMasterBallotRepository = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2 /*return*/, this._mockData
-                        .slice(pageSize * (pageNumber - 1), pageSize * pageNumber)];
+                        .slice(pageSize * (pageNumber - 1), pageSize * pageNumber)
+                        .map(function (b) {
+                        return b.clone();
+                    })];
             });
         });
     };

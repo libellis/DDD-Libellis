@@ -77,7 +77,10 @@ var MockBallotRepository = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2 /*return*/, this._mockData
-                        .slice(pageSize * (pageNumber - 1), pageSize * pageNumber)];
+                        .slice(pageSize * (pageNumber - 1), pageSize * pageNumber)
+                        .map(function (b) {
+                        return b.clone();
+                    })];
             });
         });
     };

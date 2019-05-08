@@ -59,6 +59,53 @@ describe('test all mock methods', function () {
             }
         });
     }); });
+    it('get() should not allow entity mutation to affect repository data', function () { return __awaiter(_this, void 0, void 0, function () {
+        var masterBallot, masterBallotRepository, masterBallotToMutate, retrievedMasterBallot;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    masterBallot = TestMasterBallotFactory_model_1.TestMasterBallotFactory.createFullMasterBallot();
+                    masterBallotRepository = new MockMasterBallotRepository_model_1.MockMasterBallotRepository();
+                    return [4 /*yield*/, masterBallotRepository.add(masterBallot)];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, masterBallotRepository.get(masterBallot.id)];
+                case 2:
+                    masterBallotToMutate = _a.sent();
+                    masterBallotToMutate.incrementVersion();
+                    return [4 /*yield*/, masterBallotRepository.get(masterBallot.id)];
+                case 3:
+                    retrievedMasterBallot = _a.sent();
+                    chai_1.expect(retrievedMasterBallot).to.eql(masterBallot);
+                    chai_1.expect(retrievedMasterBallot).to.not.eql(masterBallotToMutate);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('getPaged() should not return entities, that when mutated directly affect repository data', function () { return __awaiter(_this, void 0, void 0, function () {
+        var masterBallots, masterBallotRepository, retrievedMasterBallotsToMutate, masterBallotToMutate, retrievedBallots;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    masterBallots = TestMasterBallotFactory_model_1.TestMasterBallotFactory.createMultipleMasterBallots();
+                    masterBallotRepository = new MockMasterBallotRepository_model_1.MockMasterBallotRepository();
+                    return [4 /*yield*/, masterBallotRepository.addRange(masterBallots)];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, masterBallotRepository.getPagedResults(masterBallots.length, 1)];
+                case 2:
+                    retrievedMasterBallotsToMutate = _a.sent();
+                    masterBallotToMutate = retrievedMasterBallotsToMutate[0];
+                    masterBallotToMutate.incrementVersion();
+                    return [4 /*yield*/, masterBallotRepository.getPagedResults(masterBallots.length, 1)];
+                case 3:
+                    retrievedBallots = _a.sent();
+                    chai_1.expect(retrievedBallots).to.eql(masterBallots);
+                    chai_1.expect(retrievedBallots).to.not.eql(masterBallotToMutate);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
     it('should store a range of master ballots', function () { return __awaiter(_this, void 0, void 0, function () {
         var masterBallots, masterBallotRepository, retrievedBallots;
         return __generator(this, function (_a) {

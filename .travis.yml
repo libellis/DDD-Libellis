@@ -1,5 +1,3 @@
-language: node_js
-
 env:
   DOCKER_COMPOSE_VERSION: 3.7.0
 
@@ -7,16 +5,15 @@ services:
   - docker
 
 before_install:
-  - sudo apt-get update
+  - docker -v
+  - cp .env.example .env
+  # Stop the postgres instance travis sets up automatically
+  - sudo /etc/init.d/postgresql stop
+  - sudo service mysql stop
 
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-
-  - docker-compose --version
-
+install:
   - make docker-build
+  - sleep 10
   - docker ps -a
 
 script:

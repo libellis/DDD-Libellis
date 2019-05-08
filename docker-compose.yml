@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+
+  libellis:
+    build:
+      context: ./
+      args:
+        - application=libellis
+        - friendly="Libellis API"
+        - build_hash=${HASH:-localbuild_hashmissing}
+        - build_user=${BUILD_USER:-$USER}
+        - build_branch=${BRANCH:-nobranch}
+        - build_number=${BUILD_NUMBER:-1.0.0}
+        - build_group=${BUILD_GROUP:-nogroupspecified}
+    image: libellis/libellis-api:${BUILD_NUMBER:-1.0.0}
+    container_name: libellis
+    volumes:
+      - ./application:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
+    command: "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"

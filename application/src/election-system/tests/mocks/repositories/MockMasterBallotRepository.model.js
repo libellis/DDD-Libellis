@@ -35,63 +35,69 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var MasterBallot_model_1 = require("../../../core/domain/model/ballot-aggregate/entities/MasterBallot.model");
-var MockSurveyRepository = /** @class */ (function () {
-    function MockSurveyRepository(mockData) {
-        this.mockData = mockData;
+var MasterBallot_model_1 = require("../../../core/domain/model/master-ballot-aggregate/MasterBallot.model");
+var MockMasterBallotRepository = /** @class */ (function () {
+    function MockMasterBallotRepository(mockData) {
+        this._mockData = [];
+        if (mockData !== undefined) {
+            this._mockData = mockData;
+        }
     }
-    MockSurveyRepository.prototype.add = function (entity) {
+    MockMasterBallotRepository.prototype.add = function (entity) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                this.mockData.push(entity);
+                this._mockData.push(entity);
                 return [2 /*return*/, true];
             });
         });
     };
-    MockSurveyRepository.prototype.addRange = function (entities) {
+    MockMasterBallotRepository.prototype.addRange = function (entities) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                this.mockData.concat(entities);
+                this._mockData = this._mockData.concat(entities);
                 return [2 /*return*/, true];
             });
         });
     };
-    MockSurveyRepository.prototype.get = function (id) {
+    MockMasterBallotRepository.prototype.get = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             var s;
             return __generator(this, function (_a) {
-                s = this.mockData.find(function (s) {
+                s = this._mockData.find(function (s) {
                     return s.id === id;
                 });
+                if (s === undefined) {
+                    return [2 /*return*/, s];
+                }
                 // deep clone so we don't mutate survey in mockData as such mutation
                 // would not affect a real repository
-                return [2 /*return*/, new MasterBallot_model_1.Survey(s.id, s.author, s.title, s.description, s.category, s.datePosted, s.anonymous, s.published, 
+                return [2 /*return*/, new MasterBallot_model_1.MasterBallot(s.id, s.author, s.title, s.description, s.category, s.dateCreated, 
                     // internal getter deep clones questions and their choices.
                     s.questions)];
             });
         });
     };
-    MockSurveyRepository.prototype.getPagedResults = function (pageSize, pageNumber) {
+    MockMasterBallotRepository.prototype.getPagedResults = function (pageSize, pageNumber) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, this.mockData
+                return [2 /*return*/, this._mockData
                         .slice(pageSize * (pageNumber - 1), pageSize * pageNumber)];
             });
         });
     };
-    MockSurveyRepository.prototype.remove = function (id) {
+    MockMasterBallotRepository.prototype.remove = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             var index, removed;
             return __generator(this, function (_a) {
-                index = this.mockData.findIndex(function (s) {
+                index = this._mockData.findIndex(function (s) {
                     return s.id === id;
                 });
-                removed = this.mockData.splice(index, 1);
+                removed = this._mockData.splice(index, 1);
                 return [2 /*return*/, removed.length !== 0];
             });
         });
     };
-    return MockSurveyRepository;
+    return MockMasterBallotRepository;
 }());
-exports.MockSurveyRepository = MockSurveyRepository;
-//# sourceMappingURL=MockSurveyRepository.model.js.map
+exports.MockMasterBallotRepository = MockMasterBallotRepository;
+//# sourceMappingURL=MockMasterBallotRepository.model.js.map

@@ -102,6 +102,16 @@ export class TestMasterBallotFactory {
 			if (inputObj.hasOwnProperty(key)) inputObj[key] = value;
 		}
 	}
+
+	public static createMultipleMasterBallots(minimum?: number, maximum?: number): MasterBallot[] {
+		const min = minimum === undefined ? 2 : minimum;
+		const max = maximum === undefined ? 2 : maximum;
+		const randomArray = Array(faker.random.number({min, max, precision: 1})).fill(0);
+
+		return randomArray.map(e => {
+			return TestMasterBallotFactory.createFullMasterBallot();
+		});
+	}
 }
 
 class QuestionData {

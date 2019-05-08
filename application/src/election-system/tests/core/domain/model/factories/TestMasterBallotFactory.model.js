@@ -81,6 +81,14 @@ var TestMasterBallotFactory = /** @class */ (function () {
                 inputObj[key] = value;
         }
     };
+    TestMasterBallotFactory.createMultipleMasterBallots = function (minimum, maximum) {
+        var min = minimum === undefined ? 2 : minimum;
+        var max = maximum === undefined ? 2 : maximum;
+        var randomArray = Array(faker.random.number({ min: min, max: max, precision: 1 })).fill(0);
+        return randomArray.map(function (e) {
+            return TestMasterBallotFactory.createFullMasterBallot();
+        });
+    };
     return TestMasterBallotFactory;
 }());
 exports.TestMasterBallotFactory = TestMasterBallotFactory;

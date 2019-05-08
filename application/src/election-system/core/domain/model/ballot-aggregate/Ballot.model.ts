@@ -68,11 +68,17 @@ export class Ballot extends Entity implements IClonable<Ballot> {
 	// Note: _questions is simply an array of value objects, which
 	// are immutable so we can pass them without deep cloning them.
 	clone(): Ballot {
-		return new Ballot(
+		const ballot = new Ballot(
 			this.id,
 			this.voterId,
 			this._questions,
 			this.eventBus,
-		)
+		);
+
+		while (ballot.version !== this.version) {
+			ballot.incrementVersion();
+		}
+
+		return ballot;
 	}
 }

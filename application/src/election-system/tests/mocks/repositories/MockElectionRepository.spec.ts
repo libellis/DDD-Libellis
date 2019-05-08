@@ -59,6 +59,22 @@ describe('test all mock methods', () => {
 		expect(retrievedElections).to.eql(elections);
 	});
 
+	it('can issue an update for an election after mutation', async () => {
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+		const election = TestElectionFactory.createElectionWithFactoryMethod(masterBallot);
+
+		const electionRepository = new MockElectionRepository();
+		await electionRepository.add(election);
+		const ballotToMutate = await electionRepository.get(election.id);
+
+		ballotToMutate.incrementVersion();
+		await electionRepository.update(ballotToMutate);
+		const retrievedElection = await electionRepository.get(election.id);
+
+		expect(retrievedElection).to.not.eql(election);
+		expect(ballotToMutate).to.eql(retrievedElection);
+	});
+
 	it('should remove an election successfully', async () => {
 		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
 		const election = TestElectionFactory.createElectionWithFactoryMethod(masterBallot);

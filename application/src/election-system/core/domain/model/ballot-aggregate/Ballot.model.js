@@ -54,7 +54,11 @@ var Ballot = /** @class */ (function (_super) {
     // Note: _questions is simply an array of value objects, which
     // are immutable so we can pass them without deep cloning them.
     Ballot.prototype.clone = function () {
-        return new Ballot(this.id, this.voterId, this._questions, this.eventBus);
+        var ballot = new Ballot(this.id, this.voterId, this._questions, this.eventBus);
+        while (ballot.version !== this.version) {
+            ballot.incrementVersion();
+        }
+        return ballot;
     };
     return Ballot;
 }(Entity_model_1.Entity));

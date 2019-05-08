@@ -51,6 +51,21 @@ describe('test all mock methods', () => {
 		expect(retrievedBallots).to.eql(masterBallots);
 	});
 
+	it('update should persist mutated ballot', async () => {
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+		const masterBallotRepository = new MockMasterBallotRepository();
+		await masterBallotRepository.add(masterBallot);
+		const masterBallotToMutate = await masterBallotRepository.get(masterBallot.id);
+
+		masterBallotToMutate.incrementVersion();
+		await masterBallotRepository.update(masterBallotToMutate);
+
+		const retrievedMasterBallot = await masterBallotRepository.get(masterBallot.id);
+
+		expect(retrievedMasterBallot).to.not.eql(masterBallot);
+		expect(retrievedMasterBallot).to.eql(masterBallotToMutate);
+	});
+
 	it('should remove a master ballot successfully', async () => {
 		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
 		const masterBallotRepository = new MockMasterBallotRepository();

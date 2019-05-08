@@ -5,5 +5,6 @@ export interface IRepository {
     addRange(entities: Entity[]): Promise<boolean>;
     get(id: string): Promise<Entity>;
     getPagedResults(pageSize: number, pageNumber: number): Promise<Entity[]>;
+    update(entity: Entity): Promise<boolean>;
     remove(id: string): Promise<boolean>;
 }

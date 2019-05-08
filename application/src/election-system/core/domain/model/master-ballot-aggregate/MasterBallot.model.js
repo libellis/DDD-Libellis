@@ -71,7 +71,11 @@ var MasterBallot = /** @class */ (function (_super) {
         return true;
     };
     MasterBallot.prototype.clone = function () {
-        return new MasterBallot(this.id, this.author, this.title, this.description, this.category, new Date(this.dateCreated), this.questions);
+        var masterBallot = new MasterBallot(this.id, this.author, this.title, this.description, this.category, new Date(this.dateCreated), this.questions);
+        while (masterBallot.version !== this.version) {
+            masterBallot.incrementVersion();
+        }
+        return masterBallot;
     };
     return MasterBallot;
 }(Entity_model_1.Entity));

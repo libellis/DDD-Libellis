@@ -24,15 +24,15 @@ export class MockBallotRepository implements IBallotRepository {
 	}
 
 	async get(id: string): Promise<Ballot> {
-		const s = this._mockData.find(s => {
-			return s.id === id;
+		const b = this._mockData.find(b => {
+			return b.id === id;
 		});
 
-		if (s === undefined) {
-			return s;
+		if (b === undefined) {
+			return b;
 		}
 
-		return s.clone();
+		return b.clone();
 	}
 
 	async getPagedResults(pageSize: number, pageNumber: number): Promise<Ballot[]> {
@@ -44,6 +44,20 @@ export class MockBallotRepository implements IBallotRepository {
 			.map(b => {
 				return b.clone();
 			});
+	}
+
+	async update(entity: Ballot): Promise<boolean> {
+		const bIdx = this._mockData.findIndex(b => {
+			return b.id === entity.id;
+		});
+
+		// Should we bother putting error return in mock repo?
+		if (bIdx === -1) {
+			return false;
+		}
+
+		this._mockData[bIdx] = entity;
+		return true;
 	}
 
 	async remove(id: string): Promise<boolean> {

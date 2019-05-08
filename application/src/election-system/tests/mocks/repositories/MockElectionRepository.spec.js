@@ -129,6 +129,33 @@ describe('test all mock methods', function () {
             }
         });
     }); });
+    it('can issue an update for an election after mutation', function () { return __awaiter(_this, void 0, void 0, function () {
+        var masterBallot, election, electionRepository, ballotToMutate, retrievedElection;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    masterBallot = TestMasterBallotFactory_model_1.TestMasterBallotFactory.createFullMasterBallot();
+                    election = TestElectionFactory_model_1.TestElectionFactory.createElectionWithFactoryMethod(masterBallot);
+                    electionRepository = new MockElectionRepository_model_1.MockElectionRepository();
+                    return [4 /*yield*/, electionRepository.add(election)];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, electionRepository.get(election.id)];
+                case 2:
+                    ballotToMutate = _a.sent();
+                    ballotToMutate.incrementVersion();
+                    return [4 /*yield*/, electionRepository.update(ballotToMutate)];
+                case 3:
+                    _a.sent();
+                    return [4 /*yield*/, electionRepository.get(election.id)];
+                case 4:
+                    retrievedElection = _a.sent();
+                    chai_1.expect(retrievedElection).to.not.eql(election);
+                    chai_1.expect(ballotToMutate).to.eql(retrievedElection);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
     it('should remove an election successfully', function () { return __awaiter(_this, void 0, void 0, function () {
         var masterBallot, election, electionRepository, retrievedElection, attemptedRetrievedBallot;
         return __generator(this, function (_a) {

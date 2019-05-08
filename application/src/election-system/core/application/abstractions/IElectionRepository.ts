@@ -5,5 +5,6 @@ export interface IElectionRepository {
 	addRange(entities: Election[]): Promise<boolean>;
 	get(id: string): Promise<Election>;
 	getPagedResults(pageSize: number, pageNumber: number): Promise<Election[]>;
+	update(entity: Election): Promise<boolean>;
 	remove(id: string): Promise<boolean>;
 }

@@ -212,7 +212,7 @@ export class Election extends Entity implements IClonable<Election> {
 	}
 
 	clone(): Election {
-		return new Election(
+		const election = new Election(
 			this.id,
 			this._electionPeriod,
 			this._anonymous,
@@ -225,6 +225,12 @@ export class Election extends Entity implements IClonable<Election> {
 			new Set(this._whoVotedIds),
 			this._teller.clone(),
 			this._ballotCastEventBus
-		)
+		);
+
+		while (election.version !== this.version) {
+			election.incrementVersion();
+		}
+
+		return election;
 	}
 }

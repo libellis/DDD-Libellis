@@ -61,15 +61,15 @@ var MockBallotRepository = /** @class */ (function () {
     };
     MockBallotRepository.prototype.get = function (id) {
         return __awaiter(this, void 0, void 0, function () {
-            var s;
+            var b;
             return __generator(this, function (_a) {
-                s = this._mockData.find(function (s) {
-                    return s.id === id;
+                b = this._mockData.find(function (b) {
+                    return b.id === id;
                 });
-                if (s === undefined) {
-                    return [2 /*return*/, s];
+                if (b === undefined) {
+                    return [2 /*return*/, b];
                 }
-                return [2 /*return*/, s.clone()];
+                return [2 /*return*/, b.clone()];
             });
         });
     };
@@ -81,6 +81,22 @@ var MockBallotRepository = /** @class */ (function () {
                         .map(function (b) {
                         return b.clone();
                     })];
+            });
+        });
+    };
+    MockBallotRepository.prototype.update = function (entity) {
+        return __awaiter(this, void 0, void 0, function () {
+            var bIdx;
+            return __generator(this, function (_a) {
+                bIdx = this._mockData.findIndex(function (b) {
+                    return b.id === entity.id;
+                });
+                // Should we bother putting error return in mock repo?
+                if (bIdx === -1) {
+                    return [2 /*return*/, false];
+                }
+                this._mockData[bIdx] = entity;
+                return [2 /*return*/, true];
             });
         });
     };

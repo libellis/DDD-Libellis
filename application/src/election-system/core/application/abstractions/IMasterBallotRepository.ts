@@ -5,5 +5,6 @@ export interface IMasterBallotRepository {
 	addRange(entities: MasterBallot[]): Promise<boolean>;
 	get(id: string): Promise<MasterBallot>;
 	getPagedResults(pageSize: number, pageNumber: number): Promise<MasterBallot[]>;
+	update(entity: MasterBallot): Promise<boolean>;
 	remove(id: string): Promise<boolean>;
 }

@@ -119,7 +119,7 @@ export class MasterBallot extends Entity implements IClonable<MasterBallot> {
 	}
 
 	clone(): MasterBallot {
-		return new MasterBallot(
+		const masterBallot = new MasterBallot(
 			this.id,
 			this.author,
 			this.title,
@@ -128,6 +128,12 @@ export class MasterBallot extends Entity implements IClonable<MasterBallot> {
 			new Date(this.dateCreated),
 			this.questions
 		);
+
+		while (masterBallot.version !== this.version) {
+			masterBallot.incrementVersion();
+		}
+
+		return masterBallot;
 	}
 }
 

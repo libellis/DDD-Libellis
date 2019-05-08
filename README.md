@@ -39,12 +39,11 @@ A Teller in any election is the person that counts the votes.  This system talli
 
 ## Setup
 
-To build the project, simply run `make docker-build` from the root directory.  For now there is no web api layer for endpoint testing, or manual interaction with the application. 
+If you are in development, you are going to want to build your local node
+modules before you build your docker container.  Inside of the /application
+directory run `npm install`.
 
-This will build your docker container.  In development you will also want to run
-`npm install` from the `/application` directory to locally install node_modules.
-This will give you typescript support in most modern IDEs and enforce project
-specific rules.
+To build the docker container for the project, simply run `make docker-build` from the root directory.  For now there is no web api layer for endpoint testing, or manual interaction with the application. 
 
 ## Tests
 

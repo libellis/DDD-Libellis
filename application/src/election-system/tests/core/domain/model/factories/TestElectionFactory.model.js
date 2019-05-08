@@ -43,6 +43,11 @@ var TestElectionFactory = /** @class */ (function () {
         }
         return Election_model_1.Election.create(eData.id, eData.start, eData.end, eData.anonymous, eData.masterBallot, eData.ballotCastEventBus, eData.permittedVoters);
     };
+    TestElectionFactory.createElectionsFromMasterBallots = function (masterBallots) {
+        return masterBallots.map(function (b) {
+            return TestElectionFactory.createElectionWithFactoryMethod(b);
+        });
+    };
     // This allows us to patch our generated masterBallots/questions/choices with optional passed
     // in static values.
     TestElectionFactory.patchObject = function (inputObj, patchObj) {

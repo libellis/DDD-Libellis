@@ -1,29 +1,29 @@
-import {IBallotRepository} from "../../../core/application/abstractions/IBallotRepository";
-import {Ballot} from "../../../core/domain/model/ballot-aggregate/Ballot.model";
+import {IElectionRepository} from "../../../core/application/abstractions/IElectionRepository";
+import {Election} from "../../../core/domain/model/election-aggregate/Election.model";
 
-export class MockBallotRepository implements IBallotRepository {
-	private _mockData: Ballot[] = [];
+export class MockElectionRepository implements IElectionRepository {
+	private _mockData: Election[] = [];
 
-	// TODO: Refactor event bus out so it gets injected into Ballot on creation by injection framework.
+	// TODO: Refactor event bus out so it gets injected into Election on creation by injection framework.
 	constructor(
-		mockData?: Ballot[]
+		mockData?: Election[]
 	) {
 		if (mockData !== undefined) {
 			this._mockData = mockData;
 		}
 	}
 
-	async add(entity: Ballot): Promise<boolean> {
+	async add(entity: Election): Promise<boolean> {
 		this._mockData.push(entity);
 		return true;
 	}
 
-	async addRange(entities: Ballot[]): Promise<boolean> {
+	async addRange(entities: Election[]): Promise<boolean> {
 		this._mockData = this._mockData.concat(entities);
 		return true;
 	}
 
-	async get(id: string): Promise<Ballot> {
+	async get(id: string): Promise<Election> {
 		const s = this._mockData.find(s => {
 			return s.id === id;
 		});
@@ -35,7 +35,7 @@ export class MockBallotRepository implements IBallotRepository {
 		return s.clone();
 	}
 
-	async getPagedResults(pageSize: number, pageNumber: number): Promise<Ballot[]> {
+	async getPagedResults(pageSize: number, pageNumber: number): Promise<Election[]> {
 		return this._mockData
 			.slice(
 				pageSize * (pageNumber - 1),

@@ -28,7 +28,7 @@ describe('test all mock methods', () => {
 		expect(retrievedBallots).to.eql(ballots);
 	});
 
-	it('should remove a master ballot successfully', async () => {
+	it('should remove a ballot successfully', async () => {
 		const { eventBus, ballot } = TestElectionFactory.createElectionAndCastBallot();
 
 		const ballotRepository = new MockBallotRepository();

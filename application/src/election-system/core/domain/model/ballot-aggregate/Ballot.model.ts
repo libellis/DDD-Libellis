@@ -5,8 +5,9 @@ import { Question } from "./value-objects/QuestionVO.model";
 import { Score } from "../common/value-objects/ScoreVO.model";
 import { BallotCastEvent } from "../events/BallotCastEvent.model";
 import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
+import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
 
-export class Ballot extends Entity {
+export class Ballot extends Entity implements IClonable<Ballot> {
 
 	constructor(
 		id: string,

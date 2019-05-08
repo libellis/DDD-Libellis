@@ -77,7 +77,7 @@ describe('test all mock methods', function () {
             }
         });
     }); });
-    it('should remove a master ballot successfully', function () { return __awaiter(_this, void 0, void 0, function () {
+    it('should remove a ballot successfully', function () { return __awaiter(_this, void 0, void 0, function () {
         var _a, eventBus, ballot, ballotRepository, retrievedBallot, attemptedRetrievedBallot;
         return __generator(this, function (_b) {
             switch (_b.label) {

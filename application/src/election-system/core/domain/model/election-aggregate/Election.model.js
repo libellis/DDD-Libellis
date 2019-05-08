@@ -170,6 +170,9 @@ var Election = /** @class */ (function (_super) {
         }
         return winner;
     };
+    Election.prototype.clone = function () {
+        return new Election(this.id, this._electionPeriod, this._anonymous, this._masterBallotId, this._restricted, new Set(this._permittedVoters), new Set(this._validQuestionIds), new Set(this._validChoiceIds), new Set(this._ballotIds), new Set(this._whoVotedIds), this._teller.clone(), this._ballotCastEventBus);
+    };
     return Election;
 }(Entity_model_1.Entity));
 exports.Election = Election;

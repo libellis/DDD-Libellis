@@ -68,6 +68,12 @@ export class TestElectionFactory {
 		);
 	}
 
+	static createElectionsFromMasterBallots(masterBallots: MasterBallot[]): Election[] {
+		return masterBallots.map(b => {
+			return TestElectionFactory.createElectionWithFactoryMethod(b);
+		});
+	}
+
 	// This allows us to patch our generated masterBallots/questions/choices with optional passed
 	// in static values.
 	static patchObject(inputObj: object, patchObj: object) {

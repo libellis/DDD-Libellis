@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import 'mocha';
 import { TestMasterBallotFactory } from "./TestMasterBallotFactory.model";
-import { MasterBallot } from "../../../../../core/Domain/Model/MasterBallotAggregate/MasterBallot.model";
+import { MasterBallot } from "../../../../../core/domain/model/master-ballot-aggregate/MasterBallot.model";
 
 
 describe('Test TestMasterBallotFactory constructor', () => {

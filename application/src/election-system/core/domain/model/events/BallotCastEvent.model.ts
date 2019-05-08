@@ -1,4 +1,4 @@
-import { IDomainEvent } from "../../../../../SharedKernel/Interfaces/IDomainEvent";
+import { IDomainEvent } from "../../../../../shared-kernel/interfaces/IDomainEvent";
 import { Ballot } from "../ballot-aggregate/Ballot.model";
 
 // Should this be injected instead?

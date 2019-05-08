@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var chai_1 = require("chai");
 require("mocha");
-var TallyVO_model_1 = require("../../../../../core/Domain/Model/Common/ValueObjects/TallyVO.model");
-var ScoreVO_model_1 = require("../../../../../core/Domain/Model/Common/ValueObjects/ScoreVO.model");
+var TallyVO_model_1 = require("../../../../../core/domain/model/common/value-objects/TallyVO.model");
+var ScoreVO_model_1 = require("../../../../../core/domain/model/common/value-objects/ScoreVO.model");
 describe('test value object construction', function () {
     it('should successfully construct Tally value object with a valid tally', function () {
         var goodFunction = function () {

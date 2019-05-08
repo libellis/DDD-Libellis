@@ -1,4 +1,4 @@
-import { Entity } from "../../../../../SharedKernel/Entities/Entity.model";
+import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
 
 export class Choice extends Entity {
 	constructor(

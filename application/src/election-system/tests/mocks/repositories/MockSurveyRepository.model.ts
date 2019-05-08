@@ -1,5 +1,5 @@
-import { Survey } from "../../../Core/Domain/Model/BallotAggregate/Entities/MasterBallot.model";
-import { ISurveyRepository } from "../../../Core/Application/Services/Interfaces/ISurveyRepository";
+import { Survey } from "../../../core/domain/model/ballot-aggregate/entities/MasterBallot.model";
+import { ISurveyRepository } from "../../../core/application/Services/Interfaces/ISurveyRepository";
 
 export class MockSurveyRepository implements ISurveyRepository {
 	constructor(

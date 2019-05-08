@@ -13,11 +13,11 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_model_1 = require("../../../../../SharedKernel/Entities/Entity.model");
+var Entity_model_1 = require("../../../../../shared-kernel/entities/Entity.model");
 // Within the Election System bounded context we don't need to know
 // anymore about the user than these small details to accomplish the task of
 // issuing them a ballot, and recording their vote.
-// A more full picture of the user can be created and updated via the UserManagement
+// A more full picture of the user can be created and updated via the user-management
 // bounded context - which could likely be handled by a 3rd party Oauth based service.
 var Voter = /** @class */ (function (_super) {
     __extends(Voter, _super);

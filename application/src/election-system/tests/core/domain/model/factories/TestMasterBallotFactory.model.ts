@@ -1,6 +1,6 @@
 import * as faker from 'faker';
-import { CategoryVO } from "../../../../../core/Domain/Model/Common/ValueObjects/CategoryVO.model";
-import { MasterBallot } from "../../../../../core/Domain/Model/MasterBallotAggregate/MasterBallot.model";
+import { CategoryVO } from "../../../../../core/domain/model/common/value-objects/CategoryVO.model";
+import { MasterBallot } from "../../../../../core/domain/model/master-ballot-aggregate/MasterBallot.model";
 
 export class TestMasterBallotFactory {
 	static createFullMasterBallot(options?: OptionalParams): MasterBallot {

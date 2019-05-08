@@ -1,9 +1,9 @@
-import { Survey } from "../../../Domain/Model/BallotAggregate/Entities/MasterBallot.model";
+import {MasterBallot} from "../../../domain/model/master-ballot-aggregate/MasterBallot.model";
 
-export interface ISurveyRepository {
-	add(entity: Survey): Promise<boolean>;
-	addRange(entities: Survey[]): Promise<boolean>;
-	get(id: string): Promise<Survey>;
-	getPagedResults(pageSize: number, pageNumber: number): Promise<Survey[]>;
+export interface IMasterBallotRepository {
+	add(entity: MasterBallot): Promise<boolean>;
+	addRange(entities: MasterBallot[]): Promise<boolean>;
+	get(id: string): Promise<MasterBallot>;
+	getPagedResults(pageSize: number, pageNumber: number): Promise<MasterBallot[]>;
 	remove(id: string): Promise<boolean>;
 }

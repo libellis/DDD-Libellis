@@ -1,8 +1,8 @@
 import { Question } from "./Question.model";
 import { Choice } from "./Choice.model";
-import { IMasterBallotData } from "./Abstractions/IMasterBallotData";
-import { CategoryVO } from "../common/ValueObjects/CategoryVO.model";
-import { Entity } from "../../../../../SharedKernel/Entities/Entity.model";
+import { IMasterBallotData } from "./abstractions/IMasterBallotData";
+import { CategoryVO } from "../common/value-objects/CategoryVO.model";
+import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
 
 export class MasterBallot extends Entity {
 

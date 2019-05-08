@@ -13,10 +13,10 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_model_1 = require("../../../../../SharedKernel/Entities/Entity.model");
-var DateTimeRangeVO_model_1 = require("../../../../../SharedKernel/DateTimeRangeVO.model");
+var Entity_model_1 = require("../../../../../shared-kernel/entities/Entity.model");
+var DateTimeRangeVO_model_1 = require("../../../../../shared-kernel/DateTimeRangeVO.model");
 var Ballot_model_1 = require("../ballot-aggregate/Ballot.model");
-var Guard_model_1 = require("../../../../../SharedKernel/Guard.model");
+var Guard_model_1 = require("../../../../../shared-kernel/Guard.model");
 var Teller_model_1 = require("./Teller.model");
 var Election = /** @class */ (function (_super) {
     __extends(Election, _super);

@@ -1,6 +1,6 @@
 import { expect, assert } from 'chai';
 import 'mocha';
-import { TestMasterBallotFactory } from "../Factories/TestMasterBallotFactory.model";
+import { TestMasterBallotFactory } from "../factories/TestMasterBallotFactory.model";
 
 describe('test non-root entity purity', () => {
 	it('should not allow direct question mutation to affect aggregate consistency', () => {

@@ -4,7 +4,7 @@ import * as faker from 'faker';
 import { TestMasterBallotFactory } from "../factories/TestMasterBallotFactory.model";
 import { TestElectionFactory } from "../factories/TestElectionFactory.model";
 import { TestVoterFactory } from "../factories/TestVoterFactory.model";
-import { IBallotData } from "../../../../../core/Domain/Model/BallotAggregate/Abstractions/IBallotData";
+import { IBallotData } from "../../../../../core/domain/model/ballot-aggregate/abstractions/IBallotData";
 import { TestBallotDataFactory } from "../factories/TestBallotDataFactory.model";
 
 

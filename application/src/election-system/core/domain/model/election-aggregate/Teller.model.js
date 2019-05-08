@@ -13,8 +13,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_model_1 = require("../../../../../SharedKernel/Entities/Entity.model");
-var TallyVO_model_1 = require("../common/ValueObjects/TallyVO.model");
+var Entity_model_1 = require("../../../../../shared-kernel/entities/Entity.model");
+var TallyVO_model_1 = require("../common/value-objects/TallyVO.model");
 // This is part of the election aggregate because the Election is the only entity that knows about the timespan that an
 // election is valid in (electionPeriod) and therefore must enforce when the final results can be retrieved.  Otherwise
 // someone could access the teller directly before the election is over.

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var chai_1 = require("chai");
 require("mocha");
-var TestMasterBallotFactory_model_1 = require("../Factories/TestMasterBallotFactory.model");
+var TestMasterBallotFactory_model_1 = require("../factories/TestMasterBallotFactory.model");
 describe('test non-root entity purity', function () {
     it('should not allow direct question mutation to affect aggregate consistency', function () {
         var masterBallotResult = TestMasterBallotFactory_model_1.TestMasterBallotFactory.createFullMasterBallot();

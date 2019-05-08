@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var faker = require("faker");
-var CategoryVO_model_1 = require("../../../../../core/Domain/Model/Common/ValueObjects/CategoryVO.model");
-var MasterBallot_model_1 = require("../../../../../core/Domain/Model/MasterBallotAggregate/MasterBallot.model");
+var CategoryVO_model_1 = require("../../../../../core/domain/model/common/value-objects/CategoryVO.model");
+var MasterBallot_model_1 = require("../../../../../core/domain/model/master-ballot-aggregate/MasterBallot.model");
 var TestMasterBallotFactory = /** @class */ (function () {
     function TestMasterBallotFactory() {
     }

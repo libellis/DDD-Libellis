@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import 'mocha';
-import { ScoreVO } from "../../../../../core/Domain/Model/Common/ValueObjects/ScoreVO.model";
+import { ScoreVO } from "../../../../../core/domain/model/common/value-objects/ScoreVO.model";
 
 describe('test value object construction', () => {
 	it('should successfully construct Score value object with a valid tally', () => {

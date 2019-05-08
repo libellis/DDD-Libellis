@@ -1,5 +1,5 @@
 import * as faker from 'faker';
-import { Voter } from "../../../../../core/Domain/Model/VoterAggregate/Voter.model";
+import { Voter } from "../../../../../core/domain/model/voter-aggregate/Voter.model";
 
 export class TestVoterFactory {
 	static createTestVoter(): Voter {

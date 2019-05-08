@@ -1,11 +1,11 @@
-import { Entity } from "../../../../../SharedKernel/Entities/Entity.model";
-import { DateTimeRange } from "../../../../../SharedKernel/DateTimeRangeVO.model";
+import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
+import { DateTimeRange } from "../../../../../shared-kernel/DateTimeRangeVO.model";
 import { Ballot } from "../ballot-aggregate/Ballot.model";
-import { IBallotData } from "../ballot-aggregate/Abstractions/IBallotData";
-import { MasterBallot } from "../MasterBallotAggregate/MasterBallot.model";
-import { Guard } from "../../../../../SharedKernel/Guard.model";
-import { EventBus } from "../../../../../SharedKernel/EventStreams/EventBus";
-import { BallotCastEvent } from "../Events/BallotCastEvent.model";
+import { IBallotData } from "../ballot-aggregate/abstractions/IBallotData";
+import { MasterBallot } from "../master-ballot-aggregate/MasterBallot.model";
+import { Guard } from "../../../../../shared-kernel/Guard.model";
+import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
+import { BallotCastEvent } from "../events/BallotCastEvent.model";
 import { Teller } from "./Teller.model";
 
 export class Election extends Entity {

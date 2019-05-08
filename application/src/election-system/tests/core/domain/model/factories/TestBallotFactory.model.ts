@@ -1,7 +1,7 @@
-import { Ballot } from "../../../../../core/Domain/Model/BallotAggregate/Ballot.model";
+import { Ballot } from "../../../../../core/domain/model/ballot-aggregate/Ballot.model";
 import * as faker from 'faker';
-import { Election } from "../../../../../core/Domain/Model/ElectionAggregate/Election.model";
-import { IBallotData } from "../../../../../core/Domain/Model/BallotAggregate/Abstractions/IBallotData";
+import { Election } from "../../../../../core/domain/model/election-aggregate/Election.model";
+import { IBallotData } from "../../../../../core/domain/model/ballot-aggregate/abstractions/IBallotData";
 
 export class TestBallotFactoryModel {
 

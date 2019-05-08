@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import 'mocha';
 import { TestVoterFactory } from "./TestVoterFactory.model";
-import { Voter } from "../../../../../core/Domain/Model/VoterAggregate/Voter.model";
+import { Voter } from "../../../../../core/domain/model/voter-aggregate/Voter.model";
 
 
 describe('Test TestVoterFactory create method', () => {

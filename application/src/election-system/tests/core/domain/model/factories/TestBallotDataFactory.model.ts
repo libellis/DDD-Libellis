@@ -1,6 +1,6 @@
-import { IBallotData } from "../../../../../core/Domain/Model/BallotAggregate/Abstractions/IBallotData";
-import { MasterBallot } from "../../../../../core/Domain/Model/MasterBallotAggregate/MasterBallot.model";
-import { Voter } from "../../../../../core/Domain/Model/VoterAggregate/Voter.model";
+import { IBallotData } from "../../../../../core/domain/model/ballot-aggregate/abstractions/IBallotData";
+import { MasterBallot } from "../../../../../core/domain/model/master-ballot-aggregate/MasterBallot.model";
+import { Voter } from "../../../../../core/domain/model/voter-aggregate/Voter.model";
 
 export class TestBallotDataFactory {
 	static createTestBallot(voterId: string, masterBallot: MasterBallot): IBallotData {

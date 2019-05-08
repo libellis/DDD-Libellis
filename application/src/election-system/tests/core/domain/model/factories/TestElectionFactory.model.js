@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Election_model_1 = require("../../../../../core/Domain/Model/ElectionAggregate/Election.model");
+var Election_model_1 = require("../../../../../core/domain/model/election-aggregate/Election.model");
 var faker = require("faker");
-var EventBus_1 = require("../../../../../../SharedKernel/EventStreams/EventBus");
+var EventBus_1 = require("../../../../../../shared-kernel/event-streams/EventBus");
 var TestElectionFactory = /** @class */ (function () {
     function TestElectionFactory() {
     }

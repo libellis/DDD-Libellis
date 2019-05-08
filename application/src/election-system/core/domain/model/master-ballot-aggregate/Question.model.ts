@@ -1,5 +1,5 @@
 import { Choice } from "./Choice.model";
-import { Entity } from "../../../../../SharedKernel/Entities/Entity.model";
+import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
 
 export class Question extends Entity {
 	constructor(

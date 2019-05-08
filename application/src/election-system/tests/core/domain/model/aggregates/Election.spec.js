@@ -14,10 +14,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var chai_1 = require("chai");
 require("mocha");
 var faker = require("faker");
-var TestElectionFactory_model_1 = require("../Factories/TestElectionFactory.model");
-var TestMasterBallotFactory_model_1 = require("../Factories/TestMasterBallotFactory.model");
-var TestVoterFactory_model_1 = require("../Factories/TestVoterFactory.model");
-var TestBallotDataFactory_model_1 = require("../Factories/TestBallotDataFactory.model");
+var TestElectionFactory_model_1 = require("../factories/TestElectionFactory.model");
+var TestMasterBallotFactory_model_1 = require("../factories/TestMasterBallotFactory.model");
+var TestVoterFactory_model_1 = require("../factories/TestVoterFactory.model");
+var TestBallotDataFactory_model_1 = require("../factories/TestBallotDataFactory.model");
 describe('test invariance enforcement by root', function () {
     it('should not allow a voter to cast a ballot twice', function () {
         var masterBallot = TestMasterBallotFactory_model_1.TestMasterBallotFactory.createFullMasterBallot();

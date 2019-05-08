@@ -1,10 +1,10 @@
 import { expect, assert } from 'chai';
 import 'mocha';
 import * as faker from 'faker';
-import { TestElectionFactory } from "../Factories/TestElectionFactory.model";
-import { TestMasterBallotFactory } from "../Factories/TestMasterBallotFactory.model";
-import { TestVoterFactory } from "../Factories/TestVoterFactory.model";
-import { TestBallotDataFactory } from "../Factories/TestBallotDataFactory.model";
+import { TestElectionFactory } from "../factories/TestElectionFactory.model";
+import { TestMasterBallotFactory } from "../factories/TestMasterBallotFactory.model";
+import { TestVoterFactory } from "../factories/TestVoterFactory.model";
+import { TestBallotDataFactory } from "../factories/TestBallotDataFactory.model";
 
 describe('test invariance enforcement by root', () => {
 	it('should not allow a voter to cast a ballot twice', () => {

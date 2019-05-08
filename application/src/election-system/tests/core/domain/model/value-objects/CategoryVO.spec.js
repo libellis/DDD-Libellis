@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var chai_1 = require("chai");
 require("mocha");
-var CategoryVO_model_1 = require("../../../../../core/Domain/Model/Common/ValueObjects/CategoryVO.model");
+var CategoryVO_model_1 = require("../../../../../core/domain/model/common/value-objects/CategoryVO.model");
 describe('test value object construction', function () {
     it('should successfully construct Category value object from valid string', function () {
         var goodFunction = function () {

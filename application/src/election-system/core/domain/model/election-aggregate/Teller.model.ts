@@ -1,6 +1,6 @@
-import { Entity } from "../../../../../SharedKernel/Entities/Entity.model";
-import { EventBus } from "../../../../../SharedKernel/EventStreams/EventBus";
-import { TallyVO } from "../common/ValueObjects/TallyVO.model";
+import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
+import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
+import { TallyVO } from "../common/value-objects/TallyVO.model";
 import { Ballot } from "../ballot-aggregate/Ballot.model";
 
 // This is part of the election aggregate because the Election is the only entity that knows about the timespan that an

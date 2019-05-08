@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var faker = require("faker");
-var Voter_model_1 = require("../../../../../core/Domain/Model/VoterAggregate/Voter.model");
+var Voter_model_1 = require("../../../../../core/domain/model/voter-aggregate/Voter.model");
 var TestVoterFactory = /** @class */ (function () {
     function TestVoterFactory() {
     }

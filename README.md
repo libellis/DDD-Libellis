@@ -1,6 +1,5 @@
 # DDD-Libellis
 [![Build Status](https://travis-ci.org/libellis/DDD-Libellis.svg?branch=master)](https://travis-ci.org/libellis/DDD-Libellis)
-[![Coverage Status](https://coveralls.io/repos/github/libellis/DDD-Libellis/badge.svg?branch=master)](https://coveralls.io/github/libellis/DDD-Libellis?branch=master)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 ## Introduction
@@ -40,11 +39,18 @@ A Teller in any election is the person that counts the votes.  This system talli
 
 ## Setup
 
-To setup the project for development, simply run `make docker-build` from the root directory.  For now there is no web api layer for endpoint testing, or manual interaction with the application. 
+To build the project, simply run `make docker-build` from the root directory.  For now there is no web api layer for endpoint testing, or manual interaction with the application. 
+
+This will build your docker container.  In development you will also want to run
+`npm install` from the `/application` directory to locally install node_modules.
+This will give you typescript support in most modern IDEs and enforce project
+specific rules.
 
 ## Tests
 
-You can run tests by running `make docker-test` from the root directory.
+You can run tests by running `make docker-test` from the root directory.  This
+will run all tests from inside of the docker container that got built in the
+last step.
 
 ## Cleaning up Containers
 

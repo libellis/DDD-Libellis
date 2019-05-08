@@ -6,11 +6,12 @@ import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
 import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
 import { UserCreatedEvent } from "../events/UserCreatedEvent.model";
 import { UserUpdatedEvent } from "../events/UserUpdatedEvent.model";
+import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
 
 // TODO: Should this be injected so our domain layer doesn't have a hard dependency on bcrypt?
 const bcrypt = require('bcryptjs');
 
-export class User extends Entity {
+export class User extends Entity implements IClonable {
 	private _username: Username;
 	private _hashedPassword: string;
 	private _firstName: Name;
@@ -119,6 +120,7 @@ export class User extends Entity {
 	}
 
 
+	// TODO: Finish this - also see next todo.
 	// TODO: Might be good to move this out to a service layer.
 	changeAccountDetails(currentPassword: string, changeSet: UserChangeSet) {
 		this.validatePassword(currentPassword);
@@ -131,6 +133,26 @@ export class User extends Entity {
 			lastName: this.lastName,
 			photoUrl: this.photoUrl,
 		}
+	}
+
+	clone(): User {
+		const user = new User(
+			this.id,
+			this.username,
+			this.hashedPassword,
+			this.firstName,
+			this.lastName,
+			this.email,
+			this.photoUrl,
+			this.isAdmin,
+			this._eventBus
+		);
+
+		while (user.version !== this.version) {
+			user.incrementVersion();
+		}
+
+		return user;
 	}
 }
 

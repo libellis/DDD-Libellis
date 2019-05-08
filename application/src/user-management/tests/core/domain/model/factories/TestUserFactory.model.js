@@ -10,6 +10,12 @@ var TestUserFactory = /** @class */ (function () {
         var userData = TestUserDataFactory_model_1.TestUserDataFactory.createUserData(options);
         return User_model_1.User.create(faker.random.uuid, userData, eventBus);
     };
+    TestUserFactory.createRandomUsers = function (eventBus) {
+        var usersData = TestUserDataFactory_model_1.TestUserDataFactory.createUserDatas(2, 12);
+        return usersData.map(function (u) {
+            return User_model_1.User.create(faker.random.uuid, u, eventBus);
+        });
+    };
     return TestUserFactory;
 }());
 exports.TestUserFactory = TestUserFactory;

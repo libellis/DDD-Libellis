@@ -2,10 +2,6 @@ import { expect } from 'chai';
 import 'mocha';
 import {MockBallotRepository} from "./MockBallotRepository.model";
 import {TestElectionFactory} from "../../core/domain/model/factories/TestElectionFactory.model";
-import {TestMasterBallotFactory} from "../../core/domain/model/factories/TestMasterBallotFactory.model";
-import {TestVoterFactory} from "../../core/domain/model/factories/TestVoterFactory.model";
-import {TestBallotDataFactory} from "../../core/domain/model/factories/TestBallotDataFactory.model";
-import {EventBus} from "../../../../shared-kernel/event-streams/EventBus";
 
 describe('test all mock methods', () => {
 	it('should store and retrieve a ballot', async () => {

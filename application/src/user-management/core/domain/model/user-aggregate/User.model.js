@@ -109,6 +109,7 @@ var User = /** @class */ (function (_super) {
         this._eventBus.userUpdatedEventStream.next(userUpdatedEvent);
         return true;
     };
+    // TODO: Finish this - also see next todo.
     // TODO: Might be good to move this out to a service layer.
     User.prototype.changeAccountDetails = function (currentPassword, changeSet) {
         this.validatePassword(currentPassword);
@@ -120,6 +121,13 @@ var User = /** @class */ (function (_super) {
             lastName: this.lastName,
             photoUrl: this.photoUrl,
         };
+    };
+    User.prototype.clone = function () {
+        var user = new User(this.id, this.username, this.hashedPassword, this.firstName, this.lastName, this.email, this.photoUrl, this.isAdmin, this._eventBus);
+        while (user.version !== this.version) {
+            user.incrementVersion();
+        }
+        return user;
     };
     return User;
 }(Entity_model_1.Entity));

@@ -135,5 +135,32 @@ export class MasterBallot extends Entity implements IClonable<MasterBallot> {
 
 		return masterBallot;
 	}
+
+	updateBallotData(masterBallotChangeset: IMasterBallotChangeSet) {
+	    this.patchBallot(masterBallotChangeset);
+	}
+
+	private patchBallot(patchBallot: IMasterBallotChangeSet) {
+		for (let [key, value] of Object.entries(patchBallot)) {
+			if (this.hasOwnProperty(key)) this[key] = value;
+		}
+	}
+
 }
 
+interface IMasterBallotChangeSet {
+	title?: string,
+	description?: string,
+    category?: string,
+	questions?: {
+		id: string,
+		title?: string,
+		type?: string,
+		choices?: {
+			id: string,
+			title?: string,
+			content?: string,
+			contentType?: string,
+		}[]
+	}[]
+}

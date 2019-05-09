@@ -6,7 +6,7 @@
 
 export class Name {
 	private readonly _name: string;
-	private static _nameRx = new RegExp("^[A-Za-z]+$");
+	private static _nameRx = new RegExp("^[A-Za-z']+$");
 	private static _maxLength = 50;
 
 	constructor(

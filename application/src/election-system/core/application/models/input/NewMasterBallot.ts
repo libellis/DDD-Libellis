@@ -1,16 +1,14 @@
-export class NewMasterBallot {
-	constructor(
-		public title: string,
-		public description: string,
-		public category: string,
-		public questionsData: {
+export interface NewMasterBallot {
+	title: string,
+	description: string,
+	category: string,
+	questionsData: {
+		title: string,
+		questionType: string,
+		choicesData: {
 			title: string,
-			questionType: string,
-			choicesData: {
-				title: string,
-				content: string,
-				contentType: string,
-			}[]
+			content: string,
+			contentType: string,
 		}[]
-	) {}
+	}[]
 }

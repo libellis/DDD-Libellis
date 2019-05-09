@@ -71,15 +71,18 @@ export class MasterBallotService {
     // translate our internal private dunder types (like _id) and get rid of extraneous data from the domain layer.
     private translateMasterBallotToResponse(masterBallot: MasterBallot): MasterBallotResponse {
         return new MasterBallotResponse(
+            masterBallot.id,
             masterBallot.title,
             masterBallot.description,
             masterBallot.category.name,
             masterBallot.questions.map(q => {
                 return {
+                    id: q.id,
                     title: q.title,
                     questionType: q.type,
                     choices: q.choices.map(c => {
                         return {
+                            id: c.id,
                             title: c.title,
                             content: c.content,
                             contentType: c.contentType,

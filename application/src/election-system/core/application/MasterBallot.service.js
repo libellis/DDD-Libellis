@@ -136,12 +136,14 @@ var MasterBallotService = /** @class */ (function () {
     // can know about our application layer, but not about our domain layer.  This also gives us a way to cleanly
     // translate our internal private dunder types (like _id) and get rid of extraneous data from the domain layer.
     MasterBallotService.prototype.translateMasterBallotToResponse = function (masterBallot) {
-        return new MasterBallotResponse_1.MasterBallotResponse(masterBallot.title, masterBallot.description, masterBallot.category.name, masterBallot.questions.map(function (q) {
+        return new MasterBallotResponse_1.MasterBallotResponse(masterBallot.id, masterBallot.title, masterBallot.description, masterBallot.category.name, masterBallot.questions.map(function (q) {
             return {
+                id: q.id,
                 title: q.title,
                 questionType: q.type,
                 choices: q.choices.map(function (c) {
                     return {
+                        id: c.id,
                         title: c.title,
                         content: c.content,
                         contentType: c.contentType,

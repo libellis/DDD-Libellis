@@ -13,6 +13,8 @@ before_install:
 install:
   - make docker-build
   - sleep 10
+  - make docker-up
+  - sleep 30
   - docker ps -a
 
 script:

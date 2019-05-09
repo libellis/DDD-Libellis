@@ -1,5 +1,7 @@
 node_modules
 node_modules/*
+lib
+lib/*
 
 workspace.xml
 usage.statistics.xml

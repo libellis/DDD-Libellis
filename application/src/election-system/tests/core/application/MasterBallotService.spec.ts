@@ -1,13 +1,18 @@
-import { expect, assert } from 'chai';
 import 'mocha';
+import * as chai from 'chai';
+import chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
+const expect = chai.expect;
+const assert = chai.assert;
+
 import {TestMasterBallotFactory} from "../domain/model/factories/TestMasterBallotFactory.model";
 import {MockMasterBallotRepository} from "../../mocks/repositories/MockMasterBallotRepository.model";
 import {MasterBallotService} from "../../../core/application/MasterBallot.service";
 import {MasterBallotResponse} from "../../../core/application/models/output/MasterBallotResponse";
 import {TestNewMasterBallotDataFactory} from "./factories/TestNewMasterBallotDataFactory.model";
-import {MockVoterRepository} from "../../mocks/repositories/MockVoterRepository.model";
 import {TestVoterFactory} from "../domain/model/factories/TestVoterFactory.model";
 import {TestUpdateMasterBallotDataFactory} from "./factories/TestUpdateMasterBallotDataFactory.model";
+
 
 describe('test all service methods success paths', () => {
 	it('should successfully retrieve a ballot by id', async () => {
@@ -67,18 +72,19 @@ describe('test all service methods success paths', () => {
 		expect(masterBallotResponse.title).to.not.equal(masterBallot.title);
 	});
 
-	// it('should successfully delete an existing ballot.', async () => {
-	// 	const author = TestVoterFactory.createTestVoter();
-	// 	const masterBallot = TestMasterBallotFactory.createFullMasterBallot({ masterBallotParams: { author: author.id }});
-	// 	const mockMasterBallotRepo = new MockMasterBallotRepository();
-	// 	await mockMasterBallotRepo.add(masterBallot);
-	//
-	// 	const masterBallotService = new MasterBallotService(mockMasterBallotRepo);
-	//
-	// 	assert.isTrue((await masterBallotService.deleteMasterBallot(masterBallot.id, author.id)));
-	//
-	// 	await expect(async () => masterBallotService.getMasterBallot(masterBallot.id)).to.throw();
-	// });
+	it('should successfully delete an existing ballot.', async () => {
+		const author = TestVoterFactory.createTestVoter();
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot({ masterBallotParams: { author: author.id }});
+		const mockMasterBallotRepo = new MockMasterBallotRepository();
+		await mockMasterBallotRepo.add(masterBallot);
+
+		const masterBallotService = new MasterBallotService(mockMasterBallotRepo);
+
+		const response = await masterBallotService.deleteMasterBallot(masterBallot.id, author.id);
+
+		assert.isTrue(response);
+		await expect(masterBallotService.getMasterBallot(masterBallot.id)).to.be.rejectedWith(Error);
+	});
 });
 
 

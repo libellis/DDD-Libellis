@@ -33,7 +33,7 @@ var Name = /** @class */ (function () {
     Name.isValidLength = function (name) {
         return (name.length <= Name._maxLength);
     };
-    Name._nameRx = new RegExp("^[A-Za-z]+$");
+    Name._nameRx = new RegExp("^[A-Za-z']+$");
     Name._maxLength = 50;
     return Name;
 }());

@@ -77,6 +77,16 @@ var MasterBallot = /** @class */ (function (_super) {
         }
         return masterBallot;
     };
+    MasterBallot.prototype.updateBallotData = function (masterBallotChangeset) {
+        this.patchBallot(masterBallotChangeset);
+    };
+    MasterBallot.prototype.patchBallot = function (patchBallot) {
+        for (var _i = 0, _a = Object.entries(patchBallot); _i < _a.length; _i++) {
+            var _b = _a[_i], key = _b[0], value = _b[1];
+            if (this.hasOwnProperty(key))
+                this[key] = value;
+        }
+    };
     return MasterBallot;
 }(Entity_model_1.Entity));
 exports.MasterBallot = MasterBallot;

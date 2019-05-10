@@ -20,35 +20,83 @@ var Guard_model_1 = require("../../../../../shared-kernel/Guard.model");
 var Teller_model_1 = require("./Teller.model");
 var Election = /** @class */ (function (_super) {
     __extends(Election, _super);
-    function Election(id, _electionPeriod, _anonymous, _masterBallotId, _restricted, _permittedVoters, _validQuestionIds, _validChoiceIds, 
+    function Election(id, electionPeriod, anonymous, masterBallotId, restricted, permittedVoters, validQuestionIds, validChoiceIds, 
     // Array of ballot UUIDs that have been cast.
-    _ballotIds, 
+    ballotIds, 
     // Array of user UUIDs that have already voted
-    _whoVotedIds, _teller, 
+    whoVotedIds, teller, 
     // We need the ballot cast event but so we can subscribe to it
     // and update our list of who has voted
-    _ballotCastEventBus) {
+    eventBus) {
         var _this = _super.call(this, id) || this;
-        _this._electionPeriod = _electionPeriod;
-        _this._anonymous = _anonymous;
-        _this._masterBallotId = _masterBallotId;
-        _this._restricted = _restricted;
-        _this._permittedVoters = _permittedVoters;
-        _this._validQuestionIds = _validQuestionIds;
-        _this._validChoiceIds = _validChoiceIds;
-        _this._ballotIds = _ballotIds;
-        _this._whoVotedIds = _whoVotedIds;
-        _this._teller = _teller;
-        _this._ballotCastEventBus = _ballotCastEventBus;
         // subscribe to event bus here so we are ready to record who has already voted as
         // early as possible.  Any better ideas for where to subscribe?
-        _this._ballotCastEventBus = _ballotCastEventBus;
+        _this._eventBus = eventBus;
         _this.subscribeToBallotCastEventStream();
+        _this._electionPeriod = electionPeriod;
+        _this._anonymous = anonymous;
+        _this._masterBallotId = masterBallotId;
+        _this._restricted = restricted;
+        _this._permittedVoters = permittedVoters;
+        _this._validQuestionIds = validQuestionIds;
+        _this._validChoiceIds = validChoiceIds;
+        _this._ballotIds = ballotIds;
+        _this._whoVotedIds = whoVotedIds;
+        _this._teller = teller;
         return _this;
     }
+    Object.defineProperty(Election.prototype, "startDate", {
+        get: function () {
+            return this._electionPeriod._start;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Election.prototype, "endDate", {
+        get: function () {
+            return this._electionPeriod._end;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Election.prototype, "masterBallotId", {
+        get: function () {
+            return this._masterBallotId;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Election.prototype, "anonymous", {
+        get: function () {
+            return this._anonymous;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Election.prototype, "restricted", {
+        get: function () {
+            return this._restricted;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Election.prototype, "permittedVoters", {
+        get: function () {
+            return this._permittedVoters;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Election.prototype, "tellerId", {
+        get: function () {
+            return this._teller.id;
+        },
+        enumerable: true,
+        configurable: true
+    });
     // Factory method for enforcing invariance:
     // 1. Start and end date validity is checked by DateTimeRange VO
-    Election.create = function (idGenerator, start, end, anonymous, masterBallot, ballotCastEventBus, permittedVoters) {
+    Election.create = function (idGenerator, start, end, anonymous, masterBallot, eventBus, permittedVoters) {
         var validQuestionIds = new Set(masterBallot.questions.map(function (q) { return q.id; }));
         var validChoiceIds = new Set();
         for (var _i = 0, _a = masterBallot.questions; _i < _a.length; _i++) {
@@ -58,7 +106,7 @@ var Election = /** @class */ (function (_super) {
                 validChoiceIds.add(choice.id);
             }
         }
-        var teller = new Teller_model_1.Teller(idGenerator(), validChoiceIds, ballotCastEventBus);
+        var teller = new Teller_model_1.Teller(idGenerator(), validChoiceIds, eventBus);
         var restricted = false;
         if (permittedVoters === undefined) {
             permittedVoters = new Set();
@@ -66,7 +114,7 @@ var Election = /** @class */ (function (_super) {
         else {
             restricted = true;
         }
-        return new Election(idGenerator(), new DateTimeRangeVO_model_1.DateTimeRange(start, end), anonymous, masterBallot.id, restricted, permittedVoters, validQuestionIds, validChoiceIds, new Set(), new Set(), teller, ballotCastEventBus);
+        return new Election(idGenerator(), new DateTimeRangeVO_model_1.DateTimeRange(start, end), anonymous, masterBallot.id, restricted, permittedVoters, validQuestionIds, validChoiceIds, new Set(), new Set(), teller, eventBus);
     };
     Election.prototype.startElection = function () {
         if (this._electionPeriod.currentlyIn()) {
@@ -92,7 +140,7 @@ var Election = /** @class */ (function (_super) {
             throw new Error("Cannot cast a ballot for an election that is not currently active.");
         }
         // Passed all checks so generate a new ballot using ballot factory method.
-        var ballot = Ballot_model_1.Ballot.cast(idGenerator, this._ballotCastEventBus, ballotData);
+        var ballot = Ballot_model_1.Ballot.cast(idGenerator, this._eventBus, ballotData);
         // TODO: Once we have domain events setup, should emit a BallotCast event in the ballot factory
         // and subscribe to it here so that we populate our ballotIds and voterIds only once the ballot
         // has definitely been created there after further ballot side invariance checks.
@@ -135,7 +183,7 @@ var Election = /** @class */ (function (_super) {
     // to carry out inside the callback.
     Election.prototype.subscribeToBallotCastEventStream = function () {
         var _this = this;
-        this._ballotCastEventBus.ballotCastEventStream
+        this._eventBus.ballotCastEventStream
             .subscribe(function (ballotCastEvent) {
             _this.recordWhoVoted(ballotCastEvent);
         });
@@ -171,11 +219,38 @@ var Election = /** @class */ (function (_super) {
         return winner;
     };
     Election.prototype.clone = function () {
-        var election = new Election(this.id, this._electionPeriod, this._anonymous, this._masterBallotId, this._restricted, new Set(this._permittedVoters), new Set(this._validQuestionIds), new Set(this._validChoiceIds), new Set(this._ballotIds), new Set(this._whoVotedIds), this._teller.clone(), this._ballotCastEventBus);
+        var election = new Election(this.id, this._electionPeriod, this._anonymous, this._masterBallotId, this._restricted, new Set(this._permittedVoters), new Set(this._validQuestionIds), new Set(this._validChoiceIds), new Set(this._ballotIds), new Set(this._whoVotedIds), this._teller.clone(), this._eventBus);
         while (election.version !== this.version) {
             election.incrementVersion();
         }
         return election;
+    };
+    Election.prototype.updateElectionData = function (electionChangeset) {
+        this.patchElection(electionChangeset);
+    };
+    Election.prototype.patchElection = function (patchElection) {
+        if (patchElection.start) {
+            if (patchElection.end) {
+                this._electionPeriod = new DateTimeRangeVO_model_1.DateTimeRange(patchElection.start, patchElection.end);
+            }
+            else {
+                this._electionPeriod = new DateTimeRangeVO_model_1.DateTimeRange(patchElection.start, this._electionPeriod._end);
+            }
+        }
+        if (patchElection.end) {
+            this._electionPeriod = new DateTimeRangeVO_model_1.DateTimeRange(this._electionPeriod._start, patchElection.end);
+        }
+        if (patchElection.anonymous !== undefined) {
+            this._anonymous = patchElection.anonymous;
+        }
+        if (patchElection.masterBallotId) {
+            this._masterBallotId = patchElection.masterBallotId;
+        }
+        if (patchElection.permittedVoters) {
+            if (!this._restricted)
+                this._restricted = true;
+            this._permittedVoters = new Set(patchElection.permittedVoters);
+        }
     };
     return Election;
 }(Entity_model_1.Entity));

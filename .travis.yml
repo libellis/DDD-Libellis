@@ -11,17 +11,12 @@ before_install:
   - sudo service mysql stop
 
 install:
-  # This should be docker-build, but we need local npm modules because right now
-  # coveralls will NOT sync up if coverage report is run inside docker.
-  - make docker-dev
+  - make docker-build
   - sleep 10
-  - make docker-up
-  - sleep 30
   - docker ps -a
 
 script:
   - make docker-test
-  - cd application && npm run coveralls-script
 
 notifications:
   slack: libellis:7v5cSuqlayq37v0Qaeyrvbg7

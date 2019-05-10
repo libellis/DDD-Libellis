@@ -31,7 +31,7 @@ docker-build:
 	docker-compose -f docker-compose.yml build
 
 docker-dev:
-	cd application && npm install
+	cd application && npm install && mkdir .nyc_output && mkdir coverage
 	make docker-build
 
 docker-up:
@@ -40,6 +40,9 @@ docker-up:
 docker-test:
 	docker-compose -f docker-compose.yml up -d
 	docker exec -ti `docker ps -a | grep libellis | awk '{ print $$1 }'` /bin/sh -c "npm test"
+
+docker-coveralls:
+    docker exec -ti `docker ps -a | grep libellis | awk '{ print $$1 }'` /bin/sh -c "npm run coveralls-script"
 
 docker-clean:
 	@echo 'stopping docker containers'

@@ -100,6 +100,19 @@ describe('test all service methods success paths', () => {
 		assert.isTrue(response);
 		await expect(electionService.getElection(election.id)).to.be.rejectedWith(Error);
 	});
+
+	it('should successfully retrieve election results after an election has concluded.', async () => {
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+		const start = new Date(new Date().getTime() - 10000000);
+		const end = new Date();
+		const election = TestElectionFactory.createElectionWithFactoryMethod(masterBallot, { start, end });
+		const mockElectionRepo = new MockElectionRepository();
+		await mockElectionRepo.add(election);
+
+		const electionService = new ElectionService(mockElectionRepo, new MockMasterBallotRepository(), new EventBus());
+
+		await expect(electionService.retrieveElectionResults(election.id)).to.not.be.rejectedWith(Error);
+	});
 });
 
 

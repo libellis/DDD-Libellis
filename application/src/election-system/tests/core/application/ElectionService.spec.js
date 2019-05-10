@@ -172,5 +172,26 @@ describe('test all service methods success paths', function () {
             }
         });
     }); });
+    it('should successfully retrieve election results after an election has concluded.', function () { return __awaiter(_this, void 0, void 0, function () {
+        var masterBallot, start, end, election, mockElectionRepo, electionService;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    masterBallot = TestMasterBallotFactory_model_1.TestMasterBallotFactory.createFullMasterBallot();
+                    start = new Date(new Date().getTime() - 10000000);
+                    end = new Date();
+                    election = TestElectionFactory_model_1.TestElectionFactory.createElectionWithFactoryMethod(masterBallot, { start: start, end: end });
+                    mockElectionRepo = new MockElectionRepository_model_1.MockElectionRepository();
+                    return [4 /*yield*/, mockElectionRepo.add(election)];
+                case 1:
+                    _a.sent();
+                    electionService = new Election_service_1.ElectionService(mockElectionRepo, new MockMasterBallotRepository_model_1.MockMasterBallotRepository(), new EventBus_1.EventBus());
+                    return [4 /*yield*/, expect(electionService.retrieveElectionResults(election.id)).to.not.be.rejectedWith(Error)];
+                case 2:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
 });
 //# sourceMappingURL=ElectionService.spec.js.map

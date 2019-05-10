@@ -10,37 +10,97 @@ import { Teller } from "./Teller.model";
 import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
 
 export class Election extends Entity implements IClonable<Election> {
+	private _electionPeriod: DateTimeRange;
+	private _anonymous: boolean;
+	public readonly _masterBallotId: string;
+
+	private _restricted: boolean;
+	private _permittedVoters: Set<string>;
+
+	private _validQuestionIds: Set<string>;
+	private _validChoiceIds: Set<string>;
+
+	// Array of ballot UUIDs that have been cast.
+	private _ballotIds: Set<string>;
+
+	// Array of user UUIDs that have already voted
+	private _whoVotedIds: Set<string>;
+
+	private _teller: Teller;
+
+	// We need the ballot cast event but so we can subscribe to it
+	// and update our list of who has voted
+	private readonly _eventBus: EventBus;
 
 	constructor(
 		id: string,
-		private _electionPeriod: DateTimeRange,
-		private _anonymous: boolean,
-		public readonly _masterBallotId: string,
+		electionPeriod: DateTimeRange,
+		anonymous: boolean,
+		masterBallotId: string,
 
-		private _restricted: boolean,
-		private _permittedVoters: Set<string>,
+		restricted: boolean,
+		permittedVoters: Set<string>,
 
-		private _validQuestionIds: Set<string>,
-		private _validChoiceIds: Set<string>,
+		validQuestionIds: Set<string>,
+		validChoiceIds: Set<string>,
 
 		// Array of ballot UUIDs that have been cast.
-		private _ballotIds: Set<string>,
+		ballotIds: Set<string>,
 
 		// Array of user UUIDs that have already voted
-		private _whoVotedIds: Set<string>,
+		whoVotedIds: Set<string>,
 
-		private _teller: Teller,
+		teller: Teller,
 
 		// We need the ballot cast event but so we can subscribe to it
 		// and update our list of who has voted
-		private readonly _ballotCastEventBus: EventBus,
+		eventBus: EventBus,
 	) {
 		super(id);
 
 		// subscribe to event bus here so we are ready to record who has already voted as
 		// early as possible.  Any better ideas for where to subscribe?
-		this._ballotCastEventBus = _ballotCastEventBus;
+		this._eventBus = eventBus;
 		this.subscribeToBallotCastEventStream();
+
+		this._electionPeriod = electionPeriod;
+		this._anonymous = anonymous;
+		this._masterBallotId = masterBallotId;
+		this._restricted = restricted;
+		this._permittedVoters = permittedVoters;
+		this._validQuestionIds = validQuestionIds;
+		this._validChoiceIds = validChoiceIds;
+		this._ballotIds = ballotIds;
+		this._whoVotedIds = whoVotedIds;
+		this._teller = teller;
+	}
+
+	get startDate(): Date {
+		return this._electionPeriod._start;
+	}
+
+	get endDate(): Date {
+		return this._electionPeriod._end;
+	}
+
+	get masterBallotId(): string {
+		return this._masterBallotId;
+	}
+
+	get anonymous(): boolean {
+		return this._anonymous;
+	}
+
+	get restricted(): boolean {
+		return this._restricted;
+	}
+
+	get permittedVoters(): Set<string> {
+		return this._permittedVoters;
+	}
+
+	get tellerId(): string {
+		return this._teller.id;
 	}
 
 	// Factory method for enforcing invariance:
@@ -51,7 +111,7 @@ export class Election extends Entity implements IClonable<Election> {
 		end: Date,
 		anonymous: boolean,
 		masterBallot: MasterBallot,
-		ballotCastEventBus: EventBus,
+		eventBus: EventBus,
 		permittedVoters?: Set<string>,
 	): Election {
 		const validQuestionIds: Set<string> = new Set(masterBallot.questions.map(q => q.id));
@@ -61,7 +121,7 @@ export class Election extends Entity implements IClonable<Election> {
 				validChoiceIds.add(choice.id);
 			}
 		}
-		const teller = new Teller(idGenerator(), validChoiceIds, ballotCastEventBus);
+		const teller = new Teller(idGenerator(), validChoiceIds, eventBus);
 		let restricted = false;
 
 		if (permittedVoters === undefined) {
@@ -82,7 +142,7 @@ export class Election extends Entity implements IClonable<Election> {
 			new Set(),
 			new Set(),
 			teller,
-			ballotCastEventBus
+			eventBus
 			);
 	}
 
@@ -120,7 +180,7 @@ export class Election extends Entity implements IClonable<Election> {
 		// Passed all checks so generate a new ballot using ballot factory method.
 		const ballot: Ballot = Ballot.cast(
 			idGenerator,
-			this._ballotCastEventBus,
+			this._eventBus,
 			ballotData,
 		);
 
@@ -173,7 +233,7 @@ export class Election extends Entity implements IClonable<Election> {
 	// Subscribe here (one place) and add any methods for tasks we would like
 	// to carry out inside the callback.
 	subscribeToBallotCastEventStream() {
-		this._ballotCastEventBus.ballotCastEventStream
+		this._eventBus.ballotCastEventStream
 			.subscribe(ballotCastEvent => {
 				this.recordWhoVoted(ballotCastEvent);
 			})
@@ -224,7 +284,7 @@ export class Election extends Entity implements IClonable<Election> {
 			new Set(this._ballotIds),
 			new Set(this._whoVotedIds),
 			this._teller.clone(),
-			this._ballotCastEventBus
+			this._eventBus
 		);
 
 		while (election.version !== this.version) {
@@ -233,4 +293,43 @@ export class Election extends Entity implements IClonable<Election> {
 
 		return election;
 	}
+
+	updateElectionData(electionChangeset: IElectionChangeset) {
+		this.patchElection(electionChangeset);
+	}
+
+	private patchElection(patchElection: IElectionChangeset) {
+	    if (patchElection.start) {
+	    	if (patchElection.end) {
+	    		this._electionPeriod = new DateTimeRange(patchElection.start, patchElection.end);
+			} else {
+	    		this._electionPeriod = new DateTimeRange(patchElection.start, this._electionPeriod._end);
+			}
+		}
+	    if (patchElection.end) {
+			this._electionPeriod = new DateTimeRange(this._electionPeriod._start, patchElection.end);
+		}
+
+	    if (patchElection.anonymous !== undefined) {
+	        this._anonymous = patchElection.anonymous;
+		}
+
+	    if (patchElection.masterBallotId) {
+	    	this._masterBallotId = patchElection.masterBallotId;
+		}
+
+	    if (patchElection.permittedVoters) {
+	    	if (!this._restricted) this._restricted = true;
+
+	    	this._permittedVoters = new Set(patchElection.permittedVoters);
+		}
+	}
+}
+
+interface IElectionChangeset {
+	start?: Date,
+	end?: Date,
+	anonymous?: boolean,
+	masterBallotId?: string,
+	permittedVoters?: string[],
 }

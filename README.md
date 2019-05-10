@@ -1,6 +1,8 @@
 # DDD-Libellis
 [![Build Status](https://travis-ci.org/libellis/DDD-Libellis.svg?branch=master)](https://travis-ci.org/libellis/DDD-Libellis)
+[![Coverage Status](https://coveralls.io/repos/github/libellis/DDD-Libellis/badge.svg?branch=master)](https://coveralls.io/github/libellis/DDD-Libellis?branch=master)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
 
 ## Introduction
 Libellis is a ranked voting application with a simple API for users to create, share, and vote on surveys, where each survey question would effictively be a poll.

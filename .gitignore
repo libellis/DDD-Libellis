@@ -3,6 +3,11 @@ node_modules/*
 lib
 lib/*
 
+coverage
+coverage/*
+.nyc_output
+.nyc_output/*
+
 workspace.xml
 usage.statistics.xml
 tasks.xml

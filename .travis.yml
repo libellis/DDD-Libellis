@@ -19,7 +19,7 @@ install:
 
 script:
   - make docker-test
-  - make docker-coverage
+  - make docker-coveralls
 
 notifications:
   slack: libellis:7v5cSuqlayq37v0Qaeyrvbg7

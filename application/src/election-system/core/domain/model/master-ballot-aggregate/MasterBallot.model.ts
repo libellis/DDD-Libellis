@@ -2,7 +2,7 @@ import { Question } from "./Question.model";
 import { Choice } from "./Choice.model";
 import { IMasterBallotData } from "./abstractions/IMasterBallotData";
 import { Category } from "../common/value-objects/CategoryVO.model";
-import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
+import { Entity } from "../../../../../shared-kernel/Entity.model";
 import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
 
 export class MasterBallot extends Entity implements IClonable<MasterBallot> {

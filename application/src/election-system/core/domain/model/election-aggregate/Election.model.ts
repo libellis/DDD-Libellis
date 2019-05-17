@@ -1,5 +1,5 @@
-import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
-import { DateTimeRange } from "../../../../../shared-kernel/DateTimeRangeVO.model";
+import { Entity } from "../../../../../shared-kernel/Entity.model";
+import { DateTimeRange } from "../../../../../shared-kernel/value-objects/DateTimeRange.model";
 import { Ballot } from "../ballot-aggregate/Ballot.model";
 import { IBallotData } from "../ballot-aggregate/abstractions/IBallotData";
 import { MasterBallot } from "../master-ballot-aggregate/MasterBallot.model";

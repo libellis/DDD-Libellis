@@ -1,4 +1,4 @@
-import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
+import { Entity } from "../../../../../shared-kernel/Entity.model";
 import { IBallotData } from "./abstractions/IBallotData";
 import { Vote } from "./Vote.model";
 import { Question } from "./value-objects/QuestionVO.model";

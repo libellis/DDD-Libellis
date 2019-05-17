@@ -2,7 +2,7 @@ import { IUserData } from "./abstractions/IUserData";
 import { Email } from "../common/value-objects/EmailVO.model";
 import { Username } from "../common/value-objects/UsernameVO.model";
 import { Name } from "../common/value-objects/NameVO.model";
-import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
+import { Entity } from "../../../../../shared-kernel/Entity.model";
 import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
 import { UserCreatedEvent } from "../events/UserCreatedEvent.model";
 import { UserUpdatedEvent } from "../events/UserUpdatedEvent.model";

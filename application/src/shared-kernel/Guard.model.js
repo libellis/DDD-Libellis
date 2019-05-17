@@ -11,6 +11,12 @@ var Guard = /** @class */ (function () {
                 return false;
             }
         });
+        for (var _i = 0, setA_1 = setA; _i < setA_1.length; _i++) {
+            var elem = setA_1[_i];
+            if (!setB.has(elem)) {
+                return false;
+            }
+        }
         return true;
     };
     return Guard;

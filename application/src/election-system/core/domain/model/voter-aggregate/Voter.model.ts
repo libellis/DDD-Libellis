@@ -1,4 +1,4 @@
-import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
+import { Entity } from "../../../../../shared-kernel/Entity.model";
 import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
 
 // Within the Election System bounded context we don't need to know

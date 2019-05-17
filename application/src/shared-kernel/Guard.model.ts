@@ -8,6 +8,12 @@ export class Guard {
 			}
 		});
 
+		for (const elem of setA) {
+		  if (!setB.has(elem)) {
+		  	return false;
+			}
+		}
+
 		return true;
 	}
 }

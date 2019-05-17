@@ -3,8 +3,9 @@
  * Probably should build unicode support in the future for
  * non-english names.
  */
+import { ValueObject } from "../../../../../../shared-kernel/ValueObject.model";
 
-export class Name {
+export class Name extends ValueObject {
 	private readonly _name: string;
 	private static _nameRx = new RegExp("^[A-Za-z']+$");
 	private static _maxLength = 50;
@@ -12,16 +13,20 @@ export class Name {
 	constructor(
 		name: string
 	) {
-		if (Name.isValidName(name)) {
-			this._name = name;
-		}
+	  Name.validityCheck(name);
+	  super();
+	  this._name = name;
 	}
 
 	get value() {
 		return this._name;
 	}
 
-	static isValidName(name: string): boolean {
+	protected get getEqualityComponents(): Set<string | number> {
+	  return new Set([this._name]);
+	}
+
+	static validityCheck(name: string) {
 		if (!Name.containsValidChars(name)) {
 			throw new Error("Names must contain only alphabetic characters.")
 		}
@@ -29,8 +34,6 @@ export class Name {
 		if (!Name.isValidLength(name)) {
 			throw new Error(`Names cannot be longer than ${Name._maxLength} characters.`)
 		}
-
-		return true;
 	}
 
 	static containsValidChars(name: string) : boolean {

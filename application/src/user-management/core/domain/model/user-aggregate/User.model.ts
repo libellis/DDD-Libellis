@@ -1,7 +1,7 @@
 import { IUserData } from "./abstractions/IUserData";
-import { Email } from "../common/value-objects/EmailVO.model";
-import { Username } from "../common/value-objects/UsernameVO.model";
-import { Name } from "../common/value-objects/NameVO.model";
+import { Email } from "../common/value-objects/Email.model";
+import { Username } from "../common/value-objects/Username.model";
+import { Name } from "../common/value-objects/Name.model";
 import { Entity } from "../../../../../shared-kernel/Entity.model";
 import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
 import { UserCreatedEvent } from "../events/UserCreatedEvent.model";
@@ -11,7 +11,7 @@ import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
 // TODO: Should this be injected so our domain layer doesn't have a hard dependency on bcrypt?
 const bcrypt = require('bcryptjs');
 
-export class User extends Entity implements IClonable {
+export class User extends Entity implements IClonable<User> {
 	private _username: Username;
 	private _hashedPassword: string;
 	private _firstName: Name;

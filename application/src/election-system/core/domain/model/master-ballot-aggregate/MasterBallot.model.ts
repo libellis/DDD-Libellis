@@ -1,7 +1,7 @@
 import { Question } from "./Question.model";
 import { Choice } from "./Choice.model";
 import { IMasterBallotData } from "./abstractions/IMasterBallotData";
-import { Category } from "../common/value-objects/CategoryVO.model";
+import { Category } from "../common/value-objects/Category.model";
 import { Entity } from "../../../../../shared-kernel/Entity.model";
 import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
 

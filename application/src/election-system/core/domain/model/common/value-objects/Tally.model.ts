@@ -1,16 +1,23 @@
-import { Score } from "./ScoreVO.model";
+import { Score } from "./Score.model";
+import { ValueObject } from "../../../../../../shared-kernel/ValueObject.model";
 
-export class Tally {
+export class Tally extends ValueObject {
+	private readonly _tally: number;
+
 	constructor(
-		private readonly _tally: number,
+		tally: number,
 	) {
-		if (Tally.isValidTally(_tally)) {
-			this._tally = _tally;
-		}
+		Tally.validityCheck(tally);
+		super();
+		this._tally = tally;
 	}
 
 	get tally(): number {
 		return this._tally;
+	}
+
+	protected get getEqualityComponents(): Set<string | number> {
+	  return new Set([this._tally]);
 	}
 
 	incrementTally(score: Score): Tally {
@@ -19,10 +26,9 @@ export class Tally {
 		);
 	}
 
-	static isValidTally(n: number): boolean {
+	static validityCheck(n: number) {
 		if (!Tally.isNonNegative(n)) throw new Error("Tally cannot be negative.");
 		if (!Tally.isWholeNumber(n)) throw new Error("Tally must be a whole number.");
-		return true;
 	}
 
 	static isWholeNumber(n: number): boolean {

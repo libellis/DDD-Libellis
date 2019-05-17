@@ -31,7 +31,7 @@ export class TestUserDataFactory {
 		return userDatas;
 	}
 
-	static patchObject(inputObj: object, patchObj: object) {
+	static patchObject(inputObj: {[key: string]: any}, patchObj: object) {
 		for (let [key, value] of Object.entries(patchObj)) {
 			if (inputObj.hasOwnProperty(key)) inputObj[key] = value;
 		}

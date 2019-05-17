@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import * as faker from 'faker';
 import 'mocha';
-import { Email } from "../../../../../core/domain/model/common/value-objects/EmailVO.model";
+import { Email } from "../../../../../core/domain/model/common/value-objects/Email.model";
 
 describe('test email value object validity testing', () => {
 	it('should successfully store a valid email address.', () => {

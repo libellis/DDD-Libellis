@@ -1,6 +1,6 @@
 import { Entity } from "../../../../../shared-kernel/Entity.model";
 import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
-import { Tally } from "../common/value-objects/TallyVO.model";
+import { Tally } from "../common/value-objects/Tally.model";
 import { Ballot } from "../ballot-aggregate/Ballot.model";
 import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
 

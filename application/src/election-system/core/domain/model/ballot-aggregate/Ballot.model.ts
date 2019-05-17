@@ -2,7 +2,7 @@ import { Entity } from "../../../../../shared-kernel/Entity.model";
 import { IBallotData } from "./abstractions/IBallotData";
 import { Vote } from "./Vote.model";
 import { Question } from "./value-objects/QuestionVO.model";
-import { Score } from "../common/value-objects/ScoreVO.model";
+import { Score } from "../common/value-objects/Score.model";
 import { BallotCastEvent } from "../events/BallotCastEvent.model";
 import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
 import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";

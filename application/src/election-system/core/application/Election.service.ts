@@ -2,7 +2,7 @@ import {IElectionRepository} from "./abstractions/IElectionRepository";
 import {ElectionResponse} from "./models/output/ElectionResponse";
 import {Election} from "../domain/model/election-aggregate/Election.model";
 import {IMasterBallotRepository} from "./abstractions/IMasterBallotRepository";
-import { v4 as uuid } from "uuid";
+import uuid from "uuid/v4";
 import {NewElection} from "./models/input/NewElection";
 import {MasterBallot} from "../domain/model/master-ballot-aggregate/MasterBallot.model";
 import {EventBus} from "../../../shared-kernel/event-streams/EventBus";
@@ -40,7 +40,7 @@ export class ElectionService {
 
         const election = this.createElectionEntity(newElectionData, masterBallot);
 
-        if (!(await this.electionRepo.add(election)) {
+        if (!(await this.electionRepo.add(election))) {
             throw new Error(`Failed to persist election.`);
         }
 
@@ -60,7 +60,7 @@ export class ElectionService {
 
         election.updateElectionData(electionUpdateData);
 
-        if (!(await this.electionRepo.update(election)) {
+        if (!(await this.electionRepo.update(election))) {
             throw new Error(`Failed to update election by id: ${id}`);
         }
 

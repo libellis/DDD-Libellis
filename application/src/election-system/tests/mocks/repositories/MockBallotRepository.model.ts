@@ -29,7 +29,7 @@ export class MockBallotRepository implements IBallotRepository {
 		});
 
 		if (b === undefined) {
-			return b;
+		  throw new Error(`Cannot find ballot by id: ${id}`);
 		}
 
 		return b.clone();

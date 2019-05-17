@@ -28,7 +28,7 @@ export class MockVoterRepository implements IVoterRepository {
 		});
 
 		if (v === undefined) {
-			return v;
+			throw new Error(`Cannot find voter by id: ${id}`);
 		}
 
 		return v.clone();

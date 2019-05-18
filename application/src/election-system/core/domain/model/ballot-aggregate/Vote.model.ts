@@ -1,5 +1,5 @@
-import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
-import { Score } from "../common/value-objects/ScoreVO.model";
+import { Entity } from "../../../../../shared-kernel/Entity.model";
+import { Score } from "../common/value-objects/Score.model";
 
 export class Vote extends Entity {
 	constructor(

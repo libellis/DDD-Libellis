@@ -28,7 +28,7 @@ export class MockMasterBallotRepository implements IMasterBallotRepository {
 		});
 
 		if (b === undefined) {
-			return b;
+			throw new Error(`Cannot find master ballot by id: ${id}`);
 		}
 
 		return b.clone();

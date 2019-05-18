@@ -1,15 +1,17 @@
-export class DateTimeRange {
+import { ValueObject } from "../ValueObject.model";
+
+export class DateTimeRange extends ValueObject {
 	constructor(public readonly _start: Date,
-	            public readonly _end: Date)
+							public readonly _end: Date)
 	{
-		if (DateTimeRange.dateTimeRangeIsValid(_start, _end)) {
-			this._start = _start;
-			this._end = _end
-		}
+		super();
+
+		DateTimeRange.validityCheck(_start, _end);
+		this._start = _start;
+		this._end = _end
 	}
 
-	// GUARDS
-	static dateTimeRangeIsValid(start: Date, end: Date) {
+	static validityCheck(start: Date, end: Date) {
 		if (!DateTimeRange.startPrecedesEnd(start, end)) {
 			throw new Error(`Start date comes after end date.  Date time range is invalid`);
 		}
@@ -43,18 +45,11 @@ export class DateTimeRange {
 		return new DateTimeRange(start, end);
 	}
 
-	// INSTANCE METHODS
 	overlaps(other: DateTimeRange) {
 		return this._start.getTime() < other._end.getTime() &&
 			this._end.getTime() > other._start.getTime();
 	}
 
-	equals(other: DateTimeRange) {
-		return this._start.getTime() === other._start.getTime() &&
-			this._end.getTime() === other._end.getTime();
-	}
-
-	// Checks if we are currently inside the DateTimeRange.  Better name for this method?
 	currentlyIn() {
 		const now = new Date();
 
@@ -66,5 +61,9 @@ export class DateTimeRange {
 		const now = new Date();
 
 		return now.getTime() > this._end.getTime();
+	}
+
+	protected get getEqualityComponents(): Set<string | number> {
+		return new Set([this._start.getTime(), this._end.getTime()]);
 	}
 }

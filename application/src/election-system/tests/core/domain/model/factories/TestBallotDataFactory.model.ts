@@ -27,7 +27,7 @@ export class TestBallotDataFactory {
 		return ballotData;
 	}
 
-	static createTestBallotsFromVotersList(voters: Voter[], masterBallot): IBallotData[] {
+	static createTestBallotsFromVotersList(voters: Voter[], masterBallot: MasterBallot): IBallotData[] {
 		return voters
 			.map(
 				voter => {

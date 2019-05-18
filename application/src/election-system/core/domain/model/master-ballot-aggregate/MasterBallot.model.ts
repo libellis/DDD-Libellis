@@ -1,8 +1,8 @@
 import { Question } from "./Question.model";
 import { Choice } from "./Choice.model";
 import { IMasterBallotData } from "./abstractions/IMasterBallotData";
-import { Category } from "../common/value-objects/CategoryVO.model";
-import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
+import { Category } from "../common/value-objects/Category.model";
+import { Entity } from "../../../../../shared-kernel/Entity.model";
 import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
 
 export class MasterBallot extends Entity implements IClonable<MasterBallot> {
@@ -141,8 +141,9 @@ export class MasterBallot extends Entity implements IClonable<MasterBallot> {
 	}
 
 	private patchBallot(patchBallot: IMasterBallotChangeSet) {
+		const localObj = (this as {[key: string]: any});
 		for (let [key, value] of Object.entries(patchBallot)) {
-			if (this.hasOwnProperty(key)) this[key] = value;
+			if (this.hasOwnProperty(key)) localObj[key] = value;
 		}
 	}
 

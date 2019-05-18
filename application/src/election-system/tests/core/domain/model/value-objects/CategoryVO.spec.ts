@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import 'mocha';
-import { Category } from "../../../../../core/domain/model/common/value-objects/CategoryVO.model";
+import { Category } from "../../../../../core/domain/model/common/value-objects/Category.model";
 
 describe('test value object construction', () => {
 	it('should successfully construct Category value object from valid string', () => {

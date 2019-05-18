@@ -28,7 +28,7 @@ export class MockUserRepository implements IUserRepository {
 		});
 
 		if (u === undefined) {
-			return u;
+		  throw new Error(`User could not be found with id of: ${id}`);
 		}
 
 		return u.clone();

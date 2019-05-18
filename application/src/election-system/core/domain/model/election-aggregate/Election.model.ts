@@ -1,5 +1,5 @@
-import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
-import { DateTimeRange } from "../../../../../shared-kernel/DateTimeRangeVO.model";
+import { Entity } from "../../../../../shared-kernel/Entity.model";
+import { DateTimeRange } from "../../../../../shared-kernel/value-objects/DateTimeRange.model";
 import { Ballot } from "../ballot-aggregate/Ballot.model";
 import { IBallotData } from "../ballot-aggregate/abstractions/IBallotData";
 import { MasterBallot } from "../master-ballot-aggregate/MasterBallot.model";
@@ -234,7 +234,7 @@ export class Election extends Entity implements IClonable<Election> {
 	// to carry out inside the callback.
 	subscribeToBallotCastEventStream() {
 		this._eventBus.ballotCastEventStream
-			.subscribe(ballotCastEvent => {
+			.subscribe((ballotCastEvent: BallotCastEvent) => {
 				this.recordWhoVoted(ballotCastEvent);
 			})
 	}
@@ -299,29 +299,25 @@ export class Election extends Entity implements IClonable<Election> {
 	}
 
 	private patchElection(patchElection: IElectionChangeset) {
-	    if (patchElection.start) {
-	    	if (patchElection.end) {
-	    		this._electionPeriod = new DateTimeRange(patchElection.start, patchElection.end);
-			} else {
-	    		this._electionPeriod = new DateTimeRange(patchElection.start, this._electionPeriod._end);
-			}
+    if (patchElection.start) {
+      if (patchElection.end) {
+        this._electionPeriod = new DateTimeRange(patchElection.start, patchElection.end);
+      } else {
+          this._electionPeriod = new DateTimeRange(patchElection.start, this._electionPeriod._end);
+      }
 		}
-	    if (patchElection.end) {
-			this._electionPeriod = new DateTimeRange(this._electionPeriod._start, patchElection.end);
-		}
+    if (patchElection.end) {
+      this._electionPeriod = new DateTimeRange(this._electionPeriod._start, patchElection.end);
+    }
 
-	    if (patchElection.anonymous !== undefined) {
-	        this._anonymous = patchElection.anonymous;
-		}
-
-	    if (patchElection.masterBallotId) {
-	    	this._masterBallotId = patchElection.masterBallotId;
+    if (patchElection.anonymous !== undefined) {
+        this._anonymous = patchElection.anonymous;
 		}
 
-	    if (patchElection.permittedVoters) {
-	    	if (!this._restricted) this._restricted = true;
+    if (patchElection.permittedVoters) {
+      if (!this._restricted) this._restricted = true;
 
-	    	this._permittedVoters = new Set(patchElection.permittedVoters);
+      this._permittedVoters = new Set(patchElection.permittedVoters);
 		}
 	}
 }

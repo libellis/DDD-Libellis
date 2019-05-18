@@ -76,7 +76,7 @@ export class TestElectionFactory {
 
 	// This allows us to patch our generated masterBallots/questions/choices with optional passed
 	// in static values.
-	static patchObject(inputObj: object, patchObj: object) {
+	static patchObject(inputObj: {[key: string]: any}, patchObj: object) {
 		for (let [key, value] of Object.entries(patchObj)) {
 			if (inputObj.hasOwnProperty(key)) inputObj[key] = value;
 		}

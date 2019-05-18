@@ -1,8 +1,9 @@
-import { Entity } from "../../../../../shared-kernel/entities/Entity.model";
+import { Entity } from "../../../../../shared-kernel/Entity.model";
 import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
-import { Tally } from "../common/value-objects/TallyVO.model";
+import { Tally } from "../common/value-objects/Tally.model";
 import { Ballot } from "../ballot-aggregate/Ballot.model";
 import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
+import { BallotCastEvent } from "../events/BallotCastEvent.model";
 
 // This is part of the election aggregate because the Election is the only entity that knows about the timespan that an
 // election is valid in (electionPeriod) and therefore must enforce when the final results can be retrieved.  Otherwise
@@ -23,10 +24,12 @@ export class Teller extends Entity implements IClonable<Teller> {
 	}
 
 	private static mapSetValuesToKeys(choiceIds: Set<string>): {[key: string]: Tally} {
-		const dict = {};
+		const dict: {[key: string]: Tally} = {};
+
 		choiceIds.forEach(c => {
 			dict[c] = new Tally(0);
 		});
+
 		return dict;
 	}
 
@@ -34,7 +37,7 @@ export class Teller extends Entity implements IClonable<Teller> {
 	// Might need to do some concurrency testing with this.
 	beginCounting() {
 		this._ballotCastEventBus.ballotCastEventStream.subscribe(
-			ballotCastEvent => {
+			(ballotCastEvent: BallotCastEvent) => {
 				this.countBallots(ballotCastEvent.ballot);
 			}
 		);

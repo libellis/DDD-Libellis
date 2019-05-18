@@ -1,4 +1,6 @@
-export class Username {
+import { ValueObject } from "../../../../../../shared-kernel/ValueObject.model";
+
+export class Username extends ValueObject {
 	private readonly _username: string;
 	private static _usernameRx = new RegExp("^[A-Za-z0-9\_\.]+$");
 	private static _maxLength = 25;
@@ -6,16 +8,16 @@ export class Username {
 	constructor(
 		username: string
 	) {
-		if (Username.isValidUsername(username)) {
-			this._username = username;
-		}
+	  Username.validityCheck(username);
+	  super();
+	  this._username = username;
 	}
 
 	get value() {
 		return this._username;
 	}
 
-	static isValidUsername(username: string): boolean {
+	static validityCheck(username: string) {
 		if (!Username.containsValidChars(username)) {
 			throw new Error("Username must contain only alphanumeric characters, underscores or periods.")
 		}
@@ -23,8 +25,6 @@ export class Username {
 		if (!Username.isValidLength(username)) {
 			throw new Error(`Username cannot be longer than ${Username._maxLength} characters.`)
 		}
-
-		return true;
 	}
 
 	static containsValidChars(username: string) : boolean {
@@ -33,5 +33,9 @@ export class Username {
 
 	static isValidLength(username: string): boolean {
 		return (username.length <= Username._maxLength);
+	}
+
+	protected get getEqualityComponents(): Set<string | number> {
+	  return new Set([this._username]);
 	}
 }

@@ -29,7 +29,7 @@ export class MockElectionRepository implements IElectionRepository {
 		});
 
 		if (e === undefined) {
-			return e;
+			throw new Error(`Cannot find election by id: ${id}`);
 		}
 
 		return e.clone();

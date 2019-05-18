@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import * as faker from 'faker';
 import 'mocha';
-import { Username } from "../../../../../core/domain/model/common/value-objects/UsernameVO.model";
+import { Username } from "../../../../../core/domain/model/common/value-objects/Username.model";
 
 describe('test username value object validity testing', () => {
 	it('should successfully store a valid username.', () => {

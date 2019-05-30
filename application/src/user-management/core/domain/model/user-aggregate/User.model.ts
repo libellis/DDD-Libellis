@@ -119,19 +119,24 @@ export class User extends Entity implements IClonable<User> {
 		return true;
 	}
 
+	changeAccountDetails(userChangeSet: UserChangeSet): User {
+		this.validatePassword(userChangeSet.currentPassword);
+		this.patchUser(userChangeSet);
+		return this;
+	}
 
-	// TODO: Finish this - also see next todo.
-	// TODO: Might be good to move this out to a service layer.
-	changeAccountDetails(currentPassword: string, changeSet: UserChangeSet) {
-		this.validatePassword(currentPassword);
-
-		let userData: IUserData = {
-			username: this.username,
-			password: this.hashedPassword,
-			email: this.email,
-			firstName: this.firstName,
-			lastName: this.lastName,
-			photoUrl: this.photoUrl,
+	private patchUser(userChangeSet: UserChangeSet) {
+		if (userChangeSet.email !== undefined) {
+			this._email = new Email(userChangeSet.email);
+		}
+		if (userChangeSet.firstName !== undefined) {
+			this._firstName = new Name(userChangeSet.firstName);
+		}
+		if (userChangeSet.lastName !== undefined) {
+			this._lastName = new Name(userChangeSet.lastName);
+		}
+		if (userChangeSet.photoUrl !== undefined) {
+			this._photoUrl = new URL(userChangeSet.photoUrl);
 		}
 	}
 
@@ -157,6 +162,8 @@ export class User extends Entity implements IClonable<User> {
 }
 
 interface UserChangeSet {
+    id: string,
+	currentPassword: string,
 	firstName?: string,
 	lastName?: string,
 	password?: string,

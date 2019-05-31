@@ -104,14 +104,14 @@ export class User extends Entity implements IClonable<User> {
 		return bcrypt.hashSync(password, salt);
 	}
 
-	private validatePassword(password: string) {
+	validPasswordGuard(password: string) {
 		if (!bcrypt.compareSync(password, this._hashedPassword)) {
 			throw new Error(`You did not enter the correct current password for account under username: ${this._username}`);
 		}
 	}
 
 	changePassword(oldPassword: string, newPassword: string): boolean {
-		this.validatePassword(oldPassword);
+		this.validPasswordGuard(oldPassword);
 		this._hashedPassword = User.hashPassword(newPassword);
 
 		const userUpdatedEvent = new UserUpdatedEvent(this);
@@ -120,7 +120,7 @@ export class User extends Entity implements IClonable<User> {
 	}
 
 	changeAccountDetails(userChangeSet: UserChangeSet): User {
-		this.validatePassword(userChangeSet.currentPassword);
+		this.validPasswordGuard(userChangeSet.currentPassword);
 		this.patchUser(userChangeSet);
 		return this;
 	}

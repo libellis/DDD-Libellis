@@ -39,12 +39,6 @@ export class AuthService {
             status,
         }
     }
-
-    // TODO: Test if this is robust enough.
-    private static retrievePayload(token: string): TokenData {
-        const payload = jwt.verify(token, SECRET);
-        return payload;
-    }
 }
 
 interface TokenData {

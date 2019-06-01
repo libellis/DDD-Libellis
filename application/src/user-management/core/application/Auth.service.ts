@@ -3,6 +3,8 @@ import {EventBus} from "../../../shared-kernel/event-streams/EventBus";
 import {User} from "../domain/model/user-aggregate/User.model";
 import {SECRET} from "../../../config";
 import {LoginData} from "./models/input/LoginData";
+import jwt from "jsonwebtoken";
+import {MemberStatus, Payload} from "../../../shared-kernel/models/Payload";
 
 export class AuthService {
     private _userRepo: IUserRepository;
@@ -24,14 +26,14 @@ export class AuthService {
     }
 
     private generateToken(user: User) {
-        const tokenData = AuthService.generateTokenData(user);
+        const tokenData = AuthService.generatePayload(user);
         return jwt.sign(tokenData, SECRET);
     }
 
-    private static generateTokenData(user: User): TokenData {
+    private static generatePayload(user: User): Payload {
         const status = user.isAdmin ?
-            Status.Admin :
-            Status.User;
+            MemberStatus.Admin :
+            MemberStatus.User;
 
         return {
             userId: user.id,
@@ -39,16 +41,4 @@ export class AuthService {
             status,
         }
     }
-}
-
-interface TokenData {
-    userId: string;
-    username: string;
-    status: Status;
-}
-
-enum Status {
-    Admin,
-    User,
-    Voter,
 }

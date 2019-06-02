@@ -5,9 +5,14 @@ import {MasterBallotResponse} from "./models/output/MasterBallotResponse";
 import {NewMasterBallot} from "./models/input/NewMasterBallot";
 import { v4 as uuid } from "uuid";
 import {UpdateMasterBallot} from "./models/input/UpdateMasterBallot";
+import {PayloadService} from "../../../shared-kernel/services/Payload.service";
+import {NotAuthorizedError} from "../../../shared-kernel/exceptions/NotAuthorizedError.model";
+import {ResourceNotFoundError} from "../../../shared-kernel/exceptions/ResourceNotFoundError.model";
 
 export class MasterBallotService {
-    constructor(private masterBallotRepo: IMasterBallotRepository) {}
+    constructor(
+        private masterBallotRepo: IMasterBallotRepository,
+    ) {}
 
     // TODO: Do we ever need this?  We would only get paged results of elections, since those are
     // potentially public, while master ballots often are not.
@@ -16,17 +21,24 @@ export class MasterBallotService {
         return this.translateMasterBallotsToResponse(masterBallots);
     }
 
-    async getMasterBallot(id: string): Promise<MasterBallotResponse> {
+    // TODO: Should we change author in master ballot to be author id?
+    async getMasterBallot(id: string, token: string): Promise<MasterBallotResponse> {
         const masterBallot = await this.masterBallotRepo.get(id);
+        const requestingUser = PayloadService.retrieveUsername(token);
 
         if (masterBallot === undefined) {
-            throw new Error("Master ballot by that id was not found");
+            throw new ResourceNotFoundError();
+        }
+
+        if (masterBallot.author !== requestingUser) {
+            throw new NotAuthorizedError();
         }
 
         return this.translateMasterBallotToResponse(masterBallot);
     }
 
-    async createMasterBallot(masterBallotData: NewMasterBallot, author: string): Promise<MasterBallotResponse> {
+    async createMasterBallot(masterBallotData: NewMasterBallot, token: string): Promise<MasterBallotResponse> {
+        const author = PayloadService.retrieveUsername(token);
         const masterBallot = this.translateInputToNewMasterBallot(masterBallotData, author);
 
         if (!(await this.masterBallotRepo.add(masterBallot))) {
@@ -38,9 +50,14 @@ export class MasterBallotService {
 
     async updateMasterBallot(id: string, masterBallotData: UpdateMasterBallot): Promise<MasterBallotResponse> {
         const masterBallot = await this.masterBallotRepo.get(id);
+        const user = PayloadService.retrieveUsername(masterBallotData.token);
 
         if (masterBallot === undefined) {
-            throw new Error("Master ballot by that id was not found");
+            throw new ResourceNotFoundError("Master ballot by that id was not found");
+        }
+
+        if (masterBallot.author !== user) {
+            throw new NotAuthorizedError();
         }
 
         masterBallot.updateBallotData(masterBallotData);
@@ -52,18 +69,21 @@ export class MasterBallotService {
         return this.translateMasterBallotToResponse(masterBallot);
     }
 
-    async deleteMasterBallot(id: string, user: string): Promise<boolean> {
+    async deleteMasterBallot(id: string, token: string) {
+        const user = PayloadService.retrieveUsername(token);
         const masterBallot = await this.masterBallotRepo.get(id);
 
         if (masterBallot === undefined) {
-            throw new Error("Master ballot by that id was not found");
+            throw new ResourceNotFoundError("Master ballot by that id was not found");
         }
 
         if (masterBallot.author !== user) {
-            throw new Error("You are not authorized to delete that master ballot.");
+            throw new NotAuthorizedError("You are not authorized to delete that master ballot.");
         }
 
-        return await this.masterBallotRepo.remove(id);
+        if (!(await this.masterBallotRepo.remove(id))) {
+            throw new Error("Could not delete master ballot with that id for unknown reasons.");
+        }
     }
 
 

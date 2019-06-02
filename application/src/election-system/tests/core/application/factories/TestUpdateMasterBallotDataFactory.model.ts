@@ -3,6 +3,7 @@ import * as faker from 'faker';
 import {MasterBallot} from "../../../../core/domain/model/master-ballot-aggregate/MasterBallot.model";
 import {Question} from "../../../../core/domain/model/master-ballot-aggregate/Question.model";
 import {Choice} from "../../../../core/domain/model/master-ballot-aggregate/Choice.model";
+import {TestTokenFactory} from "../../../../../shared-kernel/test-factories/TestTokenFactory.model";
 
 export class TestUpdateMasterBallotDataFactory {
 	static createTestUpdateMasterBallotData(masterBallot: MasterBallot): UpdateMasterBallot {
@@ -11,8 +12,10 @@ export class TestUpdateMasterBallotDataFactory {
 			description: faker.random.words(5),
 			category: faker.random.word(),
 			questionsData: TestUpdateMasterBallotDataFactory.randomizeQuestionData(masterBallot.questions),
+			token: TestTokenFactory.generateTokenForUsername(masterBallot.author),
 		};
 	}
+
 
 	private static randomizeQuestionData(questionsData: Question[]): questionData[] {
 		return questionsData.map(data => {

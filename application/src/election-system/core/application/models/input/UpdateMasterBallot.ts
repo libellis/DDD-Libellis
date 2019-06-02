@@ -12,5 +12,6 @@ export interface UpdateMasterBallot {
             content?: string,
             contentType?: string,
         }[]
-    }[]
+    }[],
+    token: string,
 }

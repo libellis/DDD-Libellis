@@ -33,7 +33,7 @@ export class TestMasterBallotFactory {
 	static createBaseMasterBallot(masterBallotParams?: OptionalMasterBallotParams): MasterBallot {
 		const sData = {
 			id: faker.random.uuid(),
-			author: `${faker.name.firstName()} ${faker.name.lastName()}`,
+			author: faker.internet.userName(),
 			title: faker.lorem.words(Math.floor(Math.random() * (8 - 3)) + 3),
 			description: faker.lorem.words(Math.floor(Math.random() * (128 - 32)) + 3),
 			category: faker.lorem.word(),

@@ -8,11 +8,13 @@ import { EventBus } from "../../../../../shared-kernel/event-streams/EventBus";
 import { BallotCastEvent } from "../events/BallotCastEvent.model";
 import { Teller } from "./Teller.model";
 import {IClonable} from "../../../../../shared-kernel/interfaces/IClonable";
+import {NotAuthorizedError} from "../../../../../shared-kernel/exceptions/NotAuthorizedError.model";
 
 export class Election extends Entity implements IClonable<Election> {
 	private _electionPeriod: DateTimeRange;
 	private _anonymous: boolean;
 	public readonly _masterBallotId: string;
+	public readonly _creator: string;
 
 	private _restricted: boolean;
 	private _permittedVoters: Set<string>;
@@ -37,6 +39,7 @@ export class Election extends Entity implements IClonable<Election> {
 		electionPeriod: DateTimeRange,
 		anonymous: boolean,
 		masterBallotId: string,
+		creator: string,
 
 		restricted: boolean,
 		permittedVoters: Set<string>,
@@ -66,6 +69,7 @@ export class Election extends Entity implements IClonable<Election> {
 		this._electionPeriod = electionPeriod;
 		this._anonymous = anonymous;
 		this._masterBallotId = masterBallotId;
+		this._creator = creator;
 		this._restricted = restricted;
 		this._permittedVoters = permittedVoters;
 		this._validQuestionIds = validQuestionIds;
@@ -103,6 +107,14 @@ export class Election extends Entity implements IClonable<Election> {
 		return this._teller.id;
 	}
 
+	get creator(): string {
+		return this._creator;
+	}
+
+	get isActive(): boolean {
+		return this._electionPeriod.currentlyIn();
+	}
+
 	// Factory method for enforcing invariance:
 	// 1. Start and end date validity is checked by DateTimeRange VO
 	static create(
@@ -135,6 +147,7 @@ export class Election extends Entity implements IClonable<Election> {
 			new DateTimeRange(start, end),
 			anonymous,
 			masterBallot.id,
+			masterBallot.author,
 			restricted,
 			permittedVoters,
 			validQuestionIds,
@@ -245,15 +258,11 @@ export class Election extends Entity implements IClonable<Election> {
 		this._ballotIds.add(ballotCastEvent.ballot.id);
 	}
 
-	electionIsActive(): boolean {
-		return this._electionPeriod.currentlyIn();
-	}
-
 	getElectionResults() {
 		if (this._electionPeriod.currentlyAfterRange()) {
 			return this._teller.results;
 		} else {
-			throw new Error("Cannot retrieve election results until the election is over.");
+			throw new NotAuthorizedError("Cannot retrieve election results until the election is over.");
 		}
 	}
 
@@ -277,6 +286,7 @@ export class Election extends Entity implements IClonable<Election> {
 			this._electionPeriod,
 			this._anonymous,
 			this._masterBallotId,
+			this._creator,
 			this._restricted,
 			new Set(this._permittedVoters),
 			new Set(this._validQuestionIds),

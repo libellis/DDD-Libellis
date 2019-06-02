@@ -10,5 +10,6 @@ export interface NewMasterBallot {
 			content: string,
 			contentType: string,
 		}[]
-	}[]
+	}[],
+	token: string,
 }

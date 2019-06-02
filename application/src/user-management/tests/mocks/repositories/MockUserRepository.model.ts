@@ -34,6 +34,18 @@ export class MockUserRepository implements IUserRepository {
 		return u.clone();
 	}
 
+	async getByUsername(username: string): Promise<User> {
+		const u = this._mockData.find(u => {
+			return u.username === username;
+		});
+
+		if (u === undefined) {
+			throw new Error(`User could not be found with username of: ${username}`);
+		}
+
+		return u.clone();
+	}
+
 	async getPagedResults(pageSize: number, pageNumber: number): Promise<User[]> {
 		return this._mockData
 			.slice(

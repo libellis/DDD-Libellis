@@ -17,19 +17,21 @@ import {TestTokenFactory} from "../../../../shared-kernel/test-factories/TestTok
 import {ResourceNotFoundError} from "../../../../shared-kernel/exceptions/ResourceNotFoundError.model";
 
 describe('test all service methods success paths', () => {
-	// it('should successfully retrieve a ballot by id', async () => {
-	// 	const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
-	// 	const mockMasterBallotRepo = new MockMasterBallotRepository();
-	// 	await mockMasterBallotRepo.add(masterBallot);
-	//
-	// 	const masterBallotService = new MasterBallotService(mockMasterBallotRepo);
-	//
-	// 	const masterBallotResponse = await masterBallotService.getMasterBallot(masterBallot.id, masterBallot.token);
-	//
-	// 	expect(masterBallotResponse).instanceOf(MasterBallotResponse);
-	// 	expect(masterBallotResponse.title).to.equal(masterBallot.title);
-	// 	expect(masterBallotResponse.description).to.equal(masterBallot.description);
-	// });
+	it('should successfully retrieve a ballot by id', async () => {
+	    const author = faker.internet.userName();
+	    const token = TestTokenFactory.generateTokenForUsername(author);
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot({ masterBallotParams: { author, }});
+		const mockMasterBallotRepo = new MockMasterBallotRepository();
+		await mockMasterBallotRepo.add(masterBallot);
+
+		const masterBallotService = new MasterBallotService(mockMasterBallotRepo);
+
+		const masterBallotResponse = await masterBallotService.getMasterBallot(masterBallot.id, token);
+
+		expect(masterBallotResponse).instanceOf(MasterBallotResponse);
+		expect(masterBallotResponse.title).to.equal(masterBallot.title);
+		expect(masterBallotResponse.description).to.equal(masterBallot.description);
+	});
 
 	it('should successfully retrieve a paged result of ballots', async () => {
 		const masterBallots = TestMasterBallotFactory.createMultipleMasterBallots();

@@ -15,13 +15,13 @@ describe('Test TestElectionFactory generator', () => {
 	it('should generate an election that is currently active', () => {
 		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
 		const electionResult = TestElectionFactory.createElectionWithFactoryMethod(masterBallot);
-		assert(electionResult.electionIsActive());
+		assert(electionResult.isActive);
 	});
 
 	it('should correctly pass in optional election parameters', () => {
 		const testStart = new Date((new Date()).getTime() + 90000);
 		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
 		const electionResult = TestElectionFactory.createElectionWithFactoryMethod(masterBallot, { start: testStart});
-		assert.isFalse(electionResult.electionIsActive());
+		assert.isFalse(electionResult.isActive);
 	});
 });

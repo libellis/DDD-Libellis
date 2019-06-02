@@ -1,5 +1,9 @@
-import { expect } from 'chai';
 import 'mocha';
+import * as chai from 'chai';
+import chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
+const expect = chai.expect;
+
 import {MockUserRepository} from "./MockUserRepository.model";
 import {TestUserFactory} from "../../core/domain/model/factories/TestUserFactory.model";
 import {EventBus} from "../../../../shared-kernel/event-streams/EventBus";
@@ -88,8 +92,6 @@ describe('test all mock methods', () => {
 		expect(retrievedUser).to.eql(user);
 
 		await userRepository.remove(user.id);
-		const attemptedRetrievedUser = await userRepository.get(user.id);
-
-		expect(attemptedRetrievedUser).to.equal(undefined);
+		await expect(userRepository.get(user.id)).to.be.rejectedWith(Error);
 	});
 });

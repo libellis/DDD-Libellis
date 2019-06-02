@@ -4,4 +4,5 @@ export interface NewElection {
     anonymous: boolean,
     masterBallotId: string,
     permittedVoters?: string[],
+    token: string,
 }

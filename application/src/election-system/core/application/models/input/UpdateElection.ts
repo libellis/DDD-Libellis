@@ -11,4 +11,5 @@ export interface UpdateElection {
     anonymous?: boolean,
     masterBallotId?: string,
     permittedVoters?: string[],
+    token: string,
 }

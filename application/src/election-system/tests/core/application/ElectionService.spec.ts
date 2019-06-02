@@ -1,5 +1,6 @@
 import 'mocha';
 import * as chai from 'chai';
+import * as faker from 'faker';
 import chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 const expect = chai.expect;
@@ -14,17 +15,20 @@ import {MockMasterBallotRepository} from "../../mocks/repositories/MockMasterBal
 import {EventBus} from "../../../../shared-kernel/event-streams/EventBus";
 import {TestNewElectionDataFactory} from "./factories/TestNewElectionDataFactory.model";
 import {TestUpdateElectionDataFactory} from "./factories/TestUpdateElectionDataFactory.model";
+import {TestTokenFactory} from "../../../../shared-kernel/test-factories/TestTokenFactory.model";
 
 
 describe('test all service methods success paths', () => {
 	it('should successfully retrieve a election by id', async () => {
-	    const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+		const author = faker.internet.userName();
+		const token = TestTokenFactory.generateTokenForUsername(author);
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot({ masterBallotParams: { author, }});
 		const election = TestElectionFactory.createElectionWithFactoryMethod(masterBallot);
 		const mockElectionRepo = new MockElectionRepository();
 		await mockElectionRepo.add(election);
 
 		const electionService = new ElectionService(mockElectionRepo, new MockMasterBallotRepository(), new EventBus());
-		const electionResponse = await electionService.getElection(election.id);
+		const electionResponse = await electionService.getElection(election.id, token);
 
 		expect(electionResponse.masterBallotId).to.equal(election.masterBallotId);
 		expect(electionResponse.startDate).to.equal(election.startDate);
@@ -46,7 +50,9 @@ describe('test all service methods success paths', () => {
 	});
 
 	it('should successfully create a new election', async () => {
-		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+		const author = faker.internet.userName();
+		const token = TestTokenFactory.generateTokenForUsername(author);
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot({ masterBallotParams: { author, }});
 		const newElectionData = TestNewElectionDataFactory.createNewElectionData(masterBallot.id);
 		const mockElectionRepo = new MockElectionRepository();
 
@@ -55,7 +61,7 @@ describe('test all service methods success paths', () => {
 
 		const electionService = new ElectionService(mockElectionRepo, mockMasterBallotRepo, new EventBus());
 
-		const electionResponse = await electionService.createElection(newElectionData);
+		const electionResponse = await electionService.createElection(newElectionData, token);
 
 		expect(electionResponse).instanceOf(ElectionResponse);
 		expect(electionResponse.masterBallotId).to.equal(newElectionData.masterBallotId);
@@ -65,7 +71,9 @@ describe('test all service methods success paths', () => {
 	});
 
 	it('should successfully update an existing election.', async () => {
-		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+		const author = faker.internet.userName();
+		const token = TestTokenFactory.generateTokenForUsername(author);
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot({ masterBallotParams: { author, }});
 		const start = new Date(new Date().getTime() + 10000000);
 		const end = new Date(start.getTime() + 10000000);
 		const election = TestElectionFactory.createElectionWithFactoryMethod(masterBallot, {start, end});
@@ -78,7 +86,7 @@ describe('test all service methods success paths', () => {
 
 		const electionService = new ElectionService(mockElectionRepo, mockMasterBallotRepo, new EventBus());
 
-		const electionUpdateData = TestUpdateElectionDataFactory.createUpdateElectionData(masterBallot.id);
+		const electionUpdateData = TestUpdateElectionDataFactory.createUpdateElectionData(masterBallot.id, token);
 
 		const electionResponse = await electionService.updateElection(election.id, electionUpdateData);
 
@@ -88,17 +96,18 @@ describe('test all service methods success paths', () => {
 	});
 
 	it('should successfully delete an existing election.', async () => {
-		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
+		const author = faker.internet.userName();
+		const token = TestTokenFactory.generateTokenForUsername(author);
+		const masterBallot = TestMasterBallotFactory.createFullMasterBallot({ masterBallotParams: { author, }});
 		const election = TestElectionFactory.createElectionWithFactoryMethod(masterBallot);
 		const mockElectionRepo = new MockElectionRepository();
 		await mockElectionRepo.add(election);
 
 		const electionService = new ElectionService(mockElectionRepo, new MockMasterBallotRepository(), new EventBus());
 
-		const response = await electionService.removeElection(election.id);
+		await electionService.removeElection(election.id, token);
 
-		assert.isTrue(response);
-		await expect(electionService.getElection(election.id)).to.be.rejectedWith(Error);
+		await expect(electionService.getElection(election.id, token)).to.be.rejectedWith(Error);
 	});
 
 	it('should successfully retrieve election results after an election has concluded.', async () => {

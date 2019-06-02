@@ -1,6 +1,7 @@
 import {Voter} from "../../../../core/domain/model/voter-aggregate/Voter.model";
 import {NewMasterBallot} from "../../../../core/application/models/input/NewMasterBallot";
 import * as faker from 'faker';
+import { TestTokenFactory } from "../../../../../shared-kernel/test-factories/TestTokenFactory.model";
 
 export class TestNewMasterBallotDataFactory {
 	static createTestNewMasterBallotData(): NewMasterBallot {
@@ -9,6 +10,7 @@ export class TestNewMasterBallotDataFactory {
 			description: faker.random.words(5),
 			category: faker.random.word(),
 			questionsData: TestNewMasterBallotDataFactory.createRandomQuestionsWithChoices(),
+			token: TestTokenFactory.generateRandomUserToken(),
 		};
 	}
 

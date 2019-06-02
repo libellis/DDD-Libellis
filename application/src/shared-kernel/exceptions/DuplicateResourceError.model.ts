@@ -3,5 +3,6 @@ export class DuplicateResourceError extends Error {
         message?: string,
     ) {
         super(message);
+        this.name = "DuplicateResourceError";
     }
 }

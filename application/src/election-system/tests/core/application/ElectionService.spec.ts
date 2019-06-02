@@ -113,7 +113,7 @@ describe('test all service methods success paths', () => {
 	it('should successfully retrieve election results after an election has concluded.', async () => {
 		const masterBallot = TestMasterBallotFactory.createFullMasterBallot();
 		const start = new Date(new Date().getTime() - 10000000);
-		const end = new Date();
+		const end = new Date(new Date().getTime() - 10000);
 		const election = TestElectionFactory.createElectionWithFactoryMethod(masterBallot, { start, end });
 		const mockElectionRepo = new MockElectionRepository();
 		await mockElectionRepo.add(election);

@@ -33,19 +33,6 @@ describe('test all service methods success paths', () => {
 		expect(masterBallotResponse.description).to.equal(masterBallot.description);
 	});
 
-	it('should successfully retrieve a paged result of ballots', async () => {
-		const masterBallots = TestMasterBallotFactory.createMultipleMasterBallots();
-		const mockMasterBallotRepo = new MockMasterBallotRepository();
-		await mockMasterBallotRepo.addRange(masterBallots);
-
-		const masterBallotService = new MasterBallotService(mockMasterBallotRepo);
-
-		const masterBallotsResponse = await masterBallotService.getMasterBallotsPagedResults(masterBallots.length, 1);
-
-		expect(masterBallotsResponse.length).to.equal(masterBallots.length);
-		expect(masterBallotsResponse[0]).instanceOf(MasterBallotResponse);
-	});
-
 	it('should successfully create a new ballot', async () => {
 		const newMasterBallotData = TestNewMasterBallotDataFactory.createTestNewMasterBallotData();
 		const mockMasterBallotRepo = new MockMasterBallotRepository();

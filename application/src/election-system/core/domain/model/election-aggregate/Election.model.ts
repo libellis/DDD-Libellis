@@ -191,17 +191,12 @@ export class Election extends Entity implements IClonable<Election> {
 		}
 
 		// Passed all checks so generate a new ballot using ballot factory method.
+        // This method issues the ballot cast event for us.
 		const ballot: Ballot = Ballot.cast(
 			idGenerator,
 			this._eventBus,
 			ballotData,
 		);
-
-		// TODO: Once we have domain events setup, should emit a BallotCast event in the ballot factory
-		// and subscribe to it here so that we populate our ballotIds and voterIds only once the ballot
-		// has definitely been created there after further ballot side invariance checks.
-		this._ballotIds.add(ballot.id);
-		this._whoVotedIds.add(ballotData.voterId);
 
 		return ballot;
 	}

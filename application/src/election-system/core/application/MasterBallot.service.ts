@@ -14,14 +14,6 @@ export class MasterBallotService {
         private masterBallotRepo: IMasterBallotRepository,
     ) {}
 
-    // TODO: Do we ever need this?  We would only get paged results of elections, since those are
-    // potentially public, while master ballots often are not.
-    async getMasterBallotsPagedResults(pageSize: number, pageNum: number): Promise<MasterBallotResponse[]> {
-        const masterBallots = await this.masterBallotRepo.getPagedResults(pageSize, pageNum);
-        return this.translateMasterBallotsToResponse(masterBallots);
-    }
-
-    // TODO: Should we change author in master ballot to be author id?
     async getMasterBallot(id: string, token: string): Promise<MasterBallotResponse> {
         const masterBallot = await this.masterBallotRepo.get(id);
         const requestingUser = PayloadService.retrieveUsername(token);

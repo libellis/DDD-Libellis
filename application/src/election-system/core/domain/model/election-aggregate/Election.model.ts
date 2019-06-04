@@ -171,27 +171,15 @@ export class Election extends Entity implements IClonable<Election> {
 		idGenerator: () => string,
 		ballotData: IBallotData,
 	): Ballot {
-		// Is the election restricted? If so, see if user is in permitted list
-		if (this._restricted && !this._permittedVoters.has(ballotData.voterId)) {
-			throw new Error(`That user is not permitted to vote in this election.`);
-		}
+	    this.allowedToVoteGuard(ballotData.voterId);
 
-		// Has the user in question already voted?
-		if (this._whoVotedIds.has(ballotData.voterId)) {
-			throw new Error(`That voter has already voted in this election`);
-		}
+		this.alreadyVotedGuard(ballotData.voterId);
 
-		// Check if ballot data matches up with survey it should be related to.
-		// Throws an error if invalid and prevents further execution
 		this.checkBallotDataAgainstMasterBallot(ballotData);
 
-		// Checks if the current time is still within the election period.
-		if (!this._electionPeriod.currentlyIn()) {
-			throw new Error(`Cannot cast a ballot for an election that is not currently active.`)
-		}
+		this.electionActiveGuard();
 
 		// Passed all checks so generate a new ballot using ballot factory method.
-        // This method issues the ballot cast event for us.
 		const ballot: Ballot = Ballot.cast(
 			idGenerator,
 			this._eventBus,
@@ -201,41 +189,93 @@ export class Election extends Entity implements IClonable<Election> {
 		return ballot;
 	}
 
+	// Is the election restricted? If so, see if user is in permitted list
+	private allowedToVoteGuard(voterId: string) {
+		if (this._restricted && !this._permittedVoters.has(voterId)) {
+			throw new Error(`That user is not permitted to vote in this election.`);
+		}
+	}
+
+	private alreadyVotedGuard(voterId: string) {
+		if (this._whoVotedIds.has(voterId)) {
+			throw new Error(`That voter has already voted in this election`);
+		}
+	}
+
+	private electionActiveGuard() {
+		if (!this._electionPeriod.currentlyIn()) {
+			throw new Error(`Cannot cast a ballot for an election that is not currently active.`)
+		}
+	}
+
 	checkBallotDataAgainstMasterBallot(ballotData: IBallotData) {
+	    this.correctElectionGuard(ballotData);
+
+		const ballotQuestionIdList = this.createQuestionIdListFromBallotData(ballotData);
+		const ballotQuestionIdSet: Set<string> = new Set(ballotQuestionIdList);
+		Election.duplicateQuestionGuard(ballotQuestionIdList, ballotQuestionIdSet);
+
+		this.correctQuestionsGuard(ballotQuestionIdSet);
+
+		const ballotChoiceIdList = this.createChoiceIdListFromBallotData(ballotData);
+		const ballotChoiceIdSet: Set<string> = new Set(ballotChoiceIdList);
+		Election.duplicateChoiceGuard(ballotChoiceIdList, ballotChoiceIdSet);
+
+		this.correctChoicesGuard(ballotChoiceIdSet);
+
+		return true;
+	}
+
+	private correctElectionGuard(ballotData: IBallotData) {
 		if (this._masterBallotId !== ballotData.masterBallotId) {
 			throw new Error('This ballot was cast for an election that relates to a different master ballot.');
 		}
+	}
 
-		// Check for duplicate qIds indicating potential duplicate votes
-		const ballotQuestionIdList: string[] = ballotData.voteData.questionsData.map(q => q.qId);
-		const ballotQuestionIds: Set<string> = new Set(ballotQuestionIdList);
-		if (ballotQuestionIdList.length !== ballotQuestionIds.size) {
+	private createChoiceIdListFromBallotData(ballotData: IBallotData): string[] {
+		const ballotChoiceIdList: string[] = [];
+		ballotData.voteData.questionsData.forEach(q => {
+			q.choicesData.forEach(c => {
+				ballotChoiceIdList.push(c.cId);
+			})
+		});
+		return ballotChoiceIdList;
+	}
+
+	private createQuestionIdListFromBallotData(ballotData: IBallotData): string[] {
+		return ballotData.voteData.questionsData
+			.map(q => {
+					return q.qId;
+				}
+			);
+	}
+
+	// Check for duplicate qIds indicating potential duplicate votes
+	private static duplicateQuestionGuard(ballotQuestionIdList: string[], ballotQuestionIdSet: Set<string>) {
+		if (ballotQuestionIdList.length !== ballotQuestionIdSet.size) {
 			throw new Error('Duplicate votes in cast ballot.');
 		}
+	}
 
-		// Check if question ids are a match between ballot and master ballot.
+	// Check if question ids are a match between ballot and master ballot.
+	private correctQuestionsGuard(ballotQuestionIds: Set<string>) {
 		if (!Guard.setsMatch(this._validQuestionIds, ballotQuestionIds)) {
 			throw new Error('The ballot cast does not completely match the master ballot for this election');
 		}
+	}
 
-		// Check for duplicate cIds indicating potential duplicate votes
-		const ballotChoiceIdList: string[] = [];
-		ballotData.voteData.questionsData.forEach(q => {
-				q.choicesData.forEach(c => {
-					ballotChoiceIdList.push(c.cId);
-				})
-			});
-		const ballotChoiceIds: Set<string> = new Set(ballotChoiceIdList);
-		if (ballotChoiceIdList.length !== ballotChoiceIds.size) {
+	// Check for duplicate cIds indicating potential duplicate votes
+	private static duplicateChoiceGuard(ballotChoiceIdList: string[], ballotChoiceIdSet: Set<string>) {
+		if (ballotChoiceIdList.length !== ballotChoiceIdSet.size) {
 			throw new Error('Duplicate votes in cast ballot.')
 		}
+	}
 
-		// Check if choice ids are a match between ballot and master ballot.
+	// Check if choice ids are a match between ballot and master ballot.
+	private correctChoicesGuard(ballotChoiceIds: Set<string>) {
 		if (!Guard.setsMatch(this._validChoiceIds, ballotChoiceIds)) {
 			throw new Error('The ballot cast does not completely match the master ballot for this election.');
 		}
-
-		return true;
 	}
 
 	// Subscribe here (one place) and add any methods for tasks we would like
